@@ -61,6 +61,9 @@ export const home = {
         "A cost-effective alternative to replacement",
       ],
     },
+    // Big decision words for the typographic composition.
+    replaceWord: "Replace",
+    recoatWord: "Recoat",
     // Honest: exact savings/turnaround depend on the roller — confirmed on enquiry.
     note: "Exact cost, saving and turnaround depend on the roller and machine — we'll quote yours on enquiry.",
     cta: { label: "Enquire About Recoating", waMessage: "Hi IMATEC, I'd like a recoating quote. My roller is from: " },
@@ -113,11 +116,17 @@ export const home = {
   },
 
   story: {
-    eyebrow: "30 years on the bench",
+    eyebrow: "Three decades on the bench",
     heading: "The people who know this equipment",
     body: "IMATEC has spent more than three decades in the office-automation industry — recoating rollers, sourcing and testing parts, and building the tools technicians use. It's specialist work, and it's why dealers and service providers keep coming back.",
     cta: { label: "About IMATEC", href: "/about" },
-    // Testimonials/case studies to be added when gathered — no fabricated proof.
+    // Real, verified/client-stated facts only — no fabricated proof or ratings.
+    facts: [
+      { value: "30+", label: "Years in office automation" },
+      { value: "9", label: "Major brands supported" },
+      { value: "Own-built", label: "Vacu-Tec service equipment" },
+      { value: "Tested", label: "Every part, in our own workshop" },
+    ],
   },
 
   faq: {

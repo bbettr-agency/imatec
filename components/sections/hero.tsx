@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { home } from "@/config/home";
 
 /**
- * Hero — "THE BENCH", light.
- * Archetype C (Capability). The recoated roller is a product object on white,
- * with refined technical labelling. LCP = H1 (never animated); the roller photo
+ * Hero — "THE BENCH", light. Archetype C (Capability).
+ * The recoated roller is a large product object that bleeds off the right edge —
+ * physical presence, not a framed card. LCP = H1 (never animated); the photo
  * settles by scale only (imageReveal), preserving its preload.
  */
 export function Hero() {
@@ -16,94 +16,73 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-paper">
-      <div className="container pt-10 pb-14 md:pt-16 md:pb-24 lg:pt-20">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
-          {/* Copy */}
-          <div>
-            <p className="label text-brand-ink">{h.eyebrow}</p>
+      {/* Copy — held in the page container, left column on desktop */}
+      <div className="container relative z-10 lg:flex lg:items-center lg:min-h-[38rem]">
+        <div className="lg:max-w-[53%] py-12 lg:py-20">
+          <p className="label text-brand-ink">{h.eyebrow}</p>
 
-            <h1
-              {...hero.lcp}
-              className="mt-4 text-[2.05rem] leading-[1.06] sm:text-5xl lg:text-[3.15rem] lg:leading-[1.03] font-extrabold tracking-tight text-ink text-balance"
-            >
-              {h.h1.lead} <span className="text-brand-ink">{h.h1.accent}</span>
-            </h1>
+          <h1
+            {...hero.lcp}
+            className="mt-5 text-[2.5rem] leading-[1.02] sm:text-[3.1rem] lg:text-[3.5rem] xl:text-[3.9rem] font-extrabold tracking-[-0.03em] text-ink text-balance"
+          >
+            {h.h1.lead} <span className="text-brand-ink">{h.h1.accent}</span>
+          </h1>
 
-            <Reveal {...hero.step(0)}>
-              <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">
-                {h.sub}
-              </p>
-            </Reveal>
+          <Reveal {...hero.step(0)}>
+            <p className="mt-6 text-ink-2 text-base md:text-lg leading-relaxed measure">{h.sub}</p>
+          </Reveal>
 
-            <Reveal {...hero.step(1)}>
-              <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
-                <WhatsAppCta
-                  label={h.primaryCta.label}
-                  message={h.primaryCta.waMessage}
-                  size="lg"
-                  dataCta="hero-recoating"
-                />
-                <Button href={h.secondaryCta.href} variant="ghost" size="lg" dataCta="hero-process">
-                  {h.secondaryCta.label}
-                </Button>
-              </div>
-              <p className="mt-3 label !tracking-[0.08em] text-ink-muted normal-case">
-                {h.reassurance}
-              </p>
-            </Reveal>
-
-            <Reveal {...hero.step(2)}>
-              <ul className="mt-8 pt-6 border-t border-hair space-y-3 max-w-xl">
-                {h.trust.map((t, i) => (
-                  <li key={i} className="flex items-baseline gap-3 text-sm md:text-[0.95rem] text-ink-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand shrink-0" aria-hidden="true" />
-                    <span>
-                      <strong className="font-bold text-ink">{t.strong}</strong>{" "}
-                      <span className="text-ink-2">— {t.rest}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-
-          {/* Roller object on white — authentic evidence, technical labelling */}
-          <div className="relative">
-            <div className="relative rounded-panel border border-hair-strong bg-[radial-gradient(130%_90%_at_50%_25%,#fff_0%,#fff_55%,theme(colors.steel.soft)_100%)] p-4 sm:p-6 shadow-card">
-              {/* precision corner ticks */}
-              <span className="absolute left-3 top-3 w-3 h-3 border-l-2 border-t-2 border-brand" aria-hidden="true" />
-              <span className="absolute right-3 bottom-3 w-3 h-3 border-r-2 border-b-2 border-brand" aria-hidden="true" />
-
-              <div className="relative">
-                <Reveal preset="imageReveal" {...hero.step(1)}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-roller-low">
-                    <Image
-                      src="/images/recoated-roller-bench.jpg"
-                      alt="A recoated black fuser roller mounted in a lathe on the IMATEC workshop bench"
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 92vw, 46vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </Reveal>
-
-                {/* spec chip */}
-                <span className="absolute right-3 top-3 label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 backdrop-blur-sm border border-brand/40 rounded-md px-2.5 py-1.5 shadow-sm">
-                  {h.objectLabel}
-                </span>
-              </div>
-
-              {/* dimension line */}
-              <div className="mt-4 flex items-center gap-3 px-1">
-                <span className="label !text-[0.6rem] text-ink-muted">{h.objectDims[0]}</span>
-                <span className="tick-rule flex-1" aria-hidden="true" />
-                <span className="label !text-[0.6rem] text-ink-muted">{h.objectDims[1]}</span>
-              </div>
+          <Reveal {...hero.step(1)}>
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+              <WhatsAppCta label={h.primaryCta.label} message={h.primaryCta.waMessage} size="lg" dataCta="hero-recoating" />
+              <Button href={h.secondaryCta.href} variant="ghost" size="lg" dataCta="hero-process">
+                {h.secondaryCta.label}
+              </Button>
             </div>
-          </div>
+            <p className="mt-3.5 label !tracking-[0.06em] normal-case text-ink-muted">{h.reassurance}</p>
+          </Reveal>
+
+          <Reveal {...hero.step(2)}>
+            <dl className="mt-9 pt-6 border-t border-hair grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
+              {h.trust.map((t, i) => (
+                <div key={i} className="sm:border-l sm:first:border-l-0 sm:border-hair sm:pl-5 first:pl-0">
+                  <dt className="text-sm font-extrabold text-ink leading-tight">{t.strong}</dt>
+                  <dd className="mt-1 text-[0.82rem] text-ink-2 leading-snug">{t.rest}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
         </div>
       </div>
+
+      {/* Roller object — bleeds to the right viewport edge on desktop; full-width band on mobile */}
+      <Reveal
+        preset="imageReveal"
+        eager
+        className="relative h-[19rem] sm:h-[24rem] lg:h-auto lg:absolute lg:top-0 lg:bottom-0 lg:left-[53%] lg:right-0"
+      >
+        <Image
+          src="/images/recoated-roller-bench.jpg"
+          alt="A recoated black fuser roller mounted in a lathe on the IMATEC workshop bench"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 47vw"
+          className="object-cover object-[58%_center]"
+        />
+        {/* subtle left fade into the page on desktop, so type/image meet cleanly */}
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-paper to-transparent" aria-hidden="true" />
+        {/* spec label + datum, lower-left */}
+        <div className="absolute left-4 bottom-4 lg:left-8 lg:bottom-8">
+          <span className="label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 backdrop-blur-sm border border-brand/40 rounded-md px-2.5 py-1.5 shadow-sm">
+            {h.objectLabel}
+          </span>
+          <div className="mt-2.5 hidden sm:flex items-center gap-2.5 w-56">
+            <span className="label !text-[0.58rem] text-paper/90 drop-shadow">{h.objectDims[0]}</span>
+            <span className="flex-1 h-px bg-paper/50" aria-hidden="true" />
+            <span className="label !text-[0.58rem] text-paper/90 drop-shadow">{h.objectDims[1]}</span>
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
