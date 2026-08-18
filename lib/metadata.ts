@@ -13,7 +13,7 @@ interface PageMeta {
 /** Build per-page metadata with canonical + Open Graph + Twitter, consistently. */
 export function buildMetadata({ title, description, path, ogImage }: PageMeta): Metadata {
   const url = path === "/" ? site.url : `${site.url}${path}`;
-  const image = ogImage ?? "/images/recoated-roller-bench.jpg";
+  const image = ogImage ?? "/og/imatec-og.jpg";
   return {
     title,
     description,

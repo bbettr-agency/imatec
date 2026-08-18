@@ -5,6 +5,7 @@ import { MotionProvider, NOSCRIPT_FALLBACK } from "@/engine/motion";
 import { Header } from "@/components/funnel/header";
 import { Footer } from "@/components/funnel/footer";
 import { StickyCta } from "@/components/funnel/sticky-cta";
+import { Analytics } from "@/components/analytics/analytics";
 import { site } from "@/config/site";
 import { localBusinessJsonLd } from "@/lib/jsonld";
 
@@ -18,8 +19,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default:
-      "IMATEC — Fuser & Hot Roller Recoating, Printer Parts & Office Automation",
+    default: "IMATEC — Fuser & Hot Roller Recoating & Parts",
     template: "%s · IMATEC",
   },
   description: site.descriptionShort,
@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <StickyCta />
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );

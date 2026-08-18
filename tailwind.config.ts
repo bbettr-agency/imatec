@@ -43,7 +43,7 @@ const config: Config = {
         ink: {
           DEFAULT: "#343434", // headings + strong body
           2: "#565B62", // secondary text
-          muted: "#858C95", // labels, captions
+          muted: "#5F6670", // labels, captions — AA on white (~5.7:1) and steel (~5:1)
         },
         // The authentic recoated roller (only "dark" on the page — a product object)
         roller: {

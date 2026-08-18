@@ -14,7 +14,7 @@ export const site = {
   /** Client's own tagline (company profile). */
   tagline: "Engineering better print solutions for Africa",
   descriptionShort:
-    "Africa's fuser & hot roller recoating specialist and workshop-tested supplier of printer & copier parts, consumables and service equipment.",
+    "Specialist fuser & hot roller recoating for Africa's office-automation industry — plus workshop-tested printer & copier parts, consumables and service equipment.",
 
   url: "https://www.imatec.co.za",
 
