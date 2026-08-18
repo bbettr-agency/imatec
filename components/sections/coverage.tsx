@@ -3,6 +3,9 @@ import { SectionMark } from "@/components/ui/section-mark";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
 import { home } from "@/config/home";
 
+const nameClass =
+  "brand-name text-[1.7rem] sm:text-[2.3rem] lg:text-[2.9rem] font-extrabold tracking-[-0.03em] leading-none text-ink whitespace-nowrap";
+
 export function Coverage() {
   const c = home.coverage;
   return (
@@ -26,21 +29,18 @@ export function Coverage() {
           </div>
         </div>
 
-        {/* The wall — brand names at scale */}
+        {/* The rail — brand names at scale, slow continuous drift (pure CSS) */}
         <Reveal preset="fadeIn">
-          <ul className="mt-11 border-y border-hair-strong py-9 flex flex-wrap items-baseline gap-x-8 sm:gap-x-10 gap-y-3">
-            {c.brands.map((b) => (
-              <li
-                key={b}
-                className="text-[1.9rem] sm:text-[2.7rem] lg:text-[3.4rem] font-extrabold tracking-[-0.03em] leading-none text-ink whitespace-nowrap"
-              >
-                {b}
-              </li>
-            ))}
-            <li className="text-[1.4rem] sm:text-2xl font-bold tracking-tight leading-none text-ink-muted self-center">
-              &amp; more
-            </li>
-          </ul>
+          <div className="brand-rail mt-11 border-y border-hair-strong py-8 sm:py-9 overflow-hidden">
+            <ul className="brand-track list-none m-0 p-0" aria-label="Brands supported">
+              {c.brands.map((b) => (
+                <li key={b} className={nameClass}>{b}</li>
+              ))}
+              {c.brands.map((b) => (
+                <li key={`dup-${b}`} aria-hidden className={`${nameClass} brand-dup`}>{b}</li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
     </section>

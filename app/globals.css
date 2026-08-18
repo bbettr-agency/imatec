@@ -96,4 +96,51 @@
   }
   .tick-rule::before { left: 0; }
   .tick-rule::after { right: 0; }
+
+  /* Brand rail — a slow, restrained text marquee (pure CSS, carries real content).
+     Permitted ambient loop per the Motion System: pauses on hover, reduced-motion
+     falls back to a static wrap, and edge masks avoid hard cuts. */
+  .brand-rail {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
+  .brand-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: brand-marquee 55s linear infinite;
+  }
+  .brand-rail:hover .brand-track,
+  .brand-rail:focus-within .brand-track {
+    animation-play-state: paused;
+  }
+  .brand-name::before {
+    content: "·";
+    margin: 0 0.95rem;
+    font-size: 0.55em;
+    vertical-align: middle;
+    font-weight: 400;
+    color: theme("colors.ink.muted");
+  }
+}
+
+@keyframes brand-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-rail {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .brand-track {
+    animation: none;
+    transform: none;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+  .brand-dup { display: none; }
+  .brand-name:first-child::before { display: none; }
 }

@@ -6,9 +6,10 @@ import { home } from "@/config/home";
 
 /**
  * Hero — "THE BENCH", light. Archetype C (Capability).
- * The recoated roller is a large product object that bleeds off the right edge —
- * physical presence, not a framed card. LCP = H1 (never animated); the photo
- * settles by scale only (imageReveal), preserving its preload.
+ * The workshop image spans the whole hero and dissolves into a wide white veil
+ * beneath the copy — one composition, not two halves. LCP = H1 (never animated);
+ * the photo settles by scale only (imageReveal), preserving its preload. No dark
+ * overlay; all copy sits on fully-opaque white.
  */
 export function Hero() {
   const hero = heroStack({ character: "precise" });
@@ -16,7 +17,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-paper">
-      {/* Copy — held in the page container, left column on desktop */}
+      {/* Copy — over the veil on desktop, on white on mobile */}
       <div className="container relative z-10 lg:flex lg:items-center lg:min-h-[38rem]">
         <div className="lg:max-w-[53%] py-12 lg:py-20">
           <p className="label text-brand-ink">{h.eyebrow}</p>
@@ -55,34 +56,32 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Roller object — bleeds to the right viewport edge on desktop; full-width band on mobile */}
-      <Reveal
-        preset="imageReveal"
-        eager
-        className="relative h-[19rem] sm:h-[24rem] lg:h-auto lg:absolute lg:top-0 lg:bottom-0 lg:left-[53%] lg:right-0"
-      >
-        <Image
-          src="/images/recoated-roller-bench.jpg"
-          alt="A recoated black fuser roller mounted in a lathe on the IMATEC workshop bench"
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 47vw"
-          className="object-cover object-[58%_center]"
+      {/* Image — full-bleed across the hero on desktop; full-width band on mobile */}
+      <div className="relative h-[19rem] sm:h-[24rem] lg:h-auto lg:absolute lg:inset-0 lg:z-0">
+        <Reveal preset="imageReveal" eager className="absolute inset-0">
+          <Image
+            src="/images/recoated-roller-bench.jpg"
+            alt="A recoated black fuser roller mounted in a lathe on the IMATEC workshop bench"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[62%_center]"
+          />
+        </Reveal>
+
+        {/* Desktop veil — wide white → transparent; copy region stays fully opaque */}
+        <div
+          className="hidden lg:block absolute inset-0 bg-gradient-to-r from-paper via-paper via-[52%] to-transparent to-[80%]"
+          aria-hidden="true"
         />
-        {/* subtle left fade into the page on desktop, so type/image meet cleanly */}
-        <div className="hidden lg:block absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-paper to-transparent" aria-hidden="true" />
-        {/* spec label + datum, lower-left */}
-        <div className="absolute left-4 bottom-4 lg:left-8 lg:bottom-8">
-          <span className="label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 backdrop-blur-sm border border-brand/40 rounded-md px-2.5 py-1.5 shadow-sm">
-            {h.objectLabel}
-          </span>
-          <div className="mt-2.5 hidden sm:flex items-center gap-2.5 w-56">
-            <span className="label !text-[0.58rem] text-paper/90 drop-shadow">{h.objectDims[0]}</span>
-            <span className="flex-1 h-px bg-paper/50" aria-hidden="true" />
-            <span className="label !text-[0.58rem] text-paper/90 drop-shadow">{h.objectDims[1]}</span>
-          </div>
-        </div>
-      </Reveal>
+        {/* Mobile veil — soft top fade so the band emerges from the copy */}
+        <div className="lg:hidden absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-paper to-transparent" aria-hidden="true" />
+
+        {/* spec label on the visible roller (right on desktop, left on mobile) */}
+        <span className="absolute left-4 bottom-4 lg:left-auto lg:right-10 lg:bottom-10 label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 backdrop-blur-sm border border-brand/40 rounded-md px-2.5 py-1.5 shadow-sm">
+          {h.objectLabel}
+        </span>
+      </div>
     </section>
   );
 }
