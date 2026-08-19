@@ -32,7 +32,8 @@ function summariseForWhatsApp(fd: FormData, variant: Variant): string {
   const g = (k: string) => (fd.get(k) as string) || "";
   const lines = [`Hi IMATEC, enquiry from your website (${variant}):`, `Name: ${g("name")}`];
   if (variant === "recoating") {
-    lines.push(`Brand: ${g("brand")}`, `Model: ${g("model")}`, `Component: ${g("component")}`, `Quantity: ${g("quantity")}`);
+    if (g("company")) lines.push(`Company: ${g("company")}`);
+    lines.push(`Brand: ${g("brand")}`, `Model: ${g("model")}`, `Roller: ${g("component")}`);
   }
   if (variant === "parts") lines.push(`Brand: ${g("brand")}`, `Part / model: ${g("part")}`);
   if (g("message")) lines.push(`Details: ${g("message")}`);
@@ -133,6 +134,10 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
 
       {variant === "recoating" && (
         <>
+          <div>
+            <label htmlFor="company" className={labelBase}>Company <span className="font-normal text-ink-muted">(optional)</span></label>
+            <input id="company" name="company" autoComplete="organization" className={inputBase} placeholder="Your business, if applicable" />
+          </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="brand" className={labelBase}>Printer / copier brand</label>
@@ -147,18 +152,12 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
               <input id="model" name="model" className={inputBase} placeholder="e.g. Ricoh MP C3003" />
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="component" className={labelBase}>Component</label>
-              <select id="component" name="component" className={inputBase} defaultValue="">
-                <option value="" disabled>Select a component</option>
-                {COMPONENTS.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="quantity" className={labelBase}>Quantity</label>
-              <input id="quantity" name="quantity" type="number" inputMode="numeric" min={1} defaultValue={1} className={inputBase} />
-            </div>
+          <div>
+            <label htmlFor="component" className={labelBase}>Which roller? <span className="font-normal text-ink-muted">(if known)</span></label>
+            <select id="component" name="component" className={inputBase} defaultValue="">
+              <option value="" disabled>Select a roller</option>
+              {COMPONENTS.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
           </div>
         </>
       )}

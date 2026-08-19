@@ -7,49 +7,150 @@
 
 import { site } from "./site";
 
+/** Short, high-intent WhatsApp pre-fill for the recoating page — kept short so people actually use it. */
+export const RECOATING_WA =
+  "Hi IMATEC, I'd like to enquire about fuser roller recoating.\nBrand:\nModel:\nProblem:";
+
 export const pages = {
   recoating: {
     seo: {
       title: "Fuser & Hot Roller Recoating",
       description:
-        "Professional recoating of worn fuser & hot rollers, restored to working spec — a cost-effective alternative to replacement. Supplied to the SA trade.",
+        "Specialist fuser & hot roller recoating — recoat a worn roller instead of replacing it. IMATEC, Centurion; nationwide for the SA office-automation trade.",
     },
     hero: {
-      eyebrow: "Specialist service",
-      title: "Fuser & hot roller recoating",
-      sub: "Restore a worn fuser or hot roller to working spec instead of buying — and importing — a new one. Recoating is IMATEC's specialist service, done in our own workshop and bench-tested before it comes back to you.",
+      eyebrow: "Specialist service · office automation",
+      // H1 keeps the exact primary keyword; the accent carries the commercial bridge (no "to spec" claim).
+      h1: { lead: "Fuser & hot roller recoating", accent: "before you replace the part." },
+      sub: `Worn or damaged fuser or hot roller? Before you automatically buy — and import — a new part, talk to IMATEC about recoating the one you already have. It's the specialist service we've built over ${site.yearsExperience} years.`,
+      components: ["Fuser rollers", "Hot rollers", "Pressure rollers"],
+      primaryCta: { label: "Ask About Your Fuser Roller" },
+      objectLabel: "Recoated fuser roller",
     },
-    problem: {
-      eyebrow: "The problem",
-      heading: "Worn rollers cost you print quality — and downtime",
-      body: "A fuser or hot roller that's worn or damaged shows up as marking, streaking or poor fusing. The usual fix is a new part — often imported, with the cost and the wait that come with it. Recoating restores the surface of the roller you already have.",
+
+    whatIs: {
+      label: "What recoating is",
+      heading: "Recoating renews the worn surface of your roller",
+      body: "When a fuser or hot roller wears, its surface stops fusing toner cleanly and print quality drops. Recoating re-surfaces the roller — a specialist alternative to buying a whole new part. You keep the metal core you already have; the worn surface is renewed.",
+      symptomsLabel: "Signs your roller may be worn",
+      symptoms: [
+        "Marking or streaking down the page",
+        "Poor, patchy or incomplete fusing",
+        "A worn, damaged or glazed roller surface",
+        "Print-quality faults traced back to the fuser",
+      ],
     },
+
+    wedge: {
+      heading: "Recoat vs replace — what you're really deciding",
+      lede: "A worn roller doesn't automatically mean a new part. Here's the honest comparison.",
+      replace: {
+        title: "Replace the part",
+        points: [
+          "Buy a new fuser or hot roller — frequently imported",
+          "Wait for the part to arrive before the machine runs again",
+          "The metal core of your old roller is scrapped",
+          "Usually the more expensive route",
+        ],
+      },
+      recoat: {
+        title: "Recoat with IMATEC",
+        points: [
+          "Renew the surface of the roller you already have",
+          "Keep your existing OEM metal core",
+          "A cost-effective alternative to a new part",
+          "Handled by a specialist workshop",
+        ],
+      },
+      note: "Whether recoating is the right call depends on the roller — we'll assess yours and quote honestly. Exact cost and turnaround are confirmed on enquiry.",
+      partsNote: "Prefer to replace it? We also supply workshop-tested printer & copier parts.",
+    },
+
     candidacy: {
-      eyebrow: "Can your roller be recoated?",
-      heading: "We'll tell you honestly",
-      body: "Not every roller is a candidate — some smaller machines use film sleeves that are replaced rather than recoated, and a roller that's damaged beyond its surface may be better replaced. Send us the brand, model and what's happening, and we'll tell you straight whether recoating is the right call.",
-      // PENDING: exact recoatable model/brand list from client.
+      label: "Is your roller a candidate?",
+      heading: "When recoating makes sense — and when it doesn't",
+      lede: "We'll tell you honestly. As a general guide:",
+      good: {
+        title: "Often worth recoating",
+        points: [
+          "A worn, glazed or damaged roller surface",
+          "Marking, streaking or poor fusing from a worn roller",
+          "When a new part is costly or slow to source",
+        ],
+      },
+      notIdeal: {
+        title: "Better to replace",
+        points: [
+          "Rollers damaged beyond the surface",
+          "Some smaller machines use replaceable film/sleeves rather than recoatable rollers",
+          "When a new part is genuinely the better option",
+        ],
+      },
+      // PENDING: exact recoatable brand/model list from client — keep the guidance general until confirmed.
+      note: "Not sure which you have? Send us the brand, model and what's happening — we'll tell you straight.",
     },
-    send: {
-      eyebrow: "How to send us your roller",
-      heading: "Getting a roller to us is simple",
-      // Logistics PENDING — phrased so no courier terms are invented.
+
+    why: {
+      label: "Why IMATEC",
+      heading: "Why send your roller to IMATEC",
+      pillars: [
+        { title: "A specialist, not a catalogue", body: "Fuser and hot roller recoating is a focused capability we've built our name on — not a line item beside a thousand others." },
+        { title: "Recoated in our own workshop", body: "Your roller is recoated by IMATEC, in our own Centurion workshop — not passed on to a third party." },
+        { title: `${site.yearsExperience} years in office automation`, body: "Three decades working with printers, copiers and their components for the South African trade." },
+      ],
+    },
+
+    how: {
+      label: "How it works",
+      heading: "From enquiry to a recoated roller",
+      // Customer-facing flow only. The internal technical process (strip/prep/cure/test) is NOT claimed here — confirmed with the quote.
+      lede: "A simple path from your first message to a recoated roller back in your hands. The technical detail is confirmed with your quote.",
       steps: [
-        { n: "01", title: "Send the details", desc: "Message us the brand, model and the issue — a photo helps." },
-        { n: "02", title: "We confirm & quote", desc: "We'll tell you if it's a candidate for recoating and quote the work." },
-        { n: "03", title: "Get it to us", desc: "We'll confirm the best way to get the roller to our Centurion workshop." },
-        { n: "04", title: "We recoat & bench-test", desc: "Your roller is recoated and tested before it leaves us." },
-        { n: "05", title: "Back to you", desc: "We return your recoated roller, ready to run." },
+        { n: "01", title: "Send the details", desc: "Message us the brand, model and what's happening — a photo helps." },
+        { n: "02", title: "We assess & quote", desc: "We'll tell you whether recoating is a candidate for your roller, and quote the work." },
+        { n: "03", title: "Get the roller to us", desc: "We'll confirm the best way to get it to our Centurion workshop." },
+        { n: "04", title: "We recoat it", desc: "Your roller is recoated in our own workshop." },
+        { n: "05", title: "Back to you", desc: "We return your recoated roller." },
       ],
     },
-    faq: {
-      heading: "Recoating questions",
-      items: [
-        { q: "What exactly do you recoat?", a: "Fuser and hot rollers, and related pressure rollers, from office printers and copiers." },
-        { q: "How long does recoating take?", a: "Turnaround depends on the roller and current workload — we'll give you an estimate with your quote." },
-        { q: "Do you supply parts as well?", a: `Yes — alongside recoating we supply workshop-tested parts, toner and consumables for ${site.brands.slice(0, 6).join(", ")} and more.` },
-        { q: "Who is the service for?", a: "Dealers, technicians and service providers — and businesses running their own equipment. If you have a roller, we can look at it." },
+
+    scope: {
+      label: "What we can assist with",
+      heading: "Fuser, hot & pressure rollers — across the major brands",
+      lede: "Recoating and roller support for printers, copiers and MFPs, plus the parts around them.",
+      components: [
+        { type: "Fuser rollers", desc: "The heated roller that fuses toner onto the page." },
+        { type: "Hot rollers", desc: "Also called heat rollers — same wear, same recoating." },
+        { type: "Pressure rollers", desc: "The mating roller in the fuser assembly." },
       ],
+      brandsIntro: "We work across the major office-automation brands:",
+      brands: site.brands,
+      whatToSend: {
+        title: "What to send us for a quote",
+        items: ["Printer / copier brand", "The model", "What the roller is doing (a photo helps)"],
+      },
+    },
+
+    faq: {
+      label: "Common questions",
+      heading: "Recoating, answered plainly",
+      items: [
+        { q: "What is fuser / hot roller recoating?", a: "It's re-surfacing a worn fuser or hot roller — renewing the worn surface so the roller can keep running, instead of buying a whole new part." },
+        { q: "Is recoating cheaper than replacing the roller?", a: "Recoating is a cost-effective alternative to a new part, and you keep your existing core. Exact cost depends on the roller — we'll quote yours on enquiry." },
+        { q: "How long does recoating take?", a: "Turnaround depends on the roller and current workload — we'll give you an estimate with your quote." },
+        { q: "Which brands and models can you recoat?", a: `We work across the major brands — ${site.brands.slice(0, 6).join(", ")} and more. Whether a specific roller can be recoated depends on the roller, so send us the model and we'll advise.` },
+        { q: "How do I get my roller to you?", a: "Send us the details first; once we've confirmed it's a candidate and quoted, we'll arrange the best way to get it to our Centurion workshop." },
+        { q: "Do you also supply new parts?", a: "Yes — if replacing is the better option, we supply workshop-tested printer and copier parts, toner and consumables." },
+        { q: "Do I have to be a dealer?", a: "No. We work with dealers, technicians and service providers — and businesses running their own equipment. If you have a roller, we can look at it." },
+      ],
+    },
+
+    enquiry: {
+      label: "Enquire",
+      heading: "Ask about your fuser roller",
+      sub: "Send us the details and we'll tell you whether recoating is an option — and quote it. WhatsApp is fastest.",
+      formHeading: "Recoating enquiry",
+      formSub: "The more you can tell us about the roller, the faster we can help.",
     },
   },
 

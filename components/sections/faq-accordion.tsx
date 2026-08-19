@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { Reveal } from "@/engine/motion";
+import { SectionMark } from "@/components/ui/section-mark";
 import { faqJsonLd } from "@/lib/jsonld";
 import { cn } from "@/lib/utils";
 
@@ -8,15 +9,22 @@ interface FaqAccordionProps {
   heading: string;
   items: readonly { q: string; a: string }[];
   bg?: "paper" | "ground";
+  /** Optional datum mark (page-numbered sections) — renders instead of the eyebrow. */
+  mark?: { index: string; label: string; spec?: string };
 }
 
 /** Editorial 2-column FAQ — sticky heading left, hairline-divided native <details>
  *  list right (works with no JS) + FAQPage JSON-LD. No boxed container. */
-export function FaqAccordion({ eyebrow, heading, items, bg = "paper" }: FaqAccordionProps) {
+export function FaqAccordion({ eyebrow, heading, items, bg = "paper", mark }: FaqAccordionProps) {
   return (
     <section className={cn("section", bg === "ground" ? "bg-ground" : "bg-paper")} aria-label="Frequently asked questions">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd([...items])) }} />
       <div className="container">
+        {mark && (
+          <Reveal>
+            <SectionMark index={mark.index} label={mark.label} spec={mark.spec} className="mb-9" />
+          </Reveal>
+        )}
         <div className="grid gap-x-14 gap-y-8 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <Reveal>
