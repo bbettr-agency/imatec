@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { serviceJsonLd } from "@/lib/jsonld";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionMark } from "@/components/ui/section-mark";
 import { Reveal } from "@/engine/motion";
@@ -37,6 +38,8 @@ export default function VacuTecPage() {
         image={{ src: "/images/vacu-tec.jpg", alt: "The IMATEC Vacu-Tec service vacuum cleaner with hose and collection tray", label: "Built by IMATEC" }}
         actions={<WhatsAppCta label="Enquire About Vacu-Tec" message="Hi IMATEC, I'd like to enquire about a Vacu-Tec service vacuum." size="lg" dataCta="vacutec-hero" />}
       />
+
+      <BrandRailBand label="Built for the major office-automation brands" />
 
       {/* 01 — Built by IMATEC */}
       <section className="section bg-ground" aria-labelledby="vt-story">

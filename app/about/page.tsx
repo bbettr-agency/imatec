@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionMark } from "@/components/ui/section-mark";
 import { Reveal } from "@/engine/motion";
@@ -26,6 +27,8 @@ export default function AboutPage() {
         actions={<WhatsAppCta label="Talk to IMATEC" message="Hi IMATEC, I'd like to know more about your recoating and parts service." size="lg" dataCta="about-hero" />}
         image={{ src: "/images/about-machines.jpg", alt: "Office multifunction printers and copiers from the major brands IMATEC works with — Ricoh, Konica Minolta, Canon, Xerox and HP", label: "The equipment we know", position: "center 40%" }}
       />
+
+      <BrandRailBand label="The brands IMATEC works across" />
 
       {/* 01 — Story + verified facts (fills the counterweight column, no dead space) */}
       <section className="section bg-ground" aria-labelledby="about-story">

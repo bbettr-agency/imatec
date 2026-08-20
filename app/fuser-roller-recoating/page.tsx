@@ -6,6 +6,7 @@ import { serviceJsonLd } from "@/lib/jsonld";
 import { Reveal } from "@/engine/motion";
 import { SectionMark } from "@/components/ui/section-mark";
 import { RecoatingHero } from "@/components/sections/recoating-hero";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { EnquiryForm } from "@/components/funnel/enquiry-form";
 import { WhatsAppCta, CallCta } from "@/components/funnel/channel-ctas";
@@ -29,6 +30,8 @@ export default function RecoatingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd("fuser-roller-recoating")) }} />
 
       <RecoatingHero />
+
+      <BrandRailBand label="Recoating & parts across the major office-automation brands" />
 
       {/* 01 — What recoating is */}
       <section className="section bg-paper" aria-labelledby="what-heading">
@@ -141,7 +144,7 @@ export default function RecoatingPage() {
       </section>
 
       {/* 04 — Why IMATEC */}
-      <section className="section bg-paper border-t border-hair" aria-labelledby="why-heading">
+      <section className="section bg-paper" aria-labelledby="why-heading">
         <div className="container">
           <SectionMark index="04" label={p.why.label} spec="The specialist" />
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
@@ -168,7 +171,7 @@ export default function RecoatingPage() {
       </section>
 
       {/* 05 — How it works (customer-facing flow; technical detail confirmed on quote) */}
-      <section className="section bg-paper border-t border-hair" id="how" aria-labelledby="how-heading">
+      <section className="section bg-paper" id="how" aria-labelledby="how-heading">
         <div className="container">
           <SectionMark index="05" label={p.how.label} spec="Enquiry to return" />
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
@@ -248,7 +251,7 @@ export default function RecoatingPage() {
       <FaqAccordion mark={{ index: "07", label: p.faq.label, spec: "Objections" }} heading={p.faq.heading} items={p.faq.items} bg="paper" />
 
       {/* 08 — Enquiry (the close) */}
-      <section className="section bg-steel-soft border-t border-hair" id="enquire" aria-labelledby="enquire-heading">
+      <section className="section bg-steel-soft" id="enquire" aria-labelledby="enquire-heading">
         <div className="container">
           <SectionMark index="08" label={p.enquiry.label} spec="WhatsApp · Form" />
           <div className="mt-9 grid gap-x-14 gap-y-10 lg:grid-cols-[0.92fr_1.08fr]">

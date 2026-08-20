@@ -10,13 +10,16 @@ interface SectionMarkProps {
 }
 
 /**
- * The datum line — a full-width hairline carrying a section index + label, and an
- * optional spec annotation. Threads the homepage as one engineered document
- * (THE BENCH). Structural, not decorative: the index encodes reading order.
+ * The datum mark — a section index + label (+ optional right-aligned spec). It
+ * carries the technical/editorial identity of THE BENCH without a full-width
+ * separator rule: the site reads as one continuous composition, differentiated
+ * by spacing, tone and composition rather than a line above every section.
+ * A short brand tick precedes the index so the mark still reads as a datum.
  */
 export function SectionMark({ index, label, spec, className }: SectionMarkProps) {
   return (
-    <div className={cn("border-t border-hair-strong pt-3.5 flex items-baseline gap-4", className)}>
+    <div className={cn("flex items-baseline gap-3.5", className)}>
+      <span className="self-center h-3 w-px bg-brand" aria-hidden="true" />
       <span className="label text-brand-ink tabular-nums">{index}</span>
       <span className="label text-ink-muted">{label}</span>
       {spec && <span className="label text-ink-muted/80 ml-auto hidden sm:inline">{spec}</span>}

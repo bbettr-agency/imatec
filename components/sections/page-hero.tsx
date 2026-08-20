@@ -25,7 +25,7 @@ interface PageHeroProps {
 export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: PageHeroProps) {
   const hero = heroStack({ character: "precise" });
   return (
-    <section className="relative overflow-hidden bg-paper border-b border-hair">
+    <section className="relative overflow-hidden bg-paper">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumb)) }}

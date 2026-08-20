@@ -22,7 +22,7 @@ export function RecoatingHero() {
   const h = pages.recoating.hero;
 
   return (
-    <section className="relative overflow-hidden bg-paper border-b border-hair">
+    <section className="relative overflow-hidden bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumb)) }} />
 
       <div className="container pt-8">
@@ -62,7 +62,7 @@ export function RecoatingHero() {
 
         {/* Component datum strip — linear, signals the specialist scope immediately */}
         <Reveal {...hero.step(2)}>
-          <div className="mt-9 border-t border-hair-strong pt-3.5 pb-7 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div className="mt-8 pb-2 flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="label text-ink-muted">We recoat</span>
             {h.components.map((c, i) => (
               <span key={c} className="flex items-center gap-x-3">

@@ -27,6 +27,11 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // On inner pages, prepend an explicit Home item for orientation. On the
+  // homepage it is omitted (the logo already links home — no redundancy).
+  const items =
+    pathname === "/" ? navItems : [{ label: "Home", href: "/" }, ...navItems];
+
   return (
     <header
       className={cn(
@@ -43,7 +48,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
-          {navItems.map((item) => {
+          {items.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
@@ -82,7 +87,7 @@ export function Header() {
       {open && (
         <div id="mobile-menu" className="lg:hidden border-t border-hair bg-paper">
           <nav className="container py-4 flex flex-col" aria-label="Mobile">
-            {navItems.map((item) => (
+            {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

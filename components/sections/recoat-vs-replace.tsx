@@ -11,7 +11,7 @@ export function RecoatVsReplace() {
       <div className="container">
         <SectionMark index="03" label="Recoat vs replace" spec="The decision" />
 
-        <div className="mt-9 max-w-3xl">
+        <div className="mt-8 max-w-3xl">
           <Reveal>
             <h2
               id="wedge-heading"
@@ -23,11 +23,12 @@ export function RecoatVsReplace() {
           </Reveal>
         </div>
 
-        {/* The decision — two paths, split by a rule; Recoat carries the weight */}
+        {/* One argument: the intro flows straight into the decision — Replace vs Recoat,
+            split by a restrained central VS. Recoat carries the weight (the answer). */}
         <Reveal>
-          <div className="mt-11 grid md:grid-cols-2 md:divide-x md:divide-hair-strong border-t border-hair-strong">
-            {/* Replace — receding */}
-            <div className="pt-8 pb-8 md:pb-10 md:pr-12 border-b md:border-b-0 border-hair">
+          <div className="mt-9 grid md:grid-cols-[1fr_auto_1fr] gap-x-10 xl:gap-x-14 gap-y-7 md:items-stretch">
+            {/* Replace — the receding route */}
+            <div className="md:pt-1">
               <span className="label text-ink-muted">The usual way</span>
               <p className="mt-3 text-[2.75rem] sm:text-6xl font-extrabold tracking-[-0.03em] text-ink-muted leading-none">
                 {w.replaceWord}<span className="text-hair-strong">.</span>
@@ -43,8 +44,15 @@ export function RecoatVsReplace() {
               </ul>
             </div>
 
-            {/* Recoat — the answer */}
-            <div className="pt-8 md:pt-8 md:pl-12">
+            {/* VS — vertical spine on desktop, a short horizontal break on mobile */}
+            <div className="flex md:flex-col items-center justify-center gap-3 md:gap-0" aria-hidden="true">
+              <span className="h-px w-full md:h-auto md:w-px md:flex-1 bg-hair-strong" />
+              <span className="shrink-0 text-[0.68rem] font-bold tracking-[0.18em] text-ink-muted md:my-3">VS</span>
+              <span className="h-px w-full md:h-auto md:w-px md:flex-1 bg-hair-strong" />
+            </div>
+
+            {/* Recoat — the answer, carrying the emphasis and the enquiry path */}
+            <div className="md:pt-1">
               <span className="label text-brand-ink">The IMATEC alternative</span>
               <p className="mt-3 text-[2.75rem] sm:text-6xl font-extrabold tracking-[-0.03em] text-ink leading-none">
                 {w.recoatWord}<span className="text-brand">.</span>
@@ -67,7 +75,7 @@ export function RecoatVsReplace() {
         </Reveal>
 
         <Reveal>
-          <p className="mt-7 text-sm text-ink-muted italic max-w-2xl">{w.note}</p>
+          <p className="mt-8 text-sm text-ink-muted italic max-w-2xl">{w.note}</p>
         </Reveal>
       </div>
     </section>

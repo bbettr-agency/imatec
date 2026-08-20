@@ -12,7 +12,7 @@ import { mailtoLink } from "@/lib/utils";
 export function FinalCta({ index = "07" }: { index?: string }) {
   const c = home.finalCta;
   return (
-    <section className="bg-steel-soft border-t border-hair" aria-labelledby="final-cta-heading">
+    <section className="bg-steel-soft" aria-labelledby="final-cta-heading">
       <div className="container py-16 md:py-24">
         <SectionMark index={index} label="Get in touch" spec="WhatsApp · Call · Email" />
 
@@ -44,7 +44,7 @@ export function FinalCta({ index = "07" }: { index?: string }) {
         </div>
 
         {/* Closing datum */}
-        <div className="mt-14 border-t border-hair-strong pt-4 flex flex-wrap items-center justify-between gap-2">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-2">
           <span className="label text-ink-muted">IMATEC · {site.based}</span>
           <span className="label text-ink-muted">Serving the office-automation trade nationally</span>
         </div>

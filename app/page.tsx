@@ -7,6 +7,7 @@ import { Process } from "@/components/sections/process";
 import { Coverage } from "@/components/sections/coverage";
 import { Story } from "@/components/sections/story";
 import { Faq } from "@/components/sections/faq";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata = buildMetadata({
@@ -29,6 +30,9 @@ export default function HomePage() {
       <Process />
       <Story />
       <Faq />
+      {/* A deliberate compact repeat of the brand motif — brand reassurance
+          immediately before the conversion band. */}
+      <BrandRailBand label="One workshop, every major brand" />
       <FinalCta />
     </>
   );

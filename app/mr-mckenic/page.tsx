@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { serviceJsonLd } from "@/lib/jsonld";
 import { PageHero } from "@/components/sections/page-hero";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionMark } from "@/components/ui/section-mark";
 import { Reveal } from "@/engine/motion";
@@ -37,6 +38,8 @@ export default function MrMckenicPage() {
         image={{ src: "/images/mckenic-workshop.jpg", alt: "The Mr McKenic professional product range on a Ricoh machine in the IMATEC workshop", label: "In the IMATEC workshop", position: "center 60%" }}
         actions={<WhatsAppCta label="Enquire About Products" message="Hi IMATEC, I'd like to enquire about Mr McKenic products." size="lg" dataCta="mckenic-hero" />}
       />
+
+      <BrandRailBand label="For the major office-automation brands" />
 
       {/* 01 — The range */}
       <section className="section bg-ground" aria-labelledby="mckenic-range-heading">

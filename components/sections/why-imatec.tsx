@@ -7,11 +7,16 @@ export function WhyImatec() {
   const w = home.why;
   return (
     <section className="relative overflow-hidden bg-steel-soft">
-      <div className="container pt-16 md:pt-20">
+      {/* Tonal bridges — the steel ground emerges from, and settles back into, the
+          surrounding white rather than starting/ending on a hard rectangular edge. */}
+      <div className="absolute inset-x-0 top-0 h-24 md:h-32 bg-gradient-to-b from-paper to-transparent z-0 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-paper to-transparent z-0 pointer-events-none" aria-hidden="true" />
+
+      <div className="container relative z-[1] pt-16 md:pt-20">
         <SectionMark index="04" label="Why IMATEC" spec="The vetting model" />
       </div>
 
-      <div className="grid lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
+      <div className="relative z-[1] grid lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
         {/* Workshop image — bleeds left, then dissolves into the steel-soft ground on the right */}
         <Reveal preset="imageReveal" className="relative order-2 lg:order-1 h-[19rem] sm:h-[24rem] lg:h-auto lg:min-h-[33rem]">
           <Image

@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { EnquiryForm } from "@/components/funnel/enquiry-form";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
 import { SectionMark } from "@/components/ui/section-mark";
@@ -27,6 +28,8 @@ export default function ContactPage() {
         sub={p.hero.sub}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]}
       />
+
+      <BrandRailBand label="Across the major office-automation brands" />
 
       <section className="section bg-ground">
         <div className="container">
@@ -87,7 +90,7 @@ export default function ContactPage() {
           </div>
 
           {/* Closing datum */}
-          <div className="mt-14 border-t border-hair-strong pt-4 flex flex-wrap items-center justify-between gap-2">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-2">
             <span className="label text-ink-muted">IMATEC · {site.based}</span>
             <span className="label text-ink-muted">Serving the office-automation trade nationally</span>
           </div>
