@@ -17,12 +17,12 @@ export const home = {
       lead: "Recoat your fuser roller —",
       accent: "before you replace it.",
     },
-    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running — recoating fuser and hot rollers back to working spec, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
+    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running — recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
     primaryCta: {
       label: "Enquire About Recoating",
       waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",
     },
-    secondaryCta: { label: "See how recoating works", href: "/fuser-roller-recoating#process" },
+    secondaryCta: { label: "See how recoating works", href: "/fuser-roller-recoating#how" },
     reassurance: "Send us your roller · No-obligation quote · We reply on WhatsApp",
     // ≤3 hero proof items, all verified / client-stated. No fabricated ratings.
     trust: [
@@ -31,8 +31,8 @@ export const home = {
       { strong: "Workshop-tested", rest: "every part checked before we supply it" },
     ],
     // The authentic recoated-roller object, presented with a technical spec label.
-    objectLabel: "FR · Recoated to spec",
-    objectDims: ["Ø restored", "Surface renewed"],
+    objectLabel: "FR · Recoated roller",
+    objectDims: ["Surface renewed", "Core kept"],
   },
 
   worlds: {
@@ -56,7 +56,7 @@ export const home = {
     recoat: {
       title: "Recoat with IMATEC",
       points: [
-        "Restore the roller to working spec",
+        "Renew the worn surface of the roller you already have",
         "Keep your existing OEM core",
         "A cost-effective alternative to replacement",
       ],
@@ -81,7 +81,7 @@ export const home = {
       },
       {
         title: "We test before we supply",
-        proof: "We don't simply import parts — every product is tested in our own workshop, on real machines, before it becomes part of our range.",
+        proof: "We don't simply import parts — every product is checked in our own workshop before it becomes part of our range.",
         soWhat: "The parts you order are vetted, not drop-shipped.",
       },
       {
@@ -94,15 +94,16 @@ export const home = {
 
   process: {
     eyebrow: "How recoating works",
-    heading: "From worn roller to bench-tested return",
-    lede: "The shape of the recoating process. Full technical detail is confirmed with your quote.",
-    // Generic, honest stages — not proprietary specifics (those are PENDING client confirmation).
+    heading: "From your enquiry to a recoated roller",
+    lede: "How recoating works, from your first message to the roller back in your hands. The technical detail is confirmed with your quote.",
+    // Customer-facing flow only — the internal technical process is NOT claimed here
+    // (PENDING client confirmation). Mirrors the flagship recoating page for consistency.
     steps: [
-      { n: "01", title: "Assess", desc: "We inspect your roller and confirm it's a candidate for recoating." },
-      { n: "02", title: "Strip & prepare", desc: "The worn surface is removed and the core is prepared." },
-      { n: "03", title: "Recoat", desc: "The roller surface is restored to working specification." },
-      { n: "04", title: "Cure", desc: "The new surface is cured for durability." },
-      { n: "05", title: "Bench-test", desc: "The roller is tested before it's returned to you." },
+      { n: "01", title: "Send the details", desc: "Message us the brand, model and what's happening — a photo helps." },
+      { n: "02", title: "We assess & quote", desc: "We confirm whether recoating is a candidate for your roller, and quote the work." },
+      { n: "03", title: "Get the roller to us", desc: "We'll confirm the best way to get it to our Centurion workshop." },
+      { n: "04", title: "We recoat it", desc: "Your roller is recoated in our own workshop." },
+      { n: "05", title: "Back to you", desc: "We return your recoated roller." },
     ],
     cta: { label: "See the recoating service", href: "/fuser-roller-recoating" },
   },
@@ -135,7 +136,7 @@ export const home = {
     items: [
       {
         q: "What is fuser / hot roller recoating?",
-        a: "It's the professional restoration of a worn fuser or hot roller's surface back to working specification — so the roller can keep running instead of being replaced.",
+        a: "It's re-surfacing a worn fuser or hot roller — renewing the worn surface so the roller can keep running, instead of buying a whole new part.",
       },
       {
         q: "Is recoating better than replacing the roller?",

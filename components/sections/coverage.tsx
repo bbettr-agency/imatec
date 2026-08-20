@@ -6,12 +6,14 @@ import { home } from "@/config/home";
 const nameClass =
   "brand-name text-[1.7rem] sm:text-[2.3rem] lg:text-[2.9rem] font-extrabold tracking-[-0.03em] leading-none text-ink whitespace-nowrap";
 
-export function Coverage() {
+/** `index` lets a host page number this section in its own local datum sequence
+ *  (default "05" is the homepage position). */
+export function Coverage({ index = "05" }: { index?: string }) {
   const c = home.coverage;
   return (
     <section className="section bg-paper" aria-labelledby="coverage-heading">
       <div className="container">
-        <SectionMark index="05" label="Brand & parts coverage" spec="9 brands" />
+        <SectionMark index={index} label="Brand & parts coverage" spec="9 brands" />
 
         <div className="mt-9 grid gap-x-14 gap-y-7 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">

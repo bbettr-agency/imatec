@@ -7,6 +7,19 @@
  * See docs/PHASE-1B-SITEMAP-WIREFRAME-HERO.md → NAP Confirmation Checklist.
  */
 
+/**
+ * Canonical origin for the whole site (drives metadataBase, canonical URLs,
+ * Open Graph/Twitter image resolution, sitemap.xml and robots.txt).
+ *
+ * It is env-driven so the signals always resolve to a live URL:
+ *  - Once the production domain is connected, set `NEXT_PUBLIC_SITE_URL`
+ *    (e.g. https://www.imatec.co.za) in the Vercel project and redeploy.
+ *  - Until then it defaults to the live Vercel URL, so canonical/OG/sitemap/
+ *    robots are self-consistent and do NOT point at an unresolved domain.
+ * NEXT_PUBLIC_ is inlined at build for both server and client → no mismatch.
+ */
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://imatec.vercel.app").replace(/\/+$/, "");
+
 export const site = {
   name: "IMATEC",
   /** PENDING: confirm exact legal name + hyphenation. */
@@ -16,7 +29,7 @@ export const site = {
   descriptionShort:
     "Specialist fuser & hot roller recoating for Africa's office-automation industry — plus workshop-tested printer & copier parts, consumables and service equipment.",
 
-  url: "https://www.imatec.co.za",
+  url: SITE_URL,
 
   // --- Contact (PENDING canonical NAP — see checklist) ---
   contact: {

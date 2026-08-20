@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/page-hero";
 import { EnquiryForm } from "@/components/funnel/enquiry-form";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
+import { SectionMark } from "@/components/ui/section-mark";
 import { Reveal } from "@/engine/motion";
 import { site } from "@/config/site";
 import { pages } from "@/config/pages";
@@ -29,12 +30,12 @@ export default function ContactPage() {
 
       <section className="section bg-ground">
         <div className="container">
+          <SectionMark index="01" label="Reach us" spec="WhatsApp · Call · Email · Visit" className="mb-9" />
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
             {/* Contact methods */}
             <Reveal>
               <div>
-                <p className="label text-brand-ink">Reach us</p>
-                <h2 className="mt-3 text-2xl font-extrabold text-ink">The fastest ways to talk to IMATEC</h2>
+                <h2 className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">The fastest ways to talk to IMATEC</h2>
                 <div className="mt-6">
                   <WhatsAppCta label="WhatsApp IMATEC" message="Hi IMATEC, I have an enquiry." size="lg" dataCta="contact-whatsapp" />
                 </div>
@@ -83,6 +84,12 @@ export default function ContactPage() {
                 </div>
               </div>
             </Reveal>
+          </div>
+
+          {/* Closing datum */}
+          <div className="mt-14 border-t border-hair-strong pt-4 flex flex-wrap items-center justify-between gap-2">
+            <span className="label text-ink-muted">IMATEC · {site.based}</span>
+            <span className="label text-ink-muted">Serving the office-automation trade nationally</span>
           </div>
         </div>
       </section>

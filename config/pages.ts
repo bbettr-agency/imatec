@@ -168,7 +168,7 @@ export const pages = {
     approach: {
       eyebrow: "How we supply",
       heading: "We test before we supply — we don't just import",
-      body: "We source parts from trusted international manufacturers during our supplier visits, and every product is tested in our own workshop, on real machines, before it becomes part of our range. It means the parts you order from us are vetted, not drop-shipped.",
+      body: "We source parts from trusted international manufacturers during our supplier visits, and every product is checked in our own workshop before it becomes part of our range. It means the parts you order from us are vetted, not drop-shipped.",
     },
     categories: {
       eyebrow: "What we stock",
@@ -255,7 +255,7 @@ export const pages = {
       paragraphs: [
         "Office automation is a technical, unforgiving industry. Machines change, parts get harder to find, and the margin for error on a component like a fuser roller is small. IMATEC has lasted more than 30 years in it by being genuinely specialist — not a catalogue reseller, but a workshop.",
         "We recoat fuser and hot rollers — restoring the part instead of replacing it. We source parts from trusted manufacturers and test every one in our own workshop before we supply it. And we build our own service equipment, the Vacu-Tec range, for the technicians who do this work every day.",
-        "It's that combination — specialist capability, tested supply and real engineering — that dealers, technicians and service providers across South Africa and Africa rely on.",
+        "It's that combination — specialist capability, tested supply and real engineering — that dealers, technicians and service providers across South Africa rely on.",
       ],
     },
     apart: {
@@ -263,7 +263,7 @@ export const pages = {
       heading: "Three things a catalogue can't claim",
       items: [
         { title: "We recoat, not just replace", body: "Professional recoating of fuser and hot rollers — a specialist capability." },
-        { title: "We test before we supply", body: "Every part is checked in our own workshop, on real machines, before it reaches you." },
+        { title: "We test before we supply", body: "Every part is checked in our own workshop before it reaches you." },
         { title: "We build our own equipment", body: "The Vacu-Tec range is designed and built by IMATEC for the trade." },
       ],
     },

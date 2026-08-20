@@ -38,7 +38,7 @@ export const services: ServiceWorld[] = [
     name: "Fuser & Hot Roller Recoating",
     relationship: "Specialist service",
     summary:
-      "Restore worn fuser and hot rollers to working spec — a cost-effective alternative to replacing the component.",
+      "Recoat worn fuser and hot rollers — renewing the worn surface, a cost-effective alternative to replacing the component.",
     ctaLabel: "Enquire About Recoating",
     waMessage:
       "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",

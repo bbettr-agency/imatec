@@ -7,12 +7,14 @@ import { home } from "@/config/home";
 import { site } from "@/config/site";
 import { mailtoLink } from "@/lib/utils";
 
-export function FinalCta() {
+/** `index` lets a host page number this closing section in its own local datum
+ *  sequence (default "07" is the homepage position). */
+export function FinalCta({ index = "07" }: { index?: string }) {
   const c = home.finalCta;
   return (
     <section className="bg-steel-soft border-t border-hair" aria-labelledby="final-cta-heading">
       <div className="container py-16 md:py-24">
-        <SectionMark index="07" label="Get in touch" spec="WhatsApp · Call · Email" />
+        <SectionMark index={index} label="Get in touch" spec="WhatsApp · Call · Email" />
 
         <div className="mt-10 grid gap-x-14 gap-y-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

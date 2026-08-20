@@ -12,7 +12,7 @@ import { FinalCta } from "@/components/sections/final-cta";
 export const metadata = buildMetadata({
   title: "Fuser & Hot Roller Recoating & Printer Parts",
   description:
-    "IMATEC recoats worn fuser & hot rollers to spec and supplies workshop-tested printer & copier parts and consumables to the SA trade.",
+    "IMATEC recoats worn fuser & hot rollers instead of replacing them, and supplies workshop-tested printer & copier parts and consumables to the SA trade.",
   path: "/",
 });
 

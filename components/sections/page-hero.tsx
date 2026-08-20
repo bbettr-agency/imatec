@@ -12,18 +12,25 @@ interface PageHeroProps {
   /** Breadcrumb trail incl. Home + current page. */
   breadcrumb: { name: string; path: string }[];
   actions?: ReactNode;
-  image?: { src: string; alt: string; label?: string };
+  /** When present, integrated as a right-bleed image (mobile: stacked band) — not a boxed card. */
+  image?: { src: string; alt: string; label?: string; position?: string };
 }
 
+/**
+ * Shared inner-page hero. Integrated art direction to match the homepage/flagship:
+ * content in the container, the photograph bleeding to the right edge on desktop
+ * and dissolving into the paper ground (a stacked band on mobile). LCP = the H1
+ * (never animated); the single priority image reveals scale-only.
+ */
 export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: PageHeroProps) {
   const hero = heroStack({ character: "precise" });
   return (
-    <section className="relative bg-paper border-b border-hair">
+    <section className="relative overflow-hidden bg-paper border-b border-hair">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumb)) }}
       />
-      <div className="container pt-8 pb-12 md:pt-10 md:pb-16">
+      <div className="container relative z-10 pt-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex flex-wrap items-center gap-1.5 text-xs text-ink-muted">
@@ -40,44 +47,52 @@ export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: Pa
           </ol>
         </nav>
 
-        <div className={image ? "grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center" : "max-w-3xl"}>
-          <div>
-            <p className="label text-brand-ink">{eyebrow}</p>
-            <h1
-              {...hero.lcp}
-              className="mt-4 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3rem] lg:leading-[1.04] font-extrabold tracking-tight text-ink text-balance"
-            >
-              {title}
-            </h1>
-            {sub && (
-              <Reveal {...hero.step(0)}>
-                <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{sub}</p>
-              </Reveal>
-            )}
-            {actions && (
-              <Reveal {...hero.step(1)}>
-                <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">{actions}</div>
-              </Reveal>
-            )}
-          </div>
-
-          {image && (
-            <Reveal preset="imageReveal" {...hero.step(1)}>
-              <div className="relative rounded-panel border border-hair-strong bg-paper p-3 shadow-card">
-                <span className="absolute left-2.5 top-2.5 z-10 w-3 h-3 border-l-2 border-t-2 border-brand" aria-hidden="true" />
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-roller-low">
-                  <Image src={image.src} alt={image.alt} fill priority sizes="(max-width:1024px) 92vw, 44vw" className="object-cover" />
-                </div>
-                {image.label && (
-                  <span className="absolute right-5 bottom-5 label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 border border-brand/40 rounded-md px-2.5 py-1.5">
-                    {image.label}
-                  </span>
-                )}
-              </div>
+        <div className={image ? "max-w-2xl pb-8 lg:pb-20 lg:min-h-[24rem]" : "max-w-3xl pb-12 md:pb-16"}>
+          <p className="label text-brand-ink">{eyebrow}</p>
+          <h1
+            {...hero.lcp}
+            className="mt-4 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.15rem] lg:leading-[1.03] font-extrabold tracking-tight text-ink text-balance"
+          >
+            {title}
+          </h1>
+          {sub && (
+            <Reveal {...hero.step(0)}>
+              <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{sub}</p>
+            </Reveal>
+          )}
+          {actions && (
+            <Reveal {...hero.step(1)}>
+              <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">{actions}</div>
             </Reveal>
           )}
         </div>
       </div>
+
+      {image && (
+        <Reveal
+          preset="imageReveal"
+          {...hero.step(1)}
+          className="relative h-[15rem] sm:h-[19rem] lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[45%]"
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority
+            sizes="(max-width:1024px) 100vw, 45vw"
+            className="object-cover"
+            style={{ objectPosition: image.position ?? "center" }}
+          />
+          {/* dissolve into the paper ground — left edge on desktop, top edge on mobile */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-paper to-transparent" aria-hidden="true" />
+          <div className="lg:hidden absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-paper to-transparent" aria-hidden="true" />
+          {image.label && (
+            <span className="absolute right-4 bottom-4 lg:right-8 lg:bottom-8 label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 border border-brand/40 rounded-md px-2.5 py-1.5">
+              {image.label}
+            </span>
+          )}
+        </Reveal>
+      )}
     </section>
   );
 }
