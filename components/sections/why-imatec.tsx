@@ -8,7 +8,7 @@ export function WhyImatec() {
   return (
     <section className="relative overflow-hidden bg-steel-soft">
       <div className="container pt-16 md:pt-20">
-        <SectionMark index="03" label="Why IMATEC" spec="The vetting model" />
+        <SectionMark index="04" label="Why IMATEC" spec="The vetting model" />
       </div>
 
       <div className="grid lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
@@ -34,7 +34,7 @@ export function WhyImatec() {
         <div className="order-1 lg:order-2 flex items-center">
           <div className="w-full max-w-xl px-6 lg:pl-6 xl:pl-10 lg:pr-8 py-12 lg:py-20">
             <Reveal>
-              <h2 id="why-heading" className="text-[1.8rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">
+              <h2 id="why-heading" className="text-[1.8rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">
                 {w.heading}
               </h2>
               <p className="mt-4 text-ink-2 leading-relaxed measure">{w.lede}</p>
@@ -43,7 +43,7 @@ export function WhyImatec() {
               {w.pillars.map((p, i) => (
                 <Reveal key={p.title} preset="fadeUpItem" index={i}>
                   <div className="pl-5 border-l-2 border-brand/50">
-                    <h3 className="text-lg font-extrabold text-ink">{p.title}</h3>
+                    <h3 className="text-lg font-bold text-ink">{p.title}</h3>
                     <p className="mt-1.5 text-sm text-ink-2 leading-relaxed measure">{p.proof}</p>
                     <p className="mt-1.5 text-sm font-semibold text-brand-ink">{p.soWhat}</p>
                   </div>

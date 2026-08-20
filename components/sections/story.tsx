@@ -22,7 +22,7 @@ export function Story() {
 
           {/* Story */}
           <Reveal preset="fadeUpItem" className="lg:col-span-7">
-            <h2 id="story-heading" className="text-[1.7rem] leading-[1.15] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">
+            <h2 id="story-heading" className="text-[1.7rem] leading-[1.15] sm:text-4xl font-semibold tracking-tight text-ink text-balance">
               {s.heading}
             </h2>
             <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{s.body}</p>

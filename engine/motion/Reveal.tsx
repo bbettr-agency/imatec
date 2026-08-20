@@ -14,11 +14,15 @@
  * other four hand-wrote 57 variations with eight stagger steps and five
  * distances between them.
  *
- * Above-the-fold safety: `whileInView` waits for an IntersectionObserver. If the
- * element is already on screen at first paint, that observer has not fired and
- * the content is invisible — which is both an LCP failure and a no-JS failure.
- * `eager` switches to a mount animation. In development this component warns
- * when it detects a likely above-the-fold misuse.
+ * Reliability: content must never depend on animation to be visible. The reveal
+ * is state-driven, not `whileInView` — <Reveal> owns a `shown` flag it flips as
+ * soon as the element is in view (immediately at mount for in-view / above-fold /
+ * reduced-motion / eager content), on scroll into view, once scrolled past (fast
+ * scroll can deliver the observer callback late), or after a layout shift. A
+ * missed IntersectionObserver callback can therefore never strand content
+ * invisible. Below the fold the server-rendered `opacity: 0` is covered for the
+ * no-JS case by NOSCRIPT_FALLBACK. `eager` additionally drops the opacity fade
+ * (transform-only) to protect the LCP element.
  */
 
 import { m } from "motion/react";
@@ -27,6 +31,7 @@ import {
   isValidElement,
   useEffect,
   useRef,
+  useState,
   type ElementType,
   type ReactNode,
 } from "react";
@@ -37,6 +42,42 @@ import { useMotionSafe } from "./useMotionSafe";
 const PRESETS = { fadeUp, fadeUpItem, fadeIn, scaleIn, imageReveal, slideX } as const;
 
 export type RevealPreset = keyof typeof PRESETS;
+
+/**
+ * Shared safety net (one listener for the whole page, not one per Reveal).
+ * An IntersectionObserver does not fire when an element goes from below the fold
+ * straight to above it (an anchor jump or a hard flick can skip the intersecting
+ * frame). This rAF-throttled scroll/resize sweep reveals any pending element that
+ * is at or above the fold, so content can never be stranded invisible.
+ */
+const pendingSweeps = new Set<() => boolean>();
+let sweepScheduled = false;
+function runSweep() {
+  sweepScheduled = false;
+  for (const check of pendingSweeps) {
+    if (check()) pendingSweeps.delete(check);
+  }
+}
+function scheduleSweep() {
+  if (sweepScheduled) return;
+  sweepScheduled = true;
+  requestAnimationFrame(runSweep);
+}
+function registerSweep(check: () => boolean) {
+  if (typeof window === "undefined") return;
+  if (pendingSweeps.size === 0) {
+    window.addEventListener("scroll", scheduleSweep, { passive: true });
+    window.addEventListener("resize", scheduleSweep, { passive: true });
+  }
+  pendingSweeps.add(check);
+}
+function unregisterSweep(check: () => boolean) {
+  pendingSweeps.delete(check);
+  if (typeof window !== "undefined" && pendingSweeps.size === 0) {
+    window.removeEventListener("scroll", scheduleSweep);
+    window.removeEventListener("resize", scheduleSweep);
+  }
+}
 
 export interface RevealProps {
   children: ReactNode;
@@ -92,27 +133,70 @@ export function Reveal({
 }: RevealProps) {
   const reduced = useMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
   const MotionTag = m[as as keyof typeof m] as typeof m.div;
 
   warnOnPriorityImage(children, preset);
 
-  // Development guard: scroll-triggered content that is already on screen at
-  // mount would have been invisible until an observer fired.
+  // Reveal trigger — reliability first (SYSTEM/DESIGN-LANGUAGE/02-MOTION-SYSTEM §5).
+  // Content is DRIVEN VISIBLE by state, never left waiting on an observer:
+  //  · reduced motion / eager (above the fold)  → show immediately
+  //  · already in view at mount                  → show immediately
+  //    (covers direct inner-page navigation, refresh mid-page, short pages)
+  //  · below the fold                            → observer, which reveals on
+  //    entering view OR once scrolled past (a fast scroll can deliver the
+  //    callback after the element has already left the viewport)
+  //  · late layout shift (fonts/images)          → an rAF re-check
   useEffect(() => {
-    if (process.env.NODE_ENV === "production" || eager || reduced) return;
+    if (reduced || eager) {
+      setShown(true);
+      return;
+    }
     const node = ref.current;
     if (!node) return;
-    const { top } = node.getBoundingClientRect();
-    if (top < window.innerHeight) {
-      console.warn(
-        "[bbettr/motion] <Reveal> is above the fold but scroll-triggered, so its " +
-          "content is invisible at first paint. Add the `eager` prop. " +
-          "See SYSTEM/DESIGN-LANGUAGE/02-MOTION-SYSTEM.md §5.",
-      );
+    let done = false;
+    const inView = () => node.getBoundingClientRect().top < window.innerHeight;
+    const cleanup = () => {
+      io.disconnect();
+      unregisterSweep(check);
+      cancelAnimationFrame(raf);
+    };
+    const reveal = () => {
+      if (!done) {
+        done = true;
+        setShown(true);
+        cleanup();
+      }
+    };
+    if (inView()) {
+      setShown(true);
+      return;
     }
-  }, [eager, reduced]);
+    // Primary trigger: reveal as the element scrolls into view.
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) reveal();
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
+    );
+    io.observe(node);
+    // Catch-all: shared scroll/resize sweep (handles anchor jumps / hard flicks
+    // that skip the observer's intersecting frame) + a post-layout rAF check.
+    const check = () => {
+      if (!done && inView()) {
+        reveal();
+        return true;
+      }
+      return done;
+    };
+    registerSweep(check);
+    const raf = requestAnimationFrame(() => {
+      if (!done && inView()) reveal();
+    });
+    return cleanup;
+  }, [reduced, eager]);
 
-  const props = PRESETS[preset]({ character, index, delay, reduced, eager });
+  const props = PRESETS[preset]({ character, index, delay, reduced, eager, shown });
 
   // `data-reveal` is the hook for the no-JS fallback. A scroll-triggered reveal
   // ships `opacity: 0` in the server-rendered HTML, so without this the whole

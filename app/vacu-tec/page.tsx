@@ -45,7 +45,7 @@ export default function VacuTecPage() {
           <div className="mt-9 grid gap-x-14 gap-y-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <h2 id="vt-story" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.story.heading}</h2>
+                <h2 id="vt-story" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.story.heading}</h2>
                 <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.story.body}</p>
               </Reveal>
             </div>
@@ -70,7 +70,7 @@ export default function VacuTecPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
               <Reveal>
-                <h2 id="vt-forwho" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.forWho.heading}</h2>
+                <h2 id="vt-forwho" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.forWho.heading}</h2>
                 <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.forWho.body}</p>
               </Reveal>
               <Reveal preset="fadeUpItem">

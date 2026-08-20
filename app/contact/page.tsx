@@ -35,7 +35,7 @@ export default function ContactPage() {
             {/* Contact methods */}
             <Reveal>
               <div>
-                <h2 className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">The fastest ways to talk to IMATEC</h2>
+                <h2 className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">The fastest ways to talk to IMATEC</h2>
                 <div className="mt-6">
                   <WhatsAppCta label="WhatsApp IMATEC" message="Hi IMATEC, I have an enquiry." size="lg" dataCta="contact-whatsapp" />
                 </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
             {/* Enquiry form */}
             <Reveal preset="fadeUpItem">
               <div className="rounded-panel border border-hair bg-paper p-6 sm:p-8 shadow-card">
-                <h2 className="text-xl font-extrabold text-ink">{p.formHeading}</h2>
+                <h2 className="text-xl font-bold text-ink">{p.formHeading}</h2>
                 <p className="mt-2 text-sm text-ink-2 measure">{p.formSub}</p>
                 <div className="mt-6">
                   <EnquiryForm variant="general" />

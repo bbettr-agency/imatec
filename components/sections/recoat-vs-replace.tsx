@@ -9,13 +9,13 @@ export function RecoatVsReplace() {
   return (
     <section className="section bg-paper" aria-labelledby="wedge-heading">
       <div className="container">
-        <SectionMark index="02" label="Recoat vs replace" spec="The decision" />
+        <SectionMark index="03" label="Recoat vs replace" spec="The decision" />
 
         <div className="mt-9 max-w-3xl">
           <Reveal>
             <h2
               id="wedge-heading"
-              className="text-[2rem] leading-[1.06] sm:text-4xl lg:text-[3.1rem] lg:leading-[1.04] font-extrabold tracking-tight text-ink text-balance"
+              className="text-[2rem] leading-[1.06] sm:text-4xl lg:text-[3.1rem] lg:leading-[1.04] font-semibold tracking-tight text-ink text-balance"
             >
               {w.heading}
             </h2>

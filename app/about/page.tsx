@@ -34,7 +34,7 @@ export default function AboutPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
               <Reveal>
-                <h2 id="about-story" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.story.heading}</h2>
+                <h2 id="about-story" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.story.heading}</h2>
               </Reveal>
               <Reveal>
                 <div className="mt-4 space-y-4 text-ink-2 text-base md:text-lg leading-relaxed measure">
@@ -65,14 +65,14 @@ export default function AboutPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
             <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
               <Reveal>
-                <h2 id="about-apart" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.apart.heading}</h2>
+                <h2 id="about-apart" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.apart.heading}</h2>
               </Reveal>
             </div>
             <div className="lg:col-span-8 space-y-7">
               {p.apart.items.map((item, i) => (
                 <Reveal key={item.title} preset="fadeUpItem" index={i}>
                   <div className="pl-5 border-l-2 border-brand/50">
-                    <h3 className="text-lg font-extrabold text-ink">{item.title}</h3>
+                    <h3 className="text-lg font-bold text-ink">{item.title}</h3>
                     <p className="mt-1.5 text-sm md:text-[0.95rem] text-ink-2 leading-relaxed measure">{item.body}</p>
                   </div>
                 </Reveal>

@@ -51,7 +51,7 @@ export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: Pa
           <p className="label text-brand-ink">{eyebrow}</p>
           <h1
             {...hero.lcp}
-            className="mt-4 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.15rem] lg:leading-[1.03] font-extrabold tracking-tight text-ink text-balance"
+            className="mt-4 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.15rem] lg:leading-[1.03] font-semibold tracking-tight text-ink text-balance"
           >
             {title}
           </h1>

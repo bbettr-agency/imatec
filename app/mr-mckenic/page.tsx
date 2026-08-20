@@ -46,7 +46,7 @@ export default function MrMckenicPage() {
             {/* Left — intro, roller cross-link, mid-page CTA */}
             <div className="lg:col-span-5 lg:sticky lg:top-24 self-start">
               <Reveal>
-                <h2 id="mckenic-range-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.range.heading}</h2>
+                <h2 id="mckenic-range-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.range.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">{p.range.note}</p>
               </Reveal>
               <Reveal preset="fadeUpItem">

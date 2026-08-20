@@ -11,13 +11,13 @@ export function Process() {
   return (
     <section className="section bg-paper" id="process" aria-labelledby="process-heading">
       <div className="container">
-        <SectionMark index="04" label="How recoating works" spec="Workshop route" />
+        <SectionMark index="05" label="How recoating works" spec="Workshop route" />
 
         <div className="mt-10 grid gap-x-14 gap-y-10 lg:grid-cols-12">
           {/* Intro */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <Reveal>
-              <h2 id="process-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">
+              <h2 id="process-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">
                 {p.heading}
               </h2>
               <p className="mt-4 text-ink-2 leading-relaxed measure">{p.lede}</p>
@@ -45,7 +45,7 @@ export function Process() {
                     {step.n}
                   </span>
                   <div className="border-l border-hair pl-5 sm:pl-8">
-                    <h3 className="text-base sm:text-lg font-extrabold text-ink">{step.title}</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-ink">{step.title}</h3>
                     <p className="mt-1.5 text-sm text-ink-2 leading-relaxed max-w-md">{step.desc}</p>
                   </div>
                 </div>

@@ -20,11 +20,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      {/* Brand & parts coverage sits directly below the hero as an early
+          credibility band — immediate evidence of the brands IMATEC supports. */}
+      <Coverage index="01" />
       <FourWorlds />
       <RecoatVsReplace />
       <WhyImatec />
       <Process />
-      <Coverage />
       <Story />
       <Faq />
       <FinalCta />

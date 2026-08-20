@@ -15,7 +15,7 @@ function LeadRow({ slug }: { slug: string }) {
         <span className="h-px flex-1 bg-hair" aria-hidden="true" />
         <ArrowUpRight className="w-5 h-5 text-brand-ink transition-transform duration-200 ease-bench group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
       </div>
-      <h3 className="mt-3 text-[1.6rem] sm:text-3xl font-extrabold tracking-tight text-ink transition-colors group-hover:text-brand-ink">
+      <h3 className="mt-3 text-[1.6rem] sm:text-3xl font-bold tracking-tight text-ink transition-colors group-hover:text-brand-ink">
         {s.name}
       </h3>
       <p className="mt-2.5 text-ink-2 leading-relaxed max-w-xl">{s.summary}</p>
@@ -41,7 +41,7 @@ function IndexRow({ slug }: { slug: string }) {
       </div>
       <div className="min-w-0">
         <span className="label !text-[0.58rem] text-ink-muted">{s.relationship}</span>
-        <h3 className="mt-1 text-lg font-extrabold text-ink transition-colors group-hover:text-brand-ink">{s.name}</h3>
+        <h3 className="mt-1 text-lg font-bold text-ink transition-colors group-hover:text-brand-ink">{s.name}</h3>
         <p className="mt-1 text-sm text-ink-2 leading-snug max-w-md">{s.summary}</p>
       </div>
       <ArrowRight className="w-5 h-5 text-brand-ink shrink-0 transition-transform duration-200 ease-bench group-hover:translate-x-1" aria-hidden="true" />
@@ -53,13 +53,13 @@ export function FourWorlds() {
   return (
     <section className="section bg-paper" aria-labelledby="worlds-heading">
       <div className="container">
-        <SectionMark index="01" label="What we do" spec="Four capabilities" />
+        <SectionMark index="02" label="What we do" spec="Four capabilities" />
 
         <div className="mt-10 grid gap-x-14 gap-y-10 lg:grid-cols-12">
           {/* Intro (editorial, sits alongside the index) */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <Reveal>
-              <h2 id="worlds-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">
+              <h2 id="worlds-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">
                 {home.worlds.heading}
               </h2>
               <p className="mt-4 text-ink-2 leading-relaxed">{home.worlds.lede}</p>

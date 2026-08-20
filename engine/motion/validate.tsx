@@ -39,7 +39,7 @@ section("Reduced motion (§7)");
   const r = fadeUp({ reduced: true });
   check("fadeUp collapses to the final state", r.initial.opacity === 1 && r.initial.y === 0);
   check("fadeUp removes the transition", r.transition.duration === 0);
-  check("fadeUp does not scroll-trigger when reduced", r.whileInView === undefined);
+  check("fadeUp reduced renders visible immediately", r.animate.opacity === 1 && r.animate.y === 0);
 
   const s = scaleIn({ reduced: true });
   check("scaleIn collapses to full scale", s.initial.scale === 1 && s.initial.opacity === 1);
@@ -58,24 +58,27 @@ section("LCP protection (§5)");
   check("hero step delays increase", hero.step(0).delay < hero.step(1).delay);
   check("hero duration is capped at 1s", hero.duration <= 1);
 
-  const img = imageReveal();
+  const img = imageReveal({ shown: true });
   check(
     "imageReveal never animates opacity (preserves priority preload)",
-    !("opacity" in img.initial) && !("opacity" in (img.whileInView ?? {})),
+    !("opacity" in img.initial) && !("opacity" in img.animate),
   );
 }
 
-// ─── 3. Above-the-fold trigger ──────────────────────────────────────────────
-section("Above-the-fold trigger (§5)");
+// ─── 3. State-driven reveal (never stranded by an observer) ──────────────────
+section("State-driven reveal (§5)");
 {
-  const eager = fadeUp({ eager: true });
-  check("eager uses mount animation", eager.animate !== undefined);
-  check("eager does not use whileInView", eager.whileInView === undefined);
-  check("eager has no viewport observer", eager.viewport === undefined);
+  const eager = fadeUp({ eager: true, shown: true });
+  check("eager renders visible at first paint (no hidden opacity)", !("opacity" in eager.initial));
+  check("eager animates to the resting state", eager.animate.y === 0);
 
   const lazy = fadeUp();
-  check("default is scroll-triggered", lazy.whileInView !== undefined);
-  check("default reveals once only", lazy.viewport?.once === true);
+  check(
+    "default holds the hidden state until shown",
+    lazy.initial.opacity === 0 && lazy.animate.opacity === 0,
+  );
+  const lazyShown = fadeUp({ shown: true });
+  check("default reveals to visible once shown", lazyShown.animate.opacity === 1 && lazyShown.animate.y === 0);
 }
 
 // ─── 4. Stagger discipline ──────────────────────────────────────────────────

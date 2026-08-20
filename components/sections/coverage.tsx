@@ -28,17 +28,17 @@ function BrandLogo({ b, dup = false }: { b: (typeof brandLogos)[number]; dup?: b
 export function Coverage({ index = "05" }: { index?: string }) {
   const c = home.coverage;
   return (
-    <section className="section bg-paper" aria-labelledby="coverage-heading">
+    <section className="bg-paper py-11 md:py-14 border-b border-hair" aria-labelledby="coverage-heading">
       <div className="container">
         <SectionMark index={index} label="Brand & parts coverage" spec="9 brands" />
 
-        <div className="mt-9 grid gap-x-14 gap-y-7 lg:grid-cols-12 lg:items-end">
+        <div className="mt-7 grid gap-x-14 gap-y-5 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <Reveal>
-              <h2 id="coverage-heading" className="text-[1.7rem] sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-ink text-balance">
+              <h2 id="coverage-heading" className="text-[1.55rem] sm:text-[2rem] lg:text-[2.3rem] font-bold tracking-tight text-ink text-balance">
                 {c.heading}
               </h2>
-              <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{c.lede}</p>
+              <p className="mt-3 text-ink-2 text-base leading-relaxed measure">{c.lede}</p>
             </Reveal>
           </div>
           <div className="lg:col-span-4 lg:text-right">
@@ -52,7 +52,7 @@ export function Coverage({ index = "05" }: { index?: string }) {
             product-support context only. Duplicated set (aria-hidden) gives a seamless loop;
             reduced-motion falls back to a static centred wrap showing every logo. */}
         <Reveal preset="fadeIn">
-          <div className="brand-rail mt-11 border-y border-hair-strong py-9 sm:py-10 overflow-hidden">
+          <div className="brand-rail mt-8 border-y border-hair-strong py-6 sm:py-7 overflow-hidden">
             <ul className="brand-track list-none m-0 p-0" aria-label="Printer and copier brands IMATEC supplies and supports parts for">
               {brandLogos.map((b) => <BrandLogo key={b.slug} b={b} />)}
               {brandLogos.map((b) => <BrandLogo key={`dup-${b.slug}`} b={b} dup />)}

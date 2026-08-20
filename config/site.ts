@@ -90,11 +90,11 @@ export type Site = typeof site;
  * not partnership or endorsement). Real transparent artwork in /public/images/brands/.
  * `w`/`h` are intrinsic px (prevent CLS); `scale` optically balances differing aspect
  * ratios against a shared rail height (square/compact marks scale down, thin wordmarks up).
- * NOTE: Canon (a supported brand in `brands`) has no supplied logo yet — text/schema still
- * list it; it is simply absent from the visual rail until a logo is provided.
+ * All nine supported brands are represented.
  */
 export const brandLogos = [
   { slug: "ricoh", name: "Ricoh", w: 370, h: 136, scale: 1.0 },
+  { slug: "canon", name: "Canon", w: 300, h: 72, scale: 0.98 },
   { slug: "konica-minolta", name: "Konica Minolta", w: 366, h: 218, scale: 0.9 },
   { slug: "kyocera", name: "Kyocera", w: 520, h: 113, scale: 1.0 },
   { slug: "xerox", name: "Xerox", w: 520, h: 115, scale: 1.0 },

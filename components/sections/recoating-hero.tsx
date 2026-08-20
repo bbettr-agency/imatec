@@ -45,7 +45,7 @@ export function RecoatingHero() {
           <p className="label text-brand-ink">{h.eyebrow}</p>
           <h1
             {...hero.lcp}
-            className="mt-4 text-[2.3rem] leading-[1.05] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.03] font-extrabold tracking-[-0.03em] text-ink text-balance"
+            className="mt-4 text-[2.3rem] leading-[1.05] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.03] font-bold tracking-[-0.03em] text-ink text-balance"
           >
             {h.h1.lead} <span className="text-brand-ink">— {h.h1.accent}</span>
           </h1>

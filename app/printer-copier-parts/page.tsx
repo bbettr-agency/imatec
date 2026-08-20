@@ -41,7 +41,7 @@ export default function PartsPage() {
           <div className="mt-9 grid gap-x-14 gap-y-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <h2 id="parts-approach" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.approach.heading}</h2>
+                <h2 id="parts-approach" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.approach.heading}</h2>
                 <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.approach.body}</p>
               </Reveal>
             </div>
@@ -66,7 +66,7 @@ export default function PartsPage() {
           <div className="mt-9 grid gap-x-14 gap-y-8 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
               <Reveal>
-                <h2 id="parts-stock" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.categories.heading}</h2>
+                <h2 id="parts-stock" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.categories.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">From the fuser to the feed path — the parts the trade orders most, plus toner and consumables.</p>
               </Reveal>
             </div>

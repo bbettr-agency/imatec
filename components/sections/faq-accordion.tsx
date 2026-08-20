@@ -29,7 +29,7 @@ export function FaqAccordion({ eyebrow, heading, items, bg = "paper", mark }: Fa
           <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <Reveal>
               {eyebrow && <p className="label text-brand-ink">{eyebrow}</p>}
-              <h2 className="mt-3 text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{heading}</h2>
+              <h2 className="mt-3 text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{heading}</h2>
             </Reveal>
           </div>
 

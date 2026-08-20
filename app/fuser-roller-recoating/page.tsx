@@ -37,7 +37,7 @@ export default function RecoatingPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <h2 id="what-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.whatIs.heading}</h2>
+                <h2 id="what-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.whatIs.heading}</h2>
                 <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.whatIs.body}</p>
               </Reveal>
             </div>
@@ -64,7 +64,7 @@ export default function RecoatingPage() {
           <SectionMark index="02" label="Recoat vs replace" spec="The decision" />
           <div className="mt-8 max-w-3xl">
             <Reveal>
-              <h2 id="wedge-heading" className="text-[1.9rem] sm:text-4xl lg:text-[2.7rem] font-extrabold tracking-tight text-ink text-balance">{p.wedge.heading}</h2>
+              <h2 id="wedge-heading" className="text-[1.9rem] sm:text-4xl lg:text-[2.7rem] font-semibold tracking-tight text-ink text-balance">{p.wedge.heading}</h2>
               <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.wedge.lede}</p>
             </Reveal>
           </div>
@@ -72,7 +72,7 @@ export default function RecoatingPage() {
             <div className="mt-10 grid md:grid-cols-2 md:divide-x md:divide-hair-strong border-t border-hair-strong">
               <div className="pt-7 pb-7 md:pb-8 md:pr-12 border-b md:border-b-0 border-hair">
                 <p className="label text-ink-muted">The usual way</p>
-                <h3 className="mt-2.5 text-xl font-extrabold text-ink-2">{p.wedge.replace.title}</h3>
+                <h3 className="mt-2.5 text-xl font-bold text-ink-2">{p.wedge.replace.title}</h3>
                 <ul className="mt-5 space-y-3">
                   {p.wedge.replace.points.map((pt) => (
                     <li key={pt} className="flex items-start gap-3 text-sm text-ink-2"><Minus className="w-4 h-4 mt-0.5 text-ink-muted shrink-0" aria-hidden="true" />{pt}</li>
@@ -81,7 +81,7 @@ export default function RecoatingPage() {
               </div>
               <div className="pt-7 md:pt-7 md:pl-12">
                 <p className="label text-brand-ink">The IMATEC alternative</p>
-                <h3 className="mt-2.5 text-xl font-extrabold text-ink">{p.wedge.recoat.title}</h3>
+                <h3 className="mt-2.5 text-xl font-bold text-ink">{p.wedge.recoat.title}</h3>
                 <ul className="mt-5 space-y-3">
                   {p.wedge.recoat.points.map((pt) => (
                     <li key={pt} className="flex items-start gap-3 text-sm text-ink"><Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />{pt}</li>
@@ -109,7 +109,7 @@ export default function RecoatingPage() {
           <SectionMark index="03" label={p.candidacy.label} spec="Honest guidance" />
           <div className="mt-8 max-w-3xl">
             <Reveal>
-              <h2 id="cand-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.candidacy.heading}</h2>
+              <h2 id="cand-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.candidacy.heading}</h2>
               <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.candidacy.lede}</p>
             </Reveal>
           </div>
@@ -147,7 +147,7 @@ export default function RecoatingPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
             <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
               <Reveal>
-                <h2 id="why-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.why.heading}</h2>
+                <h2 id="why-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.why.heading}</h2>
               </Reveal>
             </div>
             <div className="lg:col-span-8">
@@ -156,7 +156,7 @@ export default function RecoatingPage() {
                   <div className="grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-4 sm:gap-8 py-6 border-t border-hair first:border-t-0 first:pt-0">
                     <span className="text-2xl sm:text-3xl font-extrabold tabular-nums text-ink-muted leading-none pt-0.5">{String(i + 1).padStart(2, "0")}</span>
                     <div>
-                      <h3 className="text-lg font-extrabold text-ink">{pil.title}</h3>
+                      <h3 className="text-lg font-bold text-ink">{pil.title}</h3>
                       <p className="mt-1.5 text-sm md:text-[0.95rem] text-ink-2 leading-relaxed measure">{pil.body}</p>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export default function RecoatingPage() {
           <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
             <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
               <Reveal>
-                <h2 id="how-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.how.heading}</h2>
+                <h2 id="how-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.how.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">{p.how.lede}</p>
               </Reveal>
             </div>
@@ -184,7 +184,7 @@ export default function RecoatingPage() {
                   <div className="grid grid-cols-[2.75rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-4 sm:gap-8 py-6 border-t border-hair first:border-t-0 first:pt-0">
                     <span className={`text-[2rem] sm:text-[2.75rem] font-extrabold tabular-nums leading-none pt-1 tracking-tight ${i === p.how.steps.length - 1 ? "text-brand" : "text-ink-muted"}`}>{step.n}</span>
                     <div className="border-l border-hair pl-5 sm:pl-8">
-                      <h3 className="text-base sm:text-lg font-extrabold text-ink">{step.title}</h3>
+                      <h3 className="text-base sm:text-lg font-bold text-ink">{step.title}</h3>
                       <p className="mt-1.5 text-sm text-ink-2 leading-relaxed max-w-md">{step.desc}</p>
                     </div>
                   </div>
@@ -205,14 +205,14 @@ export default function RecoatingPage() {
           <div className="order-1">
             <div className="container lg:mx-0 lg:max-w-[36rem] lg:ml-auto py-10 lg:py-16 lg:pr-14">
               <Reveal>
-                <h2 id="scope-heading" className="text-[1.7rem] sm:text-4xl font-extrabold tracking-tight text-ink text-balance">{p.scope.heading}</h2>
+                <h2 id="scope-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.scope.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">{p.scope.lede}</p>
               </Reveal>
               <dl className="mt-8 border-t border-hair">
                 {p.scope.components.map((c) => (
                   <Reveal key={c.type} preset="fadeUpItem">
                     <div className="py-4 border-b border-hair">
-                      <dt className="text-base font-extrabold text-ink">{c.type}</dt>
+                      <dt className="text-base font-bold text-ink">{c.type}</dt>
                       <dd className="mt-1 text-sm text-ink-2 leading-relaxed">{c.desc}</dd>
                     </div>
                   </Reveal>
@@ -254,7 +254,7 @@ export default function RecoatingPage() {
           <div className="mt-9 grid gap-x-14 gap-y-10 lg:grid-cols-[0.92fr_1.08fr]">
             <div>
               <Reveal>
-                <h2 id="enquire-heading" className="text-[2rem] sm:text-5xl lg:text-[3.1rem] lg:leading-[1.04] font-extrabold tracking-tight text-ink text-balance">{p.enquiry.heading}</h2>
+                <h2 id="enquire-heading" className="text-[2rem] sm:text-5xl lg:text-[3.1rem] lg:leading-[1.04] font-semibold tracking-tight text-ink text-balance">{p.enquiry.heading}</h2>
                 <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.enquiry.sub}</p>
               </Reveal>
               <Reveal preset="fadeUpItem">
@@ -270,7 +270,7 @@ export default function RecoatingPage() {
             </div>
             <Reveal preset="fadeUpItem">
               <div className="rounded-panel border border-hair bg-paper p-6 sm:p-8 shadow-card">
-                <h3 className="text-xl font-extrabold text-ink">{p.enquiry.formHeading}</h3>
+                <h3 className="text-xl font-bold text-ink">{p.enquiry.formHeading}</h3>
                 <p className="mt-2 text-sm text-ink-2 measure">{p.enquiry.formSub}</p>
                 <div className="mt-6"><EnquiryForm variant="recoating" /></div>
               </div>

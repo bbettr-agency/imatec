@@ -22,7 +22,7 @@ export function FinalCta({ index = "07" }: { index?: string }) {
               <p className="label text-brand-ink">{c.eyebrow}</p>
               <h2
                 id="final-cta-heading"
-                className="mt-3 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02] font-extrabold tracking-tight text-ink text-balance"
+                className="mt-3 text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02] font-semibold tracking-tight text-ink text-balance"
               >
                 {c.heading}
               </h2>

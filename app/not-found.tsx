@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="container">
         <div className="max-w-2xl py-10">
           <p className="label text-brand-ink">Error 404</p>
-          <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight text-ink">
             We couldn&apos;t find that page
           </h1>
           <p className="mt-4 text-ink-2 text-lg leading-relaxed measure">

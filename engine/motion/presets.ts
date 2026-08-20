@@ -17,7 +17,6 @@
 import {
   DISTANCE,
   EASE,
-  VIEWPORT,
   durationsFor,
   staggerDelay,
   type MotionCharacter,
@@ -41,23 +40,34 @@ export interface PresetOptions {
    * fired yet leaves content invisible on first paint.
    */
   eager?: boolean;
+  /**
+   * Reveal state, owned by <Reveal>. The animation is DRIVEN BY STATE, not by
+   * Motion's `whileInView`: <Reveal> flips this to `true` the instant the element
+   * is in view (or has been scrolled past, or after a layout shift), so content
+   * can never be stranded invisible by a missed IntersectionObserver callback.
+   */
+  shown?: boolean;
 }
 
-/** Motion props consumed by `m.*` elements. */
+/** Motion props consumed by `m.*` elements. State-driven: `initial` → `animate`. */
 export interface MotionProps {
   initial: Record<string, number>;
-  animate?: Record<string, number>;
-  whileInView?: Record<string, number>;
-  viewport?: typeof VIEWPORT;
+  animate: Record<string, number>;
   transition: { duration: number; delay?: number; ease?: typeof EASE };
 }
 
-/** Shared assembly: chooses mount vs scroll trigger and applies the reduced state. */
+/**
+ * Shared assembly. Reliability rule (SYSTEM/DESIGN-LANGUAGE/02-MOTION-SYSTEM §5):
+ * content must never depend on animation to be visible. The reveal is therefore
+ * state-driven — `animate` targets the hidden `from` state until <Reveal> sets
+ * `shown`, then the visible `to` state. No `whileInView`, so nothing waits on an
+ * observer that a fast scroll or slow device might skip.
+ */
 function build(
   from: Record<string, number>,
   to: Record<string, number>,
   duration: number,
-  { index = 0, delay = 0, reduced = false, eager = false, character }: PresetOptions,
+  { index = 0, delay = 0, reduced = false, eager = false, character, shown = false }: PresetOptions,
 ): MotionProps {
   if (reduced) {
     // Render in the final state, with no transition of any kind.
@@ -79,10 +89,10 @@ function build(
     // to a JavaScript failure, and to anything measuring LCP. Transform-only
     // entrances paint immediately and still read as an entrance.
     const { opacity: _dropped, ...visible } = from;
-    return { initial: visible, animate: to, transition };
+    return { initial: visible, animate: shown ? to : visible, transition };
   }
 
-  return { initial: from, whileInView: to, viewport: VIEWPORT, transition };
+  return { initial: from, animate: shown ? to : from, transition };
 }
 
 /**
