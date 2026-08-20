@@ -97,30 +97,40 @@
   .tick-rule::before { left: 0; }
   .tick-rule::after { right: 0; }
 
-  /* Brand rail — a slow, restrained text marquee (pure CSS, carries real content).
-     Permitted ambient loop per the Motion System: pauses on hover, reduced-motion
-     falls back to a static wrap, and edge masks avoid hard cuts. */
+  /* Brand rail — a slow, restrained logo marquee (pure CSS, real brand logos).
+     Permitted ambient loop per the Motion System: pauses on hover/focus, reduced-motion
+     falls back to a static centred wrap, and edge masks avoid hard cuts.
+     --rail-h sets the shared logo height; per-logo --s optically balances aspect ratios. */
   .brand-rail {
+    --rail-h: 1.6rem;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
   }
+  @media (min-width: 640px) { .brand-rail { --rail-h: 1.9rem; } }
+  @media (min-width: 1024px) { .brand-rail { --rail-h: 2.35rem; } }
   .brand-track {
     display: flex;
     align-items: center;
     width: max-content;
-    animation: brand-marquee 55s linear infinite;
+    animation: brand-marquee 60s linear infinite;
   }
   .brand-rail:hover .brand-track,
   .brand-rail:focus-within .brand-track {
     animation-play-state: paused;
   }
-  .brand-name::before {
-    content: "·";
-    margin: 0 0.95rem;
-    font-size: 0.55em;
-    vertical-align: middle;
-    font-weight: 400;
-    color: theme("colors.ink.muted");
+  /* Each item carries its own trailing space, so the duplicated set is perfectly
+     periodic and translateX(-50%) loops with no visible jump despite mixed widths. */
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding-right: clamp(2rem, 5vw, 3.5rem);
+  }
+  .brand-logo img {
+    display: block;
+    width: auto;
+    height: calc(var(--rail-h) * var(--s, 1));
+    object-fit: contain;
   }
 }
 
@@ -139,8 +149,8 @@
     transform: none;
     width: 100%;
     flex-wrap: wrap;
-    row-gap: 0.5rem;
+    justify-content: center;
+    row-gap: 1.5rem;
   }
   .brand-dup { display: none; }
-  .brand-name:first-child::before { display: none; }
 }

@@ -84,3 +84,22 @@ export const site = {
 } as const;
 
 export type Site = typeof site;
+
+/**
+ * Brand logos for the coverage rail (compatibility / product-support context only —
+ * not partnership or endorsement). Real transparent artwork in /public/images/brands/.
+ * `w`/`h` are intrinsic px (prevent CLS); `scale` optically balances differing aspect
+ * ratios against a shared rail height (square/compact marks scale down, thin wordmarks up).
+ * NOTE: Canon (a supported brand in `brands`) has no supplied logo yet — text/schema still
+ * list it; it is simply absent from the visual rail until a logo is provided.
+ */
+export const brandLogos = [
+  { slug: "ricoh", name: "Ricoh", w: 370, h: 136, scale: 1.0 },
+  { slug: "konica-minolta", name: "Konica Minolta", w: 366, h: 218, scale: 0.9 },
+  { slug: "kyocera", name: "Kyocera", w: 520, h: 113, scale: 1.0 },
+  { slug: "xerox", name: "Xerox", w: 520, h: 115, scale: 1.0 },
+  { slug: "hp", name: "HP", w: 520, h: 520, scale: 0.78 },
+  { slug: "sharp", name: "Sharp", w: 520, h: 84, scale: 0.9 },
+  { slug: "toshiba", name: "Toshiba", w: 390, h: 75, scale: 0.96 },
+  { slug: "lexmark", name: "Lexmark", w: 379, h: 90, scale: 1.02 },
+] as const;
