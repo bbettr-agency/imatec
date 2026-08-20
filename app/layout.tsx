@@ -19,7 +19,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "IMATEC — Fuser & Hot Roller Recoating & Parts",
+    default: "IMATEC · Fuser & Hot Roller Recoating & Parts",
     template: "%s · IMATEC",
   },
   description: site.descriptionShort,

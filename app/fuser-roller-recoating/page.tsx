@@ -267,7 +267,7 @@ export default function RecoatingPage() {
                 </div>
                 <div className="mt-8 border-t border-hair-strong pt-4">
                   <p className="label text-ink-muted">What to send</p>
-                  <p className="mt-2 text-sm text-ink-2">Brand · model · what the roller is doing — a photo helps.</p>
+                  <p className="mt-2 text-sm text-ink-2">Brand · model · what the roller is doing. A photo helps.</p>
                 </div>
               </Reveal>
             </div>

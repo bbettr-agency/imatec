@@ -47,7 +47,7 @@ export function RecoatingHero() {
             {...hero.lcp}
             className="mt-4 text-[2.3rem] leading-[1.05] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.03] font-bold tracking-[-0.03em] text-ink text-balance"
           >
-            {h.h1.lead} <span className="text-brand-ink">— {h.h1.accent}</span>
+            {h.h1.lead} <span className="text-brand-ink">{h.h1.accent}</span>
           </h1>
           <Reveal {...hero.step(0)}>
             <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed max-w-2xl">{h.sub}</p>

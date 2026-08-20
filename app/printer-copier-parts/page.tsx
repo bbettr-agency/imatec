@@ -30,7 +30,7 @@ export default function PartsPage() {
         title={p.hero.title}
         sub={p.hero.sub}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Printer Parts, Toner & Consumables", path: "/printer-copier-parts" }]}
-        image={{ src: "/images/printer-parts.jpg", alt: "A range of printer and copier parts — rollers, drums, fuser units and gears — laid out on a workshop surface" }}
+        image={{ src: "/images/printer-parts.jpg", alt: "A range of printer and copier parts (rollers, drums, fuser units and gears) laid out on a workshop surface" }}
         actions={<WhatsAppCta label="Request a Part" message="Hi IMATEC, I'm looking for a printer/copier part. Brand + model: " size="lg" dataCta="parts-hero" />}
       />
 
@@ -67,7 +67,7 @@ export default function PartsPage() {
             <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
               <Reveal>
                 <h2 id="parts-stock" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.categories.heading}</h2>
-                <p className="mt-4 text-ink-2 leading-relaxed measure">From the fuser to the feed path — the parts the trade orders most, plus toner and consumables.</p>
+                <p className="mt-4 text-ink-2 leading-relaxed measure">From the fuser to the feed path, the parts the trade orders most, plus toner and consumables.</p>
               </Reveal>
             </div>
             <div className="lg:col-span-8">

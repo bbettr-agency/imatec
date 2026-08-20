@@ -38,7 +38,7 @@ export const services: ServiceWorld[] = [
     name: "Fuser & Hot Roller Recoating",
     relationship: "Specialist service",
     summary:
-      "Recoat worn fuser and hot rollers — renewing the worn surface, a cost-effective alternative to replacing the component.",
+      "Recoat worn fuser and hot rollers by renewing the worn surface, a cost-effective alternative to replacing the component.",
     ctaLabel: "Enquire About Recoating",
     waMessage:
       "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",
@@ -53,13 +53,13 @@ export const services: ServiceWorld[] = [
     name: "Printer Parts, Toner & Consumables",
     relationship: "Trade supply",
     summary:
-      "Workshop-tested printer and copier parts, toner and consumables for nine major brands — supplied to the trade.",
+      "Workshop-tested printer and copier parts, toner and consumables for nine major brands, supplied to the trade.",
     ctaLabel: "Request a Part",
     waMessage:
       "Hi IMATEC, I'm looking for a printer/copier part. Brand + model: ",
     image: "/images/printer-parts.jpg",
     imageAlt:
-      "A range of printer and copier parts — rollers, drums, fuser units and gears — laid out on a workshop surface",
+      "A range of printer and copier parts (rollers, drums, fuser units and gears) laid out on a workshop surface",
     weight: 2,
   },
   {

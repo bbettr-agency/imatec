@@ -84,7 +84,7 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
     return (
       <div className="rounded-panel border border-brand/25 bg-brand-soft/60 p-8 text-center">
         <CheckCircle2 className="w-10 h-10 text-brand mx-auto" aria-hidden="true" />
-        <h3 className="mt-4 text-xl font-bold text-ink">Thank you — we&apos;ve got it</h3>
+        <h3 className="mt-4 text-xl font-bold text-ink">Thank you, we&apos;ve got it</h3>
         <p className="mt-2 text-ink-2 text-sm measure mx-auto">
           Your enquiry is with the IMATEC team. We&apos;ll be in touch shortly. Need us faster?{" "}
           <a className="text-brand-ink font-semibold" href={waLink()}>WhatsApp us</a>.
@@ -98,7 +98,7 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
       <div className="rounded-panel border border-hair bg-steel-soft p-8 text-center">
         <h3 className="text-xl font-bold text-ink">One tap to send</h3>
         <p className="mt-2 text-ink-2 text-sm measure mx-auto">
-          Send your enquiry straight to us on WhatsApp — we&apos;ve pre-filled the details for you.
+          Send your enquiry straight to us on WhatsApp. We&apos;ve pre-filled the details for you.
         </p>
         <a
           href={waHref}
@@ -165,7 +165,7 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
       {variant === "parts" && (
         <div>
           <label htmlFor="part" className={labelBase}>Brand, model &amp; part needed</label>
-          <input id="part" name="part" required className={inputBase} placeholder="e.g. Kyocera TASKalfa 3011i — pickup roller" />
+          <input id="part" name="part" required className={inputBase} placeholder="e.g. Kyocera TASKalfa 3011i, pickup roller" />
         </div>
       )}
 

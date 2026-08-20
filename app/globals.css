@@ -112,7 +112,7 @@
     display: flex;
     align-items: center;
     width: max-content;
-    animation: brand-marquee 60s linear infinite;
+    animation: brand-marquee 32s linear infinite;
   }
   .brand-rail:hover .brand-track,
   .brand-rail:focus-within .brand-track {

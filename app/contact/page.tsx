@@ -70,7 +70,7 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-brand-ink mt-0.5 shrink-0" aria-hidden="true" />
                     <div>
                       <p className="label text-ink-muted">Hours</p>
-                      <p className="text-ink-2 text-sm">Message us any time — we reply on WhatsApp in business hours.</p>
+                      <p className="text-ink-2 text-sm">Message us any time. We reply on WhatsApp in business hours.</p>
                     </div>
                   </li>
                 </ul>

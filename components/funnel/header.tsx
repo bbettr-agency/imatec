@@ -14,7 +14,7 @@ function Logo({ className }: { className?: string }) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/imatec-logo.svg"
-      alt="IMATEC — Imaging Technology"
+      alt="IMATEC Imaging Technology"
       width={140}
       height={59}
       className={cn("w-auto", className)}

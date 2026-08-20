@@ -25,7 +25,7 @@ export function buildMetadata({ title, description, path, ogImage }: PageMeta): 
       url,
       siteName: site.name,
       locale: "en_ZA",
-      images: [{ url: image, width: 1200, height: 630, alt: `${site.name} — ${title}` }],
+      images: [{ url: image, width: 1200, height: 630, alt: `${site.name}: ${title}` }],
     },
     twitter: {
       card: "summary_large_image",

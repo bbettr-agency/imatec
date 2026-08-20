@@ -12,7 +12,7 @@ export default function NotFound() {
             We couldn&apos;t find that page
           </h1>
           <p className="mt-4 text-ink-2 text-lg leading-relaxed measure">
-            The page may have moved. Head back home, or get in touch — we&apos;re happy to point you
+            The page may have moved. Head back home, or get in touch. We&apos;re happy to point you
             to the right place.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">

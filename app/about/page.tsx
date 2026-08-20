@@ -25,7 +25,7 @@ export default function AboutPage() {
         sub={p.hero.sub}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
         actions={<WhatsAppCta label="Talk to IMATEC" message="Hi IMATEC, I'd like to know more about your recoating and parts service." size="lg" dataCta="about-hero" />}
-        image={{ src: "/images/about-machines.jpg", alt: "Office multifunction printers and copiers from the major brands IMATEC works with — Ricoh, Konica Minolta, Canon, Xerox and HP", label: "The equipment we know", position: "center 40%" }}
+        image={{ src: "/images/about-machines.jpg", alt: "Office multifunction printers and copiers from the major brands IMATEC works with: Ricoh, Konica Minolta, Canon, Xerox and HP", label: "The equipment we know", position: "center 40%" }}
       />
 
       <BrandRailBand label="The brands IMATEC works across" />

@@ -19,7 +19,7 @@ export const metadata = buildMetadata({
 
 // Honest, copy-derived (not invented) — paraphrases of the story/forWho blocks.
 const principles = [
-  "Made by IMATEC — not a resold brand",
+  "Made by IMATEC, not a resold brand",
   "Built for the conditions technicians actually work in",
   "The same principle as our recoating: we know this equipment from the inside",
 ];
@@ -89,7 +89,7 @@ export default function VacuTecPage() {
               <Reveal preset="fadeUpItem">
                 <div className="rounded-panel border border-hair bg-steel-soft p-6 sm:p-7">
                   <p className="label text-brand-ink">Range · specs · pricing</p>
-                  <p className="mt-3 text-ink-2 text-sm leading-relaxed">Tell us how you service and we&apos;ll point you to the right unit in the current range — with specifications and pricing.</p>
+                  <p className="mt-3 text-ink-2 text-sm leading-relaxed">Tell us how you service and we&apos;ll point you to the right unit in the current range, with specifications and pricing.</p>
                   <div className="mt-5"><WhatsAppCta label="Ask about the range" message="Hi IMATEC, please tell me about the Vacu-Tec range, specs and pricing." size="lg" dataCta="vacutec-range" /></div>
                 </div>
               </Reveal>

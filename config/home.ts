@@ -14,10 +14,10 @@ export const home = {
   hero: {
     eyebrow: "Specialist fuser & hot roller recoating",
     h1: {
-      lead: "Recoat your fuser roller —",
+      lead: "Recoat your fuser roller",
       accent: "before you replace it.",
     },
-    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running — recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
+    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
     primaryCta: {
       label: "Enquire About Recoating",
       waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",
@@ -38,17 +38,17 @@ export const home = {
   worlds: {
     eyebrow: "One workshop, four capabilities",
     heading: "Everything the copier trade needs to keep running",
-    lede: "Recoating is our specialist service. Around it, we supply the parts, build the equipment and stock the products the office-automation trade relies on — each a different relationship, handled the right way.",
+    lede: "Recoating is our specialist service. Around it, we supply the parts, build the equipment and stock the products the office-automation trade relies on, each a different relationship handled the right way.",
   },
 
   wedge: {
     eyebrow: "Recoat vs replace",
     heading: "A worn roller doesn't always mean a new one",
-    lede: "When a fuser or hot roller wears, the default is to buy a new part — often imported, with the cost and the wait that come with it. Recoating restores the roller you already have.",
+    lede: "When a fuser or hot roller wears, the default is to buy a new part, often imported, with the cost and the wait that come with it. Recoating restores the roller you already have.",
     replace: {
       title: "Replace the part",
       points: [
-        "Buy a new roller — frequently imported",
+        "Buy a new roller, frequently imported",
         "Import lead time before the machine runs again",
         "The old roller core is scrapped",
       ],
@@ -65,29 +65,29 @@ export const home = {
     replaceWord: "Replace",
     recoatWord: "Recoat",
     // Honest: exact savings/turnaround depend on the roller — confirmed on enquiry.
-    note: "Exact cost, saving and turnaround depend on the roller and machine — we'll quote yours on enquiry.",
+    note: "Exact cost, saving and turnaround depend on the roller and machine. We'll quote yours on enquiry.",
     cta: { label: "Enquire About Recoating", waMessage: "Hi IMATEC, I'd like a recoating quote. My roller is from: " },
   },
 
   why: {
     eyebrow: "Why IMATEC",
     heading: "The specialist workshop behind the trade",
-    lede: "Three things set IMATEC apart from a parts catalogue — and each is something we actually do, not something we say.",
+    lede: "Three things set IMATEC apart from a parts catalogue, and each is something we actually do, not something we say.",
     pillars: [
       {
         title: "We recoat, not just replace",
-        proof: "Professional recoating of fuser and hot rollers — a specialist capability, not a line in a catalogue.",
+        proof: "Professional recoating of fuser and hot rollers: a specialist capability, not a line in a catalogue.",
         soWhat: "You get a real alternative to buying and importing a new component.",
       },
       {
         title: "We test before we supply",
-        proof: "We don't simply import parts — every product is checked in our own workshop before it becomes part of our range.",
+        proof: "We don't simply import parts. Every product is checked in our own workshop before it becomes part of our range.",
         soWhat: "The parts you order are vetted, not drop-shipped.",
       },
       {
         title: "We build our own equipment",
         proof: "Our Vacu-Tec service vacuums are designed and built by IMATEC for copier and printer technicians.",
-        soWhat: "It's proof we understand the machines — from the inside.",
+        soWhat: "It's proof we understand the machines from the inside.",
       },
     ],
   },
@@ -99,7 +99,7 @@ export const home = {
     // Customer-facing flow only — the internal technical process is NOT claimed here
     // (PENDING client confirmation). Mirrors the flagship recoating page for consistency.
     steps: [
-      { n: "01", title: "Send the details", desc: "Message us the brand, model and what's happening — a photo helps." },
+      { n: "01", title: "Send the details", desc: "Message us the brand, model and what's happening. A photo helps." },
       { n: "02", title: "We assess & quote", desc: "We confirm whether recoating is a candidate for your roller, and quote the work." },
       { n: "03", title: "Get the roller to us", desc: "We'll confirm the best way to get it to our Centurion workshop." },
       { n: "04", title: "We recoat it", desc: "Your roller is recoated in our own workshop." },
@@ -111,7 +111,7 @@ export const home = {
   coverage: {
     eyebrow: "Brand & parts coverage",
     heading: "Workshop-tested parts for nine major brands",
-    lede: "Printer and copier parts, toner and consumables — supplied to dealers, technicians and service providers across South Africa.",
+    lede: "Printer and copier parts, toner and consumables, supplied to dealers, technicians and service providers across South Africa.",
     brands: site.brands,
     cta: { label: "Request a Part", waMessage: "Hi IMATEC, I'm looking for a printer/copier part. Brand + model: " },
   },
@@ -119,7 +119,7 @@ export const home = {
   story: {
     eyebrow: "Three decades on the bench",
     heading: "The people who know this equipment",
-    body: "IMATEC has spent more than three decades in the office-automation industry — recoating rollers, sourcing and testing parts, and building the tools technicians use. It's specialist work, and it's why dealers and service providers keep coming back.",
+    body: "IMATEC has spent more than three decades in the office-automation industry, recoating rollers, sourcing and testing parts, and building the tools technicians use. It's specialist work, and it's why dealers and service providers keep coming back.",
     cta: { label: "About IMATEC", href: "/about" },
     // Real, verified/client-stated facts only — no fabricated proof or ratings.
     facts: [
@@ -136,11 +136,11 @@ export const home = {
     items: [
       {
         q: "What is fuser / hot roller recoating?",
-        a: "It's re-surfacing a worn fuser or hot roller — renewing the worn surface so the roller can keep running, instead of buying a whole new part.",
+        a: "It's re-surfacing a worn fuser or hot roller, renewing the worn surface so the roller can keep running instead of buying a whole new part.",
       },
       {
         q: "Is recoating better than replacing the roller?",
-        a: "It's a cost-effective alternative. Instead of buying a new part — often imported, with the lead time that adds — recoating restores the roller you already have. Whether it's the right call depends on the roller, and we'll advise you honestly.",
+        a: "It's a cost-effective alternative. Instead of buying a new part (often imported, with the lead time that adds), recoating restores the roller you already have. Whether it's the right call depends on the roller, and we'll advise you honestly.",
       },
       {
         q: "Which printer and copier brands do you support?",
@@ -152,7 +152,7 @@ export const home = {
       },
       {
         q: "Do you only recoat, or do you supply parts too?",
-        a: "Both. Alongside recoating we supply workshop-tested printer and copier parts, toner and consumables — plus our own Vacu-Tec service vacuums and Mr McKenic professional products.",
+        a: "Both. Alongside recoating we supply workshop-tested printer and copier parts, toner and consumables, plus our own Vacu-Tec service vacuums and Mr McKenic professional products.",
       },
     ],
   },
@@ -160,6 +160,6 @@ export const home = {
   finalCta: {
     eyebrow: "Tell us what you need",
     heading: "We already understand the equipment. Let's talk.",
-    sub: "Whether it's a roller to recoat, a part to source, or a product to order — reach us the fastest way for you.",
+    sub: "Whether it's a roller to recoat, a part to source, or a product to order, reach us the fastest way for you.",
   },
 } as const;
