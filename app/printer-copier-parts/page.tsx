@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { serviceJsonLd } from "@/lib/jsonld";
 import { Check } from "lucide-react";
@@ -69,17 +68,6 @@ export default function PartsPage() {
               <Reveal>
                 <h2 id="parts-stock" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.categories.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">From the fuser to the feed path, the parts the trade orders most, plus toner and consumables.</p>
-              </Reveal>
-              <Reveal preset="imageReveal">
-                <div className="mt-7 relative w-full aspect-[3/4] max-w-[20rem] overflow-hidden rounded-panel border border-hair bg-[#1b2128]">
-                  <Image
-                    src="/images/printer-exploded.jpg"
-                    alt="Exploded technical view of a copier/printer — panels, boards, ink tanks, carriage, rollers and chassis"
-                    fill
-                    sizes="(max-width:1024px) 90vw, 320px"
-                    className="object-contain"
-                  />
-                </div>
               </Reveal>
             </div>
             <div className="lg:col-span-8">
