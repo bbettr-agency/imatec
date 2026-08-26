@@ -41,9 +41,14 @@ export function Header() {
           : "bg-paper/80 backdrop-blur-sm border-b border-transparent",
       )}
     >
-      <div className="container flex items-center justify-between h-16 gap-4">
+      <div
+        className={cn(
+          "container flex items-center justify-between gap-4 transition-[height] duration-300 ease-bench",
+          scrolled || open ? "h-16" : "h-20 lg:h-[6.5rem]",
+        )}
+      >
         <Link href="/" aria-label="IMATEC home" className="shrink-0">
-          <Logo className="h-7" />
+          <Logo className={cn("w-auto transition-[height] duration-300 ease-bench", scrolled || open ? "h-8" : "h-11 lg:h-14")} />
         </Link>
 
         {/* Desktop nav */}

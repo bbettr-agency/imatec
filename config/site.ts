@@ -27,7 +27,7 @@ export const site = {
   /** Client's own tagline (company profile). */
   tagline: "Engineering better print solutions for Africa",
   descriptionShort:
-    "Specialist fuser & hot roller recoating for Africa's office-automation industry, plus workshop-tested printer & copier parts, consumables and service equipment.",
+    "Specialist fuser / hot roller coating for Africa's office-automation industry, plus workshop-tested printer & copier parts, consumables and service equipment.",
 
   url: SITE_URL,
 
@@ -90,10 +90,11 @@ export type Site = typeof site;
  * not partnership or endorsement). Real transparent artwork in /public/images/brands/.
  * `w`/`h` are intrinsic px (prevent CLS); `scale` optically balances differing aspect
  * ratios against a shared rail height (square/compact marks scale down, thin wordmarks up).
- * All nine supported brands are represented.
+ * Compatibility / product-support context only.
  */
 export const brandLogos = [
   { slug: "ricoh", name: "Ricoh", w: 370, h: 136, scale: 1.0 },
+  { slug: "nashua", name: "Nashua", w: 470, h: 51, scale: 0.86 },
   { slug: "canon", name: "Canon", w: 300, h: 72, scale: 0.98 },
   { slug: "konica-minolta", name: "Konica Minolta", w: 366, h: 218, scale: 0.9 },
   { slug: "kyocera", name: "Kyocera", w: 520, h: 113, scale: 1.0 },

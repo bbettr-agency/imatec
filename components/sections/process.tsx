@@ -11,7 +11,7 @@ export function Process() {
   return (
     <section className="section bg-paper" id="process" aria-labelledby="process-heading">
       <div className="container">
-        <SectionMark index="05" label="How recoating works" spec="Workshop route" />
+        <SectionMark index="04" label="How recoating works" spec="Workshop route" />
 
         <div className="mt-10 grid gap-x-14 gap-y-10 lg:grid-cols-12">
           {/* Intro */}

@@ -9,7 +9,7 @@
 
 export type Relationship =
   | "Specialist service"
-  | "IMATEC-built product"
+  | "IMATEC product"
   | "Trade supply"
   | "Supplied brand";
 
@@ -35,13 +35,13 @@ export const services: ServiceWorld[] = [
   {
     slug: "fuser-roller-recoating",
     nav: "Recoating",
-    name: "Fuser & Hot Roller Recoating",
+    name: "Fuser / Hot Roller Coating",
     relationship: "Specialist service",
     summary:
       "Recoat worn fuser and hot rollers by renewing the worn surface, a cost-effective alternative to replacing the component.",
     ctaLabel: "Enquire About Recoating",
     waMessage:
-      "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",
+      "Hi IMATEC, I'd like to enquire about fuser / hot roller coating.",
     image: "/images/recoated-roller-bench.jpg",
     imageAlt:
       "A recoated black fuser roller mounted in a lathe on the IMATEC workshop bench",
@@ -53,7 +53,7 @@ export const services: ServiceWorld[] = [
     name: "Printer Parts, Toner & Consumables",
     relationship: "Trade supply",
     summary:
-      "Workshop-tested printer and copier parts, toner and consumables for nine major brands, supplied to the trade.",
+      "Workshop-tested printer and copier parts, toner and consumables for all brands, supplied to the trade.",
     ctaLabel: "Request a Part",
     waMessage:
       "Hi IMATEC, I'm looking for a printer/copier part. Brand + model: ",
@@ -66,9 +66,9 @@ export const services: ServiceWorld[] = [
     slug: "vacu-tec",
     nav: "Vacu-Tec",
     name: "Vacu-Tec Service Vacuums",
-    relationship: "IMATEC-built product",
+    relationship: "IMATEC product",
     summary:
-      "Our own service vacuum cleaners, built by IMATEC and designed specifically for copier and printer technicians.",
+      "Our Vacu-Tec service vacuum cleaners, designed specifically for copier and printer technicians.",
     ctaLabel: "Enquire About Vacu-Tec",
     waMessage: "Hi IMATEC, I'd like to enquire about a Vacu-Tec service vacuum.",
     image: "/images/vacu-tec.jpg",

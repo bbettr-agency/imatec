@@ -9,7 +9,7 @@ import { pages, RECOATING_WA } from "@/config/pages";
 
 const breadcrumb = [
   { name: "Home", path: "/" },
-  { name: "Fuser & Hot Roller Recoating", path: "/fuser-roller-recoating" },
+  { name: "Fuser / Hot Roller Coating", path: "/fuser-roller-recoating" },
 ];
 
 /**

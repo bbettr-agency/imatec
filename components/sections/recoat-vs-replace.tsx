@@ -1,4 +1,4 @@
-import { Check, Minus } from "lucide-react";
+import { Minus, Recycle } from "lucide-react";
 import { Reveal } from "@/engine/motion";
 import { SectionMark } from "@/components/ui/section-mark";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
@@ -9,7 +9,7 @@ export function RecoatVsReplace() {
   return (
     <section className="section bg-paper" aria-labelledby="wedge-heading">
       <div className="container">
-        <SectionMark index="03" label="Recoat vs replace" spec="The decision" />
+        <SectionMark index="02" label="Recoat vs replace" spec="The decision" />
 
         <div className="mt-8 max-w-3xl">
           <Reveal>
@@ -57,12 +57,15 @@ export function RecoatVsReplace() {
               <p className="mt-3 text-[2.75rem] sm:text-6xl font-extrabold tracking-[-0.03em] text-ink leading-none">
                 {w.recoatWord}<span className="text-brand">.</span>
               </p>
-              <span className="mt-4 block h-1 w-16 rounded-full bg-brand" aria-hidden="true" />
+              <p className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-brand-ink">
+                <Recycle className="w-4 h-4" aria-hidden="true" />
+                Reuse. Recoat. Recycle.
+              </p>
               <h3 className="mt-5 text-base font-bold text-ink">{w.recoat.title}</h3>
               <ul className="mt-4 space-y-3">
                 {w.recoat.points.map((p) => (
                   <li key={p} className="flex items-start gap-3 text-sm text-ink">
-                    <Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />
+                    <Recycle className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />
                     {p}
                   </li>
                 ))}
@@ -75,7 +78,7 @@ export function RecoatVsReplace() {
         </Reveal>
 
         <Reveal>
-          <p className="mt-8 text-sm text-ink-muted italic max-w-2xl">{w.note}</p>
+          <p className="mt-10 text-sm text-ink-muted italic text-center max-w-2xl mx-auto">{w.note}</p>
         </Reveal>
       </div>
     </section>

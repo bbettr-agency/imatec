@@ -61,6 +61,28 @@ export default function RecoatingPage() {
         </div>
       </section>
 
+      {/* Technical object — the roller assembly, exploded */}
+      <section className="bg-ground overflow-hidden">
+        <div className="container py-12 md:py-16">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <Reveal className="lg:col-span-4">
+              <p className="label text-brand-ink">The roller, in detail</p>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-ink text-balance">A precision component, not a throwaway part</h2>
+              <p className="mt-3 text-sm md:text-base text-ink-2 leading-relaxed measure">A fuser roller is a machined shaft, bearings and seals beneath its working surface. Recoating renews that surface, so the whole component keeps running instead of being replaced.</p>
+            </Reveal>
+            <Reveal preset="imageReveal" className="lg:col-span-8 relative h-[13rem] sm:h-[17rem] lg:h-[20rem]">
+              <Image
+                src="/images/roller-exploded.png"
+                alt="Exploded technical view of a fuser roller — the shaft, bearings, seals and roller body separated along the axis"
+                fill
+                sizes="(max-width:1024px) 100vw, 60vw"
+                className="object-contain object-center lg:object-right"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* 02 — Recoat vs replace (the bridge) */}
       <section className="section bg-ground" aria-labelledby="wedge-heading">
         <div className="container">

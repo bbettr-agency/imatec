@@ -19,8 +19,8 @@ export const metadata = buildMetadata({
 
 // Honest, copy-derived (not invented) — paraphrases of the story/forWho blocks.
 const principles = [
-  "Made by IMATEC, not a resold brand",
-  "Built for the conditions technicians actually work in",
+  "Part of the IMATEC service range",
+  "Designed for the conditions technicians actually work in",
   "The same principle as our recoating: we know this equipment from the inside",
 ];
 const forWho = ["Copier & printer technicians", "Dealers", "Service providers"];
@@ -35,16 +35,16 @@ export default function VacuTecPage() {
         title={p.hero.title}
         sub={p.hero.sub}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Vacu-Tec", path: "/vacu-tec" }]}
-        image={{ src: "/images/vacu-tec.jpg", alt: "The IMATEC Vacu-Tec service vacuum cleaner with hose and collection tray", label: "Built by IMATEC" }}
+        image={{ src: "/images/vacu-tec.jpg", alt: "The IMATEC Vacu-Tec service vacuum cleaner with hose and collection tray", label: "IMATEC Vacu-Tec" }}
         actions={<WhatsAppCta label="Enquire About Vacu-Tec" message="Hi IMATEC, I'd like to enquire about a Vacu-Tec service vacuum." size="lg" dataCta="vacutec-hero" />}
       />
 
       <BrandRailBand label="Built for the major office-automation brands" />
 
-      {/* 01 — Built by IMATEC */}
+      {/* 01 — The Vacu-Tec range */}
       <section className="section bg-ground" aria-labelledby="vt-story">
         <div className="container">
-          <SectionMark index="01" label={p.story.eyebrow} spec="Own product" />
+          <SectionMark index="01" label={p.story.eyebrow} spec="Service equipment" />
           <div className="mt-9 grid gap-x-14 gap-y-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Reveal>

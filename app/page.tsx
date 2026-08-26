@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import { Hero } from "@/components/sections/hero";
-import { FourWorlds } from "@/components/sections/four-worlds";
 import { RecoatVsReplace } from "@/components/sections/recoat-vs-replace";
 import { WhyImatec } from "@/components/sections/why-imatec";
 import { Process } from "@/components/sections/process";
@@ -11,7 +10,7 @@ import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata = buildMetadata({
-  title: "Fuser & Hot Roller Recoating & Printer Parts",
+  title: "Fuser / Hot Roller Coating & Printer Parts",
   description:
     "IMATEC recoats worn fuser & hot rollers instead of replacing them, and supplies workshop-tested printer & copier parts and consumables to the SA trade.",
   path: "/",
@@ -21,19 +20,16 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* Brand & parts coverage sits directly below the hero as an early
-          credibility band — immediate evidence of the brands IMATEC supports. */}
+      {/* Merged: brand & parts coverage (left) + capability index (right). */}
       <Coverage index="01" />
-      <FourWorlds />
       <RecoatVsReplace />
       <WhyImatec />
       <Process />
       <Story />
       <Faq />
-      {/* A deliberate compact repeat of the brand motif — brand reassurance
-          immediately before the conversion band. */}
+      {/* A deliberate compact repeat of the brand motif before conversion. */}
       <BrandRailBand label="One workshop, every major brand" />
-      <FinalCta />
+      <FinalCta index="06" showMap />
     </>
   );
 }

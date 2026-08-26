@@ -12,7 +12,7 @@ import { site } from "./site";
 
 export const home = {
   hero: {
-    eyebrow: "Specialist fuser & hot roller recoating",
+    eyebrow: "Specialist fuser / hot roller coating",
     h1: {
       lead: "Recoat your fuser roller",
       accent: "before you replace it.",
@@ -20,25 +20,17 @@ export const home = {
     sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
     primaryCta: {
       label: "Enquire About Recoating",
-      waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller recoating.",
+      waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller coating.",
     },
     secondaryCta: { label: "See how recoating works", href: "/fuser-roller-recoating#how" },
     reassurance: "Send us your roller · No-obligation quote · We reply on WhatsApp",
-    // ≤3 hero proof items, all verified / client-stated. No fabricated ratings.
-    trust: [
-      { strong: `${site.yearsExperience} years`, rest: "in office automation" },
-      { strong: "9 brands supported", rest: "Ricoh · Canon · Konica Minolta · Kyocera · Xerox · HP · Sharp · Toshiba · Lexmark" },
-      { strong: "Workshop-tested", rest: "every part checked before we supply it" },
-    ],
-    // The authentic recoated-roller object, presented with a technical spec label.
-    objectLabel: "FR · Recoated roller",
-    objectDims: ["Surface renewed", "Core kept"],
+    // Brand slogan for the hero — the circular-economy value of recoating.
+    slogan: ["Reuse", "Recoat", "Recycle"],
   },
 
   worlds: {
     eyebrow: "One workshop, four capabilities",
     heading: "Everything the copier trade needs to keep running",
-    lede: "Recoating is our specialist service. Around it, we supply the parts, build the equipment and stock the products the office-automation trade relies on, each a different relationship handled the right way.",
   },
 
   wedge: {
@@ -85,8 +77,8 @@ export const home = {
         soWhat: "The parts you order are vetted, not drop-shipped.",
       },
       {
-        title: "We build our own equipment",
-        proof: "Our Vacu-Tec service vacuums are designed and built by IMATEC for copier and printer technicians.",
+        title: "Service equipment for the trade",
+        proof: "Our Vacu-Tec service vacuums are designed for copier and printer technicians.",
         soWhat: "It's proof we understand the machines from the inside.",
       },
     ],
@@ -110,7 +102,7 @@ export const home = {
 
   coverage: {
     eyebrow: "Brand & parts coverage",
-    heading: "Workshop-tested parts for nine major brands",
+    heading: "Workshop-tested parts for all brands",
     lede: "Printer and copier parts, toner and consumables, supplied to dealers, technicians and service providers across South Africa.",
     brands: site.brands,
     cta: { label: "Request a Part", waMessage: "Hi IMATEC, I'm looking for a printer/copier part. Brand + model: " },
@@ -119,14 +111,13 @@ export const home = {
   story: {
     eyebrow: "Three decades on the bench",
     heading: "The people who know this equipment",
-    body: "IMATEC has spent more than three decades in the office-automation industry, recoating rollers, sourcing and testing parts, and building the tools technicians use. It's specialist work, and it's why dealers and service providers keep coming back.",
+    body: "IMATEC has spent more than three decades in the office-automation industry, recoating rollers, sourcing and testing parts, and supplying the service equipment technicians rely on. It's specialist work, and it's why dealers and service providers keep coming back.",
     cta: { label: "About IMATEC", href: "/about" },
     // Real, verified/client-stated facts only — no fabricated proof or ratings.
     facts: [
       { value: "30+", label: "Years in office automation" },
-      { value: "9", label: "Major brands supported" },
-      { value: "Own-built", label: "Vacu-Tec service equipment" },
       { value: "Tested", label: "Every part, in our own workshop" },
+      { value: "Nationwide", label: "Serving the SA trade" },
     ],
   },
 
@@ -160,6 +151,6 @@ export const home = {
   finalCta: {
     eyebrow: "Tell us what you need",
     heading: "We already understand the equipment. Let's talk.",
-    sub: "Whether it's a roller to recoat, a part to source, or a product to order, reach us the fastest way for you.",
+    sub: "Whether you need a roller recoated, a replacement part sourced, or a specific product supplied, our team is ready to assist.",
   },
 } as const;

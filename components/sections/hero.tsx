@@ -1,82 +1,76 @@
-import Image from "next/image";
 import { Reveal, heroStack } from "@/engine/motion";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
 import { Button } from "@/components/ui/button";
+import { BrandRail } from "@/components/sections/brand-rail";
 import { home } from "@/config/home";
 
 /**
- * Hero — full-background workshop photograph with centred content.
- * The recoated-roller photo IS the hero background (edge to edge, full height).
- * The site stays light-first; over a genuinely dark workshop image, legible light
- * type on a soft charcoal-tinted gradient is the honest, premium treatment — no
- * white box, no flat black overlay, the photograph stays visible and authentic.
- * LCP = H1 (never animated); the photo settles by scale only (imageReveal),
- * preserving its priority preload.
+ * Hero — client-approved direction. Light-first: the supplied roller/blue artwork
+ * is the background (a different asset per aspect ratio, desktop vs mobile), copy
+ * sits on the clean side, and the moving brand rail runs full-width beneath it.
+ * REUSE · RECOAT · RECYCLE carries the brand message. LCP = H1 (never animated).
  */
 export function Hero() {
   const hero = heroStack({ character: "precise" });
   const h = home.hero;
+  const [reuse, recoat, recycle] = h.slogan;
 
   return (
-    <section className="relative overflow-hidden flex items-center min-h-[36rem] sm:min-h-[40rem] lg:min-h-[44rem]">
-      {/* Full-bleed background photograph */}
-      <div className="absolute inset-0 z-0">
-        <Reveal preset="imageReveal" eager className="absolute inset-0">
-          <Image
-            src="/images/recoated-roller-bench.jpg"
-            alt="A recoated black fuser roller mounted in the lathe on the IMATEC workshop bench"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[50%_46%] sm:object-[50%_44%] lg:object-[50%_40%]"
-          />
-        </Reveal>
-        {/* Soft charcoal-tinted scrim for legibility — top stays clearer so the
-            workshop reads; a gentle centre focus supports the copy. Not a flat box. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1319]/40 via-[#0f1319]/44 to-[#0b0e13]/64" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_60%_at_50%_50%,rgba(8,11,15,0.42),transparent_72%)]" aria-hidden="true" />
+    <section className="relative overflow-hidden bg-paper">
+      {/* Background artwork — mobile (roller/blue bottom) and desktop (roller/blue right).
+          CSS backgrounds so only the matching asset loads at each breakpoint. */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-bottom bg-[url('/images/hero-bg-mobile.jpg')] sm:bg-right sm:bg-[url('/images/hero-bg-desktop.jpg')]"
+        aria-hidden="true"
+      >
+        {/* Readability lift on the copy side — white on the left (desktop) / top (mobile) */}
+        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-paper from-25% via-paper/80 via-55% to-transparent to-75%" aria-hidden="true" />
+        <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-paper from-30% via-paper/85 via-60% to-transparent to-88%" aria-hidden="true" />
       </div>
 
-      {/* Centred content */}
-      <div className="container relative z-10 py-16 sm:py-20 text-center">
-        <div className="mx-auto max-w-3xl">
-          <p className="label text-[#cfe4fe] [text-shadow:0_1px_12px_rgba(6,9,13,0.6)]">{h.eyebrow}</p>
+      {/* Copy */}
+      <div className="container relative z-10 flex flex-col justify-center min-h-[32rem] sm:min-h-[35rem] lg:min-h-[39rem] pt-10 pb-12 sm:py-16 lg:py-20">
+        <div className="max-w-xl">
+          <p className="label text-brand-ink">{h.eyebrow}</p>
 
           <h1
             {...hero.lcp}
-            className="mt-5 text-[2.35rem] leading-[1.06] sm:text-[3rem] lg:text-[3.6rem] lg:leading-[1.04] font-bold tracking-[-0.025em] text-white text-balance [text-shadow:0_1px_24px_rgba(6,9,13,0.35)]"
+            className="mt-4 text-[2.3rem] leading-[1.05] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.04] font-bold tracking-tight text-ink text-balance"
           >
-            {h.h1.lead} <span className="text-[#7cc0ff]">{h.h1.accent}</span>
+            {h.h1.lead} <span className="text-brand-ink">{h.h1.accent}</span>
           </h1>
 
           <Reveal {...hero.step(0)}>
-            <p className="mt-6 mx-auto max-w-2xl text-white/90 text-base md:text-lg leading-relaxed [text-shadow:0_1px_16px_rgba(6,9,13,0.5)]">
-              {h.sub}
+            <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{h.sub}</p>
+          </Reveal>
+
+          {/* REUSE · RECOAT · RECYCLE — brand statement, not cards */}
+          <Reveal {...hero.step(1)}>
+            <p className="mt-6 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-lg sm:text-xl font-bold uppercase tracking-[0.06em] text-ink">
+              <span>{reuse}</span>
+              <span className="text-brand/50" aria-hidden="true">·</span>
+              <span className="text-brand-ink">{recoat}</span>
+              <span className="text-brand/50" aria-hidden="true">·</span>
+              <span>{recycle}</span>
             </p>
           </Reveal>
 
-          <Reveal {...hero.step(1)}>
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3">
+          <Reveal {...hero.step(2)}>
+            <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
               <WhatsAppCta label={h.primaryCta.label} message={h.primaryCta.waMessage} size="lg" dataCta="hero-recoating" />
-              <Button
-                href={h.secondaryCta.href}
-                variant="ghost"
-                size="lg"
-                dataCta="hero-process"
-                className="bg-white/5 text-white border-white/40 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/70"
-              >
+              <Button href={h.secondaryCta.href} variant="ghost" size="lg" dataCta="hero-process">
                 {h.secondaryCta.label}
               </Button>
             </div>
-            <p className="mt-4 label !tracking-[0.06em] normal-case text-white/70">{h.reassurance}</p>
+            <p className="mt-3.5 label !tracking-[0.06em] normal-case text-ink-muted">{h.reassurance}</p>
           </Reveal>
         </div>
       </div>
 
-      {/* Technical datum chip on the roller */}
-      <span className="absolute right-4 bottom-4 lg:right-8 lg:bottom-8 label !text-[0.6rem] !tracking-[0.12em] text-white/85 bg-black/25 backdrop-blur-sm border border-white/25 rounded-md px-2.5 py-1.5">
-        {h.objectLabel}
-      </span>
+      {/* Full-width moving brand rail — logo presence spans the whole composition */}
+      <div className="relative z-10 bg-paper/85 backdrop-blur-sm">
+        <BrandRail />
+      </div>
     </section>
   );
 }

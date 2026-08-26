@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { serviceJsonLd } from "@/lib/jsonld";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
-import { Coverage } from "@/components/sections/coverage";
+import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionMark } from "@/components/ui/section-mark";
 import { Reveal } from "@/engine/motion";
@@ -69,6 +70,17 @@ export default function PartsPage() {
                 <h2 id="parts-stock" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.categories.heading}</h2>
                 <p className="mt-4 text-ink-2 leading-relaxed measure">From the fuser to the feed path, the parts the trade orders most, plus toner and consumables.</p>
               </Reveal>
+              <Reveal preset="imageReveal">
+                <div className="mt-7 relative w-full aspect-[3/4] max-w-[20rem] overflow-hidden rounded-panel border border-hair bg-[#1b2128]">
+                  <Image
+                    src="/images/printer-exploded.jpg"
+                    alt="Exploded technical view of a copier/printer — panels, boards, ink tanks, carriage, rollers and chassis"
+                    fill
+                    sizes="(max-width:1024px) 90vw, 320px"
+                    className="object-contain"
+                  />
+                </div>
+              </Reveal>
             </div>
             <div className="lg:col-span-8">
               <Reveal>
@@ -86,9 +98,9 @@ export default function PartsPage() {
         </div>
       </section>
 
-      <Coverage index="03" />
+      <BrandRailBand label="Parts & support across the major brands" />
 
-      <FinalCta index="04" />
+      <FinalCta index="03" />
     </>
   );
 }

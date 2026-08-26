@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/engine/motion";
+import { Reveal, CountUp } from "@/engine/motion";
 import { SectionMark } from "@/components/ui/section-mark";
 import { home } from "@/config/home";
 
@@ -9,13 +9,13 @@ export function Story() {
   return (
     <section className="section bg-paper" aria-labelledby="story-heading">
       <div className="container">
-        <SectionMark index="06" label="Three decades on the bench" spec="Office automation" />
+        <SectionMark index="05" label="Three decades on the bench" spec="Office automation" />
 
         <div className="mt-8 grid gap-x-14 gap-y-8 lg:grid-cols-12 lg:items-center">
           {/* Monumental numeral */}
           <Reveal className="lg:col-span-5">
             <p className="font-extrabold tracking-[-0.05em] leading-[0.78] text-ink text-[6.5rem] sm:text-[9rem] lg:text-[12rem]">
-              30<span className="text-brand align-top text-[0.42em]">+</span>
+              <CountUp value={30} durationMs={1100} /><span className="text-brand align-top text-[0.42em]" aria-hidden="true">+</span>
             </p>
             <p className="label text-ink-muted mt-1">Years in office automation</p>
           </Reveal>

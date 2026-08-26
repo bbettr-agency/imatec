@@ -14,14 +14,14 @@ export const RECOATING_WA =
 export const pages = {
   recoating: {
     seo: {
-      title: "Fuser & Hot Roller Recoating",
+      title: "Fuser / Hot Roller Coating",
       description:
-        "Specialist fuser & hot roller recoating: recoat a worn roller instead of replacing it. IMATEC, Centurion; nationwide for the SA office-automation trade.",
+        "Specialist fuser / hot roller coating: recoat a worn roller instead of replacing it. IMATEC, Centurion; nationwide for the SA office-automation trade.",
     },
     hero: {
       eyebrow: "Specialist service · office automation",
       // H1 keeps the exact primary keyword; the accent carries the commercial bridge (no "to spec" claim).
-      h1: { lead: "Fuser & hot roller recoating", accent: "before you replace the part." },
+      h1: { lead: "Fuser / hot roller coating", accent: "before you replace the part." },
       sub: `Worn or damaged fuser or hot roller? Before you automatically buy (and import) a new part, talk to IMATEC about recoating the one you already have. It's the specialist service we've built over ${site.yearsExperience} years.`,
       components: ["Fuser rollers", "Hot rollers", "Pressure rollers"],
       primaryCta: { label: "Ask About Your Fuser Roller" },
@@ -163,7 +163,7 @@ export const pages = {
     hero: {
       eyebrow: "Trade supply",
       title: "Printer parts, toner & consumables",
-      sub: "Quality printer and copier parts, toner and consumables for nine major brands, sourced from trusted manufacturers and tested in our own workshop before we supply them.",
+      sub: "Quality printer and copier parts, toner and consumables for all brands, sourced from trusted manufacturers and tested in our own workshop before we supply them.",
     },
     approach: {
       eyebrow: "How we supply",
@@ -188,23 +188,23 @@ export const pages = {
     seo: {
       title: "Vacu-Tec Service Vacuums",
       description:
-        "Vacu-Tec: service vacuum cleaners built by IMATEC for copier & printer technicians. Purpose-designed for professional servicing and maintenance.",
+        "Vacu-Tec service vacuum cleaners for copier & printer technicians, designed for professional servicing and maintenance.",
     },
     hero: {
-      eyebrow: "IMATEC-built product",
+      eyebrow: "Service equipment",
       title: "Vacu-Tec service vacuums",
-      sub: "Our own range of service vacuum cleaners, designed and built by IMATEC specifically for copier and printer technicians. Not a resold brand: a product we make.",
+      sub: "The Vacu-Tec range of service vacuum cleaners, designed for copier and printer technicians.",
     },
     story: {
-      eyebrow: "Built by IMATEC",
+      eyebrow: "The Vacu-Tec range",
       heading: "A service vacuum made by people who service the machines",
-      body: "Vacu-Tec comes from three decades on the bench. We build these vacuums for the real conditions technicians work in: professional servicing and maintenance across the office-automation industry. It's the same principle as our recoating: we understand this equipment from the inside.",
+      body: "Vacu-Tec comes from three decades on the bench. These vacuums are designed for the real conditions technicians work in: professional servicing and maintenance across the office-automation industry. It's the same principle as our recoating: we understand this equipment from the inside.",
     },
     // Specs PENDING client confirmation.
     forWho: {
       eyebrow: "Who it's for",
       heading: "For the office-automation trade",
-      body: "Copier and printer technicians, dealers and service providers who need a service vacuum built for the job. Ask us about the current range, specifications and pricing.",
+      body: "Copier and printer technicians, dealers and service providers who need a service vacuum suited to the job. Ask us about the current range, specifications and pricing.",
     },
   },
 
@@ -241,7 +241,7 @@ export const pages = {
     seo: {
       title: "About",
       description:
-        "IMATEC, 30+ years in office automation: fuser & hot roller recoating, workshop-tested parts, and equipment we build ourselves. Centurion, SA.",
+        "IMATEC, 30+ years in office automation: fuser / hot roller coating, workshop-tested parts and service equipment. Centurion, SA.",
     },
     hero: {
       eyebrow: "About IMATEC",
@@ -254,7 +254,7 @@ export const pages = {
       // Honest, built from the company profile; founding-year PENDING.
       paragraphs: [
         "Office automation is a technical, unforgiving industry. Machines change, parts get harder to find, and the margin for error on a component like a fuser roller is small. IMATEC has lasted more than 30 years in it by being genuinely specialist, not a catalogue reseller but a workshop.",
-        "We recoat fuser and hot rollers, restoring the part instead of replacing it. We source parts from trusted manufacturers and test every one in our own workshop before we supply it. And we build our own service equipment, the Vacu-Tec range, for the technicians who do this work every day.",
+        "We recoat fuser and hot rollers, restoring the part instead of replacing it. We source parts from trusted manufacturers and test every one in our own workshop before we supply it. And we supply the Vacu-Tec range of service equipment for the technicians who do this work every day.",
         "It's that combination of specialist capability, tested supply and real engineering that dealers, technicians and service providers across South Africa rely on.",
       ],
     },
@@ -264,7 +264,7 @@ export const pages = {
       items: [
         { title: "We recoat, not just replace", body: "Professional recoating of fuser and hot rollers: a specialist capability." },
         { title: "We test before we supply", body: "Every part is checked in our own workshop before it reaches you." },
-        { title: "We build our own equipment", body: "The Vacu-Tec range is designed and built by IMATEC for the trade." },
+        { title: "Service equipment for the trade", body: "We supply the Vacu-Tec range of service vacuums, designed for the technicians who service these machines." },
       ],
     },
   },

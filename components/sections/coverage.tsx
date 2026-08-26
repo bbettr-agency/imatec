@@ -1,37 +1,95 @@
-import { Reveal } from "@/engine/motion";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Reveal, Stagger } from "@/engine/motion";
 import { SectionMark } from "@/components/ui/section-mark";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
-import { BrandRail } from "@/components/sections/brand-rail";
+import { serviceBySlug } from "@/config/services";
 import { home } from "@/config/home";
 
-/** `index` lets a host page number this section in its own local datum sequence
- *  (default "05" is the homepage position). */
-export function Coverage({ index = "05" }: { index?: string }) {
+function LeadRow({ slug }: { slug: string }) {
+  const s = serviceBySlug(slug)!;
+  return (
+    <Link href={`/${s.slug}`} className="group block pb-7 focus-visible:outline-offset-4">
+      <div className="flex items-center gap-3">
+        <span className="label text-brand-ink">{s.relationship}</span>
+        <span className="h-px flex-1 bg-hair" aria-hidden="true" />
+        <ArrowUpRight className="w-5 h-5 text-brand-ink transition-transform duration-200 ease-bench group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+      </div>
+      <h3 className="mt-3 text-[1.55rem] sm:text-3xl font-bold tracking-tight text-ink transition-colors group-hover:text-brand-ink">
+        {s.name}
+      </h3>
+      <p className="mt-2.5 text-ink-2 leading-relaxed max-w-xl">{s.summary}</p>
+    </Link>
+  );
+}
+
+function IndexRow({ slug }: { slug: string }) {
+  const s = serviceBySlug(slug)!;
+  return (
+    <Link
+      href={`/${s.slug}`}
+      className="group grid grid-cols-[5rem_1fr_auto] sm:grid-cols-[7rem_1fr_auto] items-center gap-4 sm:gap-6 py-6 focus-visible:outline-offset-4"
+    >
+      <div className="relative aspect-[7/5] w-full overflow-hidden rounded-md bg-steel-soft">
+        <Image
+          src={s.image}
+          alt={s.imageAlt}
+          fill
+          sizes="112px"
+          className="object-cover transition-transform duration-300 ease-bench group-hover:scale-105"
+        />
+      </div>
+      <div className="min-w-0">
+        <span className="label !text-[0.58rem] text-ink-muted">{s.relationship}</span>
+        <h3 className="mt-1 text-lg font-bold text-ink transition-colors group-hover:text-brand-ink">{s.name}</h3>
+        <p className="mt-1 text-sm text-ink-2 leading-snug max-w-md">{s.summary}</p>
+      </div>
+      <ArrowRight className="w-5 h-5 text-brand-ink shrink-0 transition-transform duration-200 ease-bench group-hover:translate-x-1" aria-hidden="true" />
+    </Link>
+  );
+}
+
+/**
+ * Merged section — brand & parts coverage (left) sits alongside the capability
+ * index (right) as one editorial composition. The full-width brand rail lives in
+ * the hero above; here the two ideas read together, not as two separate sections.
+ */
+export function Coverage({ index = "01" }: { index?: string }) {
   const c = home.coverage;
   return (
-    <section className="bg-paper py-11 md:py-14" aria-labelledby="coverage-heading">
+    <section className="section bg-paper" aria-labelledby="coverage-heading">
       <div className="container">
-        <SectionMark index={index} label="Brand & parts coverage" spec="9 brands" />
+        <SectionMark index={index} label="What we do & supply" spec="Parts & capabilities" />
 
-        <div className="mt-7 grid gap-x-14 gap-y-5 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
+        <div className="mt-9 grid gap-x-14 gap-y-10 lg:grid-cols-12">
+          {/* Left — brand & parts coverage */}
+          <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
             <Reveal>
-              <h2 id="coverage-heading" className="text-[1.55rem] sm:text-[2rem] lg:text-[2.3rem] font-bold tracking-tight text-ink text-balance">
+              <h2 id="coverage-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">
                 {c.heading}
               </h2>
-              <p className="mt-3 text-ink-2 text-base leading-relaxed measure">{c.lede}</p>
+              <p className="mt-4 text-ink-2 leading-relaxed measure">{c.lede}</p>
+              <div className="mt-6">
+                <WhatsAppCta label={c.cta.label} message={c.cta.waMessage} size="lg" dataCta="coverage-part" />
+              </div>
             </Reveal>
           </div>
-          <div className="lg:col-span-4 lg:text-right">
+
+          {/* Right — the capability index (recoating leads, three supporting rows) */}
+          <div className="lg:col-span-8">
             <Reveal>
-              <WhatsAppCta label={c.cta.label} message={c.cta.waMessage} size="lg" dataCta="coverage-part" />
+              <LeadRow slug="fuser-roller-recoating" />
             </Reveal>
+            <Stagger className="divide-y divide-hair border-t border-hair-strong">
+              {["vacu-tec", "printer-copier-parts", "mr-mckenic"].map((slug) => (
+                <Reveal key={slug} preset="fadeUpItem">
+                  <IndexRow slug={slug} />
+                </Reveal>
+              ))}
+            </Stagger>
           </div>
         </div>
-
-        <Reveal preset="fadeIn">
-          <BrandRail className="mt-8" />
-        </Reveal>
       </div>
     </section>
   );

@@ -56,7 +56,7 @@ export default function MrMckenicPage() {
                 <Link href="/fuser-roller-recoating" className="group mt-6 block rounded-panel border border-brand/25 bg-brand-soft/50 p-5">
                   <span className="label text-brand-ink">Roller care</span>
                   <p className="mt-2 text-sm text-ink leading-relaxed">The range includes a <strong>Fuser Roller Cleaner</strong>, for the rollers we specialise in recoating.</p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-brand-ink font-semibold text-sm">See fuser &amp; hot roller recoating <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-bench group-hover:translate-x-1" /></span>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-brand-ink font-semibold text-sm">See fuser / hot roller coating <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-bench group-hover:translate-x-1" /></span>
                 </Link>
               </Reveal>
               <Reveal preset="fadeUpItem">
