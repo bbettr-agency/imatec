@@ -35,7 +35,7 @@ export function Story() {
 
         {/* Fact bar — real, verified facts only (hairline dividers via grid gap) */}
         <Reveal>
-          <dl className="mt-12 border-t border-hair-strong grid grid-cols-2 md:grid-cols-4 gap-px bg-hair">
+          <dl className="mt-12 border-t border-hair-strong grid grid-cols-1 sm:grid-cols-3 gap-px bg-hair">
             {s.facts.map((f) => (
               <div key={f.label} className="bg-paper py-7 px-5 md:px-6">
                 <dt className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink">{f.value}</dt>
