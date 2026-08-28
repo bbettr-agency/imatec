@@ -11,14 +11,13 @@
  * Canonical origin for the whole site (drives metadataBase, canonical URLs,
  * Open Graph/Twitter image resolution, sitemap.xml and robots.txt).
  *
- * It is env-driven so the signals always resolve to a live URL:
- *  - Once the production domain is connected, set `NEXT_PUBLIC_SITE_URL`
- *    (e.g. https://www.imatec.co.za) in the Vercel project and redeploy.
- *  - Until then it defaults to the live Vercel URL, so canonical/OG/sitemap/
- *    robots are self-consistent and do NOT point at an unresolved domain.
- * NEXT_PUBLIC_ is inlined at build for both server and client → no mismatch.
+ * The production domain is live: https://www.imatec.co.za is the preferred
+ * (canonical) host — Vercel 308-redirects the apex (imatec.co.za) and http to
+ * it. It remains overridable via `NEXT_PUBLIC_SITE_URL` (inlined at build for
+ * both server and client), but the default is the real domain so canonical/OG/
+ * sitemap/robots/JSON-LD always identify imatec.co.za even if the env is unset.
  */
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://imatec.vercel.app").replace(/\/+$/, "");
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.imatec.co.za").replace(/\/+$/, "");
 
 export const site = {
   name: "IMATEC",

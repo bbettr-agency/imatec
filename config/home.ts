@@ -5,7 +5,8 @@
  *  - no "Africa's only", no Mr McKenic "authorised agent"
  *  - no invented prices, turnaround times, warranty terms or proprietary process detail
  *  - "30+ years" is client-stated (confirm founding year at content lock)
- *  - verified facts: 9-brand coverage, own-workshop testing, IMATEC-built Vacu-Tec
+ *  - verified facts: all-brand coverage, own-workshop testing, IMATEC supplies
+ *    (does NOT build/manufacture) the Vacu-Tec service-equipment range
  */
 
 import { site } from "./site";
@@ -17,7 +18,7 @@ export const home = {
       lead: "Recoat your fuser roller",
       accent: "before you replace it.",
     },
-    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and our own service equipment to dealers and technicians nationwide.`,
+    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and service equipment to dealers and technicians nationwide.`,
     primaryCta: {
       label: "Enquire About Recoating",
       waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller coating.",
