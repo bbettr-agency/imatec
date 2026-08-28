@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Reveal, heroStack } from "@/engine/motion";
@@ -13,9 +12,9 @@ const breadcrumb = [
 ];
 
 /**
- * Flagship recoating hero — distinct from the homepage. Copy block, a linear
- * component datum strip, then a wide full-bleed roller band (echoes the roller's
- * horizontal form; a different crop from the homepage). LCP = H1.
+ * Flagship recoating hero — distinct from the homepage. Copy block + a linear
+ * component datum strip, then the hero ends cleanly and flows into the brand rail
+ * (no large image band beneath the copy). LCP = H1.
  */
 export function RecoatingHero() {
   const hero = heroStack({ character: "precise" });
@@ -25,7 +24,7 @@ export function RecoatingHero() {
     <section className="relative overflow-hidden bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumb)) }} />
 
-      <div className="container pt-8">
+      <div className="container pt-8 pb-12 sm:pb-16 lg:pb-20">
         <nav aria-label="Breadcrumb" className="mb-7">
           <ol className="flex flex-wrap items-center gap-1.5 text-xs text-ink-muted">
             {breadcrumb.map((c, i) => (
@@ -55,7 +54,7 @@ export function RecoatingHero() {
           <Reveal {...hero.step(1)}>
             <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
               <WhatsAppCta label={h.primaryCta.label} message={RECOATING_WA} size="lg" dataCta="recoating-hero" />
-              <Button href="#how" variant="ghost" size="lg" dataCta="recoating-hero-how">How it works</Button>
+              <Button href="#candidate" variant="ghost" size="lg" dataCta="recoating-hero-candidate">Is your roller a candidate?</Button>
             </div>
           </Reveal>
         </div>
@@ -72,24 +71,6 @@ export function RecoatingHero() {
             ))}
           </div>
         </Reveal>
-      </div>
-
-      {/* Wide roller band — elongated, integrated (soft top fade), a distinct crop */}
-      <div className="relative h-[15rem] sm:h-[19rem] lg:h-[23rem]">
-        <Reveal preset="imageReveal" eager className="absolute inset-0">
-          <Image
-            src="/images/recoated-roller-bench.jpg"
-            alt="A recoated black fuser roller mounted in a lathe in the IMATEC workshop"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[center_42%]"
-          />
-        </Reveal>
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-paper to-transparent" aria-hidden="true" />
-        <span className="absolute right-4 bottom-4 lg:right-8 lg:bottom-8 label !text-[0.6rem] !tracking-[0.12em] text-brand-ink bg-paper/95 backdrop-blur-sm border border-brand/40 rounded-md px-2.5 py-1.5 shadow-sm">
-          {h.objectLabel}
-        </span>
       </div>
     </section>
   );

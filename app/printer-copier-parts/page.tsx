@@ -34,6 +34,9 @@ export default function PartsPage() {
         actions={<WhatsAppCta label="Request a Part" message="Hi IMATEC, I'm looking for a printer/copier part. Brand + model: " size="lg" dataCta="parts-hero" />}
       />
 
+      {/* Moving manufacturer logos — compact compatibility band directly below the hero */}
+      <BrandRailBand label="Parts & support across the major brands" />
+
       {/* 01 — How we supply */}
       <section className="section bg-ground" aria-labelledby="parts-approach">
         <div className="container">
@@ -85,8 +88,6 @@ export default function PartsPage() {
           </div>
         </div>
       </section>
-
-      <BrandRailBand label="Parts & support across the major brands" />
 
       <FinalCta index="03" />
     </>

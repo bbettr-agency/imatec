@@ -22,7 +22,7 @@ export const home = {
       label: "Enquire About Recoating",
       waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller coating.",
     },
-    secondaryCta: { label: "See how recoating works", href: "/fuser-roller-recoating#how" },
+    secondaryCta: { label: "See how recoating works", href: "/fuser-roller-recoating" },
     reassurance: "Send us your roller · No-obligation quote · We reply on WhatsApp",
     // Brand slogan for the hero — the circular-economy value of recoating.
     slogan: ["Reuse", "Recoat", "Recycle"],

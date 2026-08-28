@@ -31,43 +31,16 @@ export default function RecoatingPage() {
 
       <RecoatingHero />
 
+      {/* Recoating & parts across the major office-automation brands — the moving logo rail */}
       <BrandRailBand label="Recoating & parts across the major office-automation brands" />
 
-      {/* 01 — What recoating is */}
-      <section className="section bg-paper" aria-labelledby="what-heading">
-        <div className="container">
-          <SectionMark index="01" label={p.whatIs.label} spec="The alternative to a new part" />
-          <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <Reveal>
-                <h2 id="what-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.whatIs.heading}</h2>
-                <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.whatIs.body}</p>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-5">
-              <Reveal preset="fadeUpItem">
-                <p className="label text-ink-muted">{p.whatIs.symptomsLabel}</p>
-                <ul className="mt-4 border-t border-hair">
-                  {p.whatIs.symptoms.map((s) => (
-                    <li key={s} className="flex items-start gap-3 py-3 border-b border-hair text-sm text-ink-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand shrink-0" aria-hidden="true" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technical object — the roller assembly, exploded */}
-      <section className="bg-ground overflow-hidden">
-        <div className="container py-12 md:py-16">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+      {/* 01 — The roller, in detail */}
+      <section id="roller" className="bg-ground overflow-hidden" aria-labelledby="roller-heading">
+        <div className="container section">
+          <SectionMark index="01" label="The roller, in detail" spec="Anatomy of the part" />
+          <div className="mt-9 grid gap-8 lg:grid-cols-12 lg:items-center">
             <Reveal className="lg:col-span-4">
-              <p className="label text-brand-ink">The roller, in detail</p>
-              <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-ink text-balance">A precision component, not a throwaway part</h2>
+              <h2 id="roller-heading" className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink text-balance">A precision component, not a throwaway part</h2>
               <p className="mt-3 text-sm md:text-base text-ink-2 leading-relaxed measure">A fuser roller is a machined shaft, bearings and seals beneath its working surface. Recoating renews that surface, so the whole component keeps running instead of being replaced.</p>
             </Reveal>
             <Reveal preset="imageReveal" className="lg:col-span-8 relative h-[13rem] sm:h-[17rem] lg:h-[20rem]">
@@ -83,10 +56,96 @@ export default function RecoatingPage() {
         </div>
       </section>
 
-      {/* 02 — Recoat vs replace (the bridge) */}
-      <section className="section bg-ground" aria-labelledby="wedge-heading">
+      {/* 02 — What we can assist with (components + brands + what to send) */}
+      <section id="assist" className="relative overflow-hidden bg-paper" aria-labelledby="scope-heading">
+        <div className="container pt-16 md:pt-20">
+          <SectionMark index="02" label={p.scope.label} spec="Rollers & brands" />
+        </div>
+        <div className="grid lg:grid-cols-2 lg:items-stretch">
+          {/* content */}
+          <div className="order-1">
+            <div className="container lg:mx-0 lg:max-w-[36rem] lg:ml-auto py-10 lg:py-16 lg:pr-14">
+              <Reveal>
+                <h2 id="scope-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.scope.heading}</h2>
+                <p className="mt-4 text-ink-2 leading-relaxed measure">{p.scope.lede}</p>
+              </Reveal>
+              <dl className="mt-8 border-t border-hair">
+                {p.scope.components.map((c) => (
+                  <Reveal key={c.type} preset="fadeUpItem">
+                    <div className="py-4 border-b border-hair">
+                      <dt className="text-base font-bold text-ink">{c.type}</dt>
+                      <dd className="mt-1 text-sm text-ink-2 leading-relaxed">{c.desc}</dd>
+                    </div>
+                  </Reveal>
+                ))}
+              </dl>
+              <Reveal>
+                <p className="mt-6 text-sm text-ink-2">{p.scope.brandsIntro}</p>
+                <p className="mt-2 text-sm font-semibold text-ink">{p.scope.brands.join(" · ")} &amp; more</p>
+              </Reveal>
+              <Reveal>
+                <div className="mt-8 border-t border-hair-strong pt-5">
+                  <p className="label text-brand-ink">{p.scope.whatToSend.title}</p>
+                  <ul className="mt-3 space-y-2">
+                    {p.scope.whatToSend.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm text-ink-2"><Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />{it}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-6"><WhatsAppCta label="Send Your Roller Details" message={wa()} size="lg" dataCta="scope-send" /></div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+          {/* image — component context (a different authentic asset), bleeds right */}
+          <Reveal preset="imageReveal" className="relative order-2 h-[18rem] sm:h-[22rem] lg:h-auto lg:min-h-[34rem]">
+            <Image src="/images/printer-parts.jpg" alt="Fuser units, rollers, drums and printer/copier parts laid out in the IMATEC workshop" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover object-center" />
+            <div className="hidden lg:block absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-paper to-transparent" aria-hidden="true" />
+            <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-paper to-transparent" aria-hidden="true" />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 03 — Is your roller a candidate? */}
+      <section id="candidate" className="section bg-ground" aria-labelledby="cand-heading">
         <div className="container">
-          <SectionMark index="02" label="Recoat vs replace" spec="The decision" />
+          <SectionMark index="03" label={p.candidacy.label} spec="Honest guidance" />
+          <div className="mt-8 max-w-3xl">
+            <Reveal>
+              <h2 id="cand-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.candidacy.heading}</h2>
+              <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.candidacy.lede}</p>
+            </Reveal>
+          </div>
+          <div className="mt-9 grid md:grid-cols-2 gap-8 lg:gap-14">
+            <Reveal preset="fadeUpItem" index={0}>
+              <p className="label text-brand-ink">{p.candidacy.good.title}</p>
+              <ul className="mt-4 border-t border-hair">
+                {p.candidacy.good.points.map((pt) => (
+                  <li key={pt} className="flex items-start gap-3 py-3.5 border-b border-hair text-sm text-ink"><Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />{pt}</li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal preset="fadeUpItem" index={1}>
+              <p className="label text-ink-muted">{p.candidacy.notIdeal.title}</p>
+              <ul className="mt-4 border-t border-hair">
+                {p.candidacy.notIdeal.points.map((pt) => (
+                  <li key={pt} className="flex items-start gap-3 py-3.5 border-b border-hair text-sm text-ink-2"><Minus className="w-4 h-4 mt-0.5 text-ink-muted shrink-0" aria-hidden="true" />{pt}</li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+          <Reveal>
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+              <WhatsAppCta label="Get Your Roller Assessed" message={wa()} size="lg" dataCta="candidacy-assess" />
+              <p className="text-sm text-ink-muted italic measure">{p.candidacy.note}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 04 — Recoat vs replace (the decision) */}
+      <section id="compare" className="section bg-paper" aria-labelledby="wedge-heading">
+        <div className="container">
+          <SectionMark index="04" label="Recoat vs replace" spec="The decision" />
           <div className="mt-8 max-w-3xl">
             <Reveal>
               <h2 id="wedge-heading" className="text-[1.9rem] sm:text-4xl lg:text-[2.7rem] font-semibold tracking-tight text-ink text-balance">{p.wedge.heading}</h2>
@@ -128,154 +187,13 @@ export default function RecoatingPage() {
         </div>
       </section>
 
-      {/* 03 — Candidacy */}
-      <section className="section bg-paper" aria-labelledby="cand-heading">
-        <div className="container">
-          <SectionMark index="03" label={p.candidacy.label} spec="Honest guidance" />
-          <div className="mt-8 max-w-3xl">
-            <Reveal>
-              <h2 id="cand-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.candidacy.heading}</h2>
-              <p className="mt-4 text-ink-2 text-base md:text-lg leading-relaxed measure">{p.candidacy.lede}</p>
-            </Reveal>
-          </div>
-          <div className="mt-9 grid md:grid-cols-2 gap-8 lg:gap-14">
-            <Reveal preset="fadeUpItem" index={0}>
-              <p className="label text-brand-ink">{p.candidacy.good.title}</p>
-              <ul className="mt-4 border-t border-hair">
-                {p.candidacy.good.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-3 py-3.5 border-b border-hair text-sm text-ink"><Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />{pt}</li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal preset="fadeUpItem" index={1}>
-              <p className="label text-ink-muted">{p.candidacy.notIdeal.title}</p>
-              <ul className="mt-4 border-t border-hair">
-                {p.candidacy.notIdeal.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-3 py-3.5 border-b border-hair text-sm text-ink-2"><Minus className="w-4 h-4 mt-0.5 text-ink-muted shrink-0" aria-hidden="true" />{pt}</li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-          <Reveal>
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-              <WhatsAppCta label="Get Your Roller Assessed" message={wa()} size="lg" dataCta="candidacy-assess" />
-              <p className="text-sm text-ink-muted italic measure">{p.candidacy.note}</p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* 05 — Common questions */}
+      <FaqAccordion mark={{ index: "05", label: p.faq.label, spec: "Objections" }} heading={p.faq.heading} items={p.faq.items} bg="ground" />
 
-      {/* 04 — Why IMATEC */}
-      <section className="section bg-paper" aria-labelledby="why-heading">
-        <div className="container">
-          <SectionMark index="04" label={p.why.label} spec="The specialist" />
-          <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
-            <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
-              <Reveal>
-                <h2 id="why-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.why.heading}</h2>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-8">
-              {p.why.pillars.map((pil, i) => (
-                <Reveal key={pil.title} preset="fadeUpItem" index={i}>
-                  <div className="grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-4 sm:gap-8 py-6 border-t border-hair first:border-t-0 first:pt-0">
-                    <span className="text-2xl sm:text-3xl font-extrabold tabular-nums text-ink-muted leading-none pt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                    <div>
-                      <h3 className="text-lg font-bold text-ink">{pil.title}</h3>
-                      <p className="mt-1.5 text-sm md:text-[0.95rem] text-ink-2 leading-relaxed measure">{pil.body}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 05 — How it works (customer-facing flow; technical detail confirmed on quote) */}
-      <section className="section bg-paper" id="how" aria-labelledby="how-heading">
-        <div className="container">
-          <SectionMark index="05" label={p.how.label} spec="Enquiry to return" />
-          <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-12">
-            <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
-              <Reveal>
-                <h2 id="how-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.how.heading}</h2>
-                <p className="mt-4 text-ink-2 leading-relaxed measure">{p.how.lede}</p>
-              </Reveal>
-            </div>
-            <ol className="lg:col-span-8">
-              {p.how.steps.map((step, i) => (
-                <Reveal key={step.n} as="li" preset="fadeUpItem" index={i}>
-                  <div className="grid grid-cols-[2.75rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-4 sm:gap-8 py-6 border-t border-hair first:border-t-0 first:pt-0">
-                    <span className={`text-[2rem] sm:text-[2.75rem] font-extrabold tabular-nums leading-none pt-1 tracking-tight ${i === p.how.steps.length - 1 ? "text-brand" : "text-ink-muted"}`}>{step.n}</span>
-                    <div className="border-l border-hair pl-5 sm:pl-8">
-                      <h3 className="text-base sm:text-lg font-bold text-ink">{step.title}</h3>
-                      <p className="mt-1.5 text-sm text-ink-2 leading-relaxed max-w-md">{step.desc}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* 06 — What we can assist with (components + brands + what to send) */}
-      <section className="relative overflow-hidden bg-ground" aria-labelledby="scope-heading">
-        <div className="container pt-16 md:pt-20">
-          <SectionMark index="06" label={p.scope.label} spec="Rollers & brands" />
-        </div>
-        <div className="grid lg:grid-cols-2 lg:items-stretch">
-          {/* content */}
-          <div className="order-1">
-            <div className="container lg:mx-0 lg:max-w-[36rem] lg:ml-auto py-10 lg:py-16 lg:pr-14">
-              <Reveal>
-                <h2 id="scope-heading" className="text-[1.7rem] sm:text-4xl font-semibold tracking-tight text-ink text-balance">{p.scope.heading}</h2>
-                <p className="mt-4 text-ink-2 leading-relaxed measure">{p.scope.lede}</p>
-              </Reveal>
-              <dl className="mt-8 border-t border-hair">
-                {p.scope.components.map((c) => (
-                  <Reveal key={c.type} preset="fadeUpItem">
-                    <div className="py-4 border-b border-hair">
-                      <dt className="text-base font-bold text-ink">{c.type}</dt>
-                      <dd className="mt-1 text-sm text-ink-2 leading-relaxed">{c.desc}</dd>
-                    </div>
-                  </Reveal>
-                ))}
-              </dl>
-              <Reveal>
-                <p className="mt-6 text-sm text-ink-2">{p.scope.brandsIntro}</p>
-                <p className="mt-2 text-sm font-semibold text-ink">{p.scope.brands.join(" · ")} &amp; more</p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-8 border-t border-hair-strong pt-5">
-                  <p className="label text-brand-ink">{p.scope.whatToSend.title}</p>
-                  <ul className="mt-3 space-y-2">
-                    {p.scope.whatToSend.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm text-ink-2"><Check className="w-4 h-4 mt-0.5 text-brand shrink-0" aria-hidden="true" />{it}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-6"><WhatsAppCta label="Send Your Roller Details" message={wa()} size="lg" dataCta="scope-send" /></div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-          {/* image — component context (a different authentic asset), bleeds right */}
-          <Reveal preset="imageReveal" className="relative order-2 h-[18rem] sm:h-[22rem] lg:h-auto lg:min-h-[34rem]">
-            <Image src="/images/printer-parts.jpg" alt="Fuser units, rollers, drums and printer/copier parts laid out in the IMATEC workshop" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover object-center" />
-            <div className="hidden lg:block absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-ground to-transparent" aria-hidden="true" />
-            <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-ground to-transparent" aria-hidden="true" />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 07 — FAQ */}
-      <FaqAccordion mark={{ index: "07", label: p.faq.label, spec: "Objections" }} heading={p.faq.heading} items={p.faq.items} bg="paper" />
-
-      {/* 08 — Enquiry (the close) */}
+      {/* 06 — Enquire (the close) */}
       <section className="section bg-steel-soft" id="enquire" aria-labelledby="enquire-heading">
         <div className="container">
-          <SectionMark index="08" label={p.enquiry.label} spec="WhatsApp · Form" />
+          <SectionMark index="06" label={p.enquiry.label} spec="WhatsApp · Form" />
           <div className="mt-9 grid gap-x-14 gap-y-10 lg:grid-cols-[0.92fr_1.08fr]">
             <div>
               <Reveal>

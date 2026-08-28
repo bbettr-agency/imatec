@@ -13,6 +13,10 @@ import { telLink, mailtoLink } from "@/lib/utils";
 const p = pages.contact;
 const a = site.address;
 
+// Keyless Google Maps embed of the verified workshop address (no API key required).
+const addressLine = `${a.street}, ${a.suburb}, ${a.city}, ${a.province}${a.postalCode ? `, ${a.postalCode}` : ""}`;
+const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${addressLine}, ${a.country}`)}&z=15&output=embed`;
+
 export const metadata = buildMetadata({
   title: p.seo.title,
   description: p.seo.description,
@@ -74,6 +78,17 @@ export default function ContactPage() {
                     </div>
                   </li>
                 </ul>
+
+                {/* Compact location map — verified workshop address, lazy-loaded, keyless embed */}
+                <div className="mt-8 relative aspect-[4/3] sm:aspect-[16/9] w-full max-w-lg overflow-hidden rounded-panel border border-hair">
+                  <iframe
+                    title={`IMATEC workshop location — ${addressLine}`}
+                    src={mapSrc}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 w-full h-full border-0"
+                  />
+                </div>
               </div>
             </Reveal>
 
