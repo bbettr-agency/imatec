@@ -6,30 +6,33 @@ interface PageMeta {
   description: string;
   /** Route path beginning with "/" (canonical). */
   path: string;
-  /** Absolute or /public path to an OG image. Defaults to the brand OG. */
+  /** Absolute or /public path to an OG image. Defaults to the branded social share. */
   ogImage?: string;
+  /** Optional social-preview title (og/twitter) when it should differ from the SEO <title>. */
+  ogTitle?: string;
 }
 
 /** Build per-page metadata with canonical + Open Graph + Twitter, consistently. */
-export function buildMetadata({ title, description, path, ogImage }: PageMeta): Metadata {
+export function buildMetadata({ title, description, path, ogImage, ogTitle }: PageMeta): Metadata {
   const url = path === "/" ? site.url : `${site.url}${path}`;
-  const image = ogImage ?? "/og/imatec-og.jpg";
+  const image = ogImage ?? "/og/imatec-social.jpg";
+  const socialTitle = ogTitle ?? title;
   return {
     title,
     description,
     alternates: { canonical: url },
     openGraph: {
       type: "website",
-      title,
+      title: socialTitle,
       description,
       url,
       siteName: site.name,
       locale: "en_ZA",
-      images: [{ url: image, width: 1200, height: 630, alt: `${site.name}: ${title}` }],
+      images: [{ url: image, width: 1200, height: 630, alt: `${site.name}: ${socialTitle}` }],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: socialTitle,
       description,
       images: [image],
     },

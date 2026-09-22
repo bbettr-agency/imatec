@@ -11,6 +11,8 @@ import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata = buildMetadata({
   title: "Fuser / Hot Roller Coating & Printer Parts",
+  // Social-preview title leads with the brand (matches the branded share image).
+  ogTitle: "IMATEC | Print Solutions, Parts & Fuser / Hot Roller Coating",
   description:
     "IMATEC recoats worn fuser & hot rollers instead of replacing them, and supplies workshop-tested printer & copier parts and consumables to the SA trade.",
   path: "/",
