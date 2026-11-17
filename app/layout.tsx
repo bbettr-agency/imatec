@@ -7,7 +7,7 @@ import { Footer } from "@/components/funnel/footer";
 import { StickyCta } from "@/components/funnel/sticky-cta";
 import { Analytics } from "@/components/analytics/analytics";
 import { site } from "@/config/site";
-import { localBusinessJsonLd } from "@/lib/jsonld";
+import { localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonld";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -19,14 +19,21 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "IMATEC · Fuser / Hot Roller Coating & Parts",
+    default: "IMATEC · Fuser / Hot Roller Recoating & Printer Parts",
     template: "%s · IMATEC",
   },
   description: site.descriptionShort,
   applicationName: site.name,
   authors: [{ name: "Bbettr Agency", url: "https://www.bbettragency.com" }],
-  robots: { index: true, follow: true },
-  icons: { icon: "/imatec-logo.svg" },
+  // No explicit `robots` here: indexing is the default, and setting it at the root
+  // duplicated (and contradicted) the 404 page's own noindex tag.
+  icons: { icon: "/imatec-logo.svg", apple: "/imatec-logo.png" },
+  // Search-engine ownership verification. Paste the token (content value only) into
+  // the Vercel env vars; tags render only when set. Bing powers ChatGPT search & Copilot.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } } : {}),
+  },
 };
 
 export const viewport: Viewport = {
@@ -45,6 +52,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
       </head>
       <body>

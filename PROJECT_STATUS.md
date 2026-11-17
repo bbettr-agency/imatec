@@ -35,6 +35,15 @@
 - **Office hours** — omitted from schema; "message us any time" placeholder on contact.
 - **Reviews/testimonials** — none exist; zero fabricated proof. Add real ones + a claimed Google Business Profile at launch.
 
+## GEO remediation (17 Nov 2026)
+
+GEO audit (`GEO-AUDIT-REPORT.md`, baseline 42/100) code fixes shipped: privacy/terms pages, connected JSON-LD graph (`lib/jsonld.tsx`), llms.txt, real sitemap lastmod (`config/site.ts → pageUpdated`), security headers, IndexNow, hero `<picture>`, answer-first FAQs, branded titles. See the report's Remediation Log for open items needing client facts or owner accounts.
+
+- **When copy changes:** bump that route's date in `config/site.ts → pageUpdated`.
+- **New profiles (GBP, LinkedIn, YouTube):** add URLs to `config/site.ts → profiles` (feeds schema `sameAs`).
+- **Env vars (optional):** `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
+- **After deploys:** `node scripts/indexnow.mjs`.
+
 ## Pending integrations (client to provide)
 
 - `GHL_WEBHOOK_URL` (GoHighLevel) — form currently falls back to WhatsApp.

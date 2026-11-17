@@ -9,6 +9,7 @@ import { Reveal } from "@/engine/motion";
 import { site } from "@/config/site";
 import { pages } from "@/config/pages";
 import { telLink, mailtoLink } from "@/lib/utils";
+import { JsonLd, webPageJsonLd } from "@/lib/jsonld";
 
 const p = pages.contact;
 const a = site.address;
@@ -19,6 +20,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(`${addressLi
 
 export const metadata = buildMetadata({
   title: p.seo.title,
+  absolute: true,
   description: p.seo.description,
   path: "/contact",
 });
@@ -26,6 +28,7 @@ export const metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={webPageJsonLd({ path: "/contact", name: p.seo.title, description: p.seo.description, type: "ContactPage" })} />
       <PageHero
         eyebrow={p.hero.eyebrow}
         title={p.hero.title}

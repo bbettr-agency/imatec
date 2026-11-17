@@ -18,7 +18,7 @@ export const home = {
       lead: "Recoat your fuser roller",
       accent: "before you replace it.",
     },
-    sub: `For ${site.yearsExperience} years, IMATEC has kept Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and service equipment to dealers and technicians nationwide.`,
+    sub: `For ${site.yearsExperience} years, IMATEC has kept South Africa's copiers and printers running by recoating worn fuser and hot rollers instead of replacing them, and supplying workshop-tested parts, consumables and service equipment to dealers and technicians nationwide.`,
     primaryCta: {
       label: "Enquire About Recoating",
       waMessage: "Hi IMATEC, I'd like to enquire about fuser / hot roller coating.",
@@ -79,7 +79,7 @@ export const home = {
       },
       {
         title: "Service equipment for the trade",
-        proof: "Our Vacu-Tec service vacuums are designed for copier and printer technicians.",
+        proof: "We supply the Vacu-Tec range of service vacuums, designed for copier and printer technicians.",
         soWhat: "It's proof we understand the machines from the inside.",
       },
     ],
@@ -125,26 +125,27 @@ export const home = {
   faq: {
     eyebrow: "Common questions",
     heading: "Recoating, answered plainly",
+    // Distinct from the recoating-page FAQ (no duplicated Q&A across pages). Answer-first.
     items: [
       {
-        q: "What is fuser / hot roller recoating?",
-        a: "It's re-surfacing a worn fuser or hot roller, renewing the worn surface so the roller can keep running instead of buying a whole new part.",
+        q: "What does IMATEC do?",
+        a: `IMATEC (Imaging Technology) is a specialist workshop in ${site.based} that recoats worn fuser, hot and pressure rollers for printers and copiers, and supplies workshop-tested printer and copier parts, toner, consumables, Vacu-Tec service vacuums and Mr McKenic maintenance products to the South African office-automation trade.`,
       },
       {
-        q: "Is recoating better than replacing the roller?",
-        a: "It's a cost-effective alternative. Instead of buying a new part (often imported, with the lead time that adds), recoating restores the roller you already have. Whether it's the right call depends on the roller, and we'll advise you honestly.",
+        q: "Should I recoat or replace a worn fuser roller?",
+        a: "Recoat it when the wear is on the roller's surface: a worn, glazed or damaged coating, or marking and poor fusing caused by that wear. Replace it when the roller is damaged beyond the surface, or when the machine uses a replaceable fuser film or sleeve rather than a recoatable roller. Recoating keeps your existing OEM metal core and avoids waiting for an imported part. IMATEC assesses each roller and tells you honestly which route makes sense.",
       },
       {
-        q: "Which printer and copier brands do you support?",
-        a: `We supply and work with parts for ${site.brands.join(", ")} and others.`,
+        q: "Which printer and copier brands does IMATEC support?",
+        a: `IMATEC supplies parts for, and works on rollers from, ${site.brands.join(", ")} and other office-automation brands.`,
       },
       {
-        q: "How do I get a roller to you?",
-        a: "Send us the details of your roller and machine on WhatsApp or by enquiry, and we'll confirm the best way to get it to us and quote the work.",
+        q: "Does IMATEC serve customers outside Gauteng?",
+        a: `Yes. IMATEC is based in ${site.based} and serves dealers, technicians, service providers and businesses across South Africa. Send the roller or part details on WhatsApp or by enquiry, and we'll confirm the best way to get a roller to our workshop or a part to you.`,
       },
       {
         q: "Do you only recoat, or do you supply parts too?",
-        a: "Both. Alongside recoating we supply workshop-tested printer and copier parts, toner and consumables, plus our own Vacu-Tec service vacuums and Mr McKenic professional products.",
+        a: "Both. Alongside fuser and hot roller recoating, IMATEC supplies workshop-tested printer and copier parts, toner and consumables, the Vacu-Tec range of service vacuums and Mr McKenic professional cleaning and maintenance products.",
       },
     ],
   },

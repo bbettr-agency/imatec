@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
-import { serviceJsonLd } from "@/lib/jsonld";
+import { offerCatalogJsonLd, webPageJsonLd, JsonLd } from "@/lib/jsonld";
 import { PageHero } from "@/components/sections/page-hero";
 import { BrandRailBand } from "@/components/sections/brand-rail";
 import { FinalCta } from "@/components/sections/final-cta";
@@ -16,6 +16,7 @@ export const metadata = buildMetadata({
   title: p.seo.title,
   description: p.seo.description,
   path: "/mr-mckenic",
+  ogImage: { src: "/images/mr-mckenic-range.jpg", width: 1402, height: 1122, alt: "The Mr McKenic professional maintenance product range supplied by IMATEC" },
 });
 
 const ROLLER_PRODUCT = "Fuser Roller Cleaner";
@@ -28,7 +29,7 @@ const ROLLER_PRODUCT = "Fuser Roller Cleaner";
 export default function MrMckenicPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd("mr-mckenic")) }} />
+      <JsonLd data={[offerCatalogJsonLd(), webPageJsonLd({ path: "/mr-mckenic", name: `${p.seo.title} · IMATEC`, description: p.seo.description })]} />
 
       <PageHero
         eyebrow={p.hero.eyebrow}
@@ -69,10 +70,13 @@ export default function MrMckenicPage() {
                 <p className="label text-ink-muted">The range</p>
                 <ul className="mt-4 border-t border-hair-strong">
                   {p.range.products.map((prod) => {
-                    const isRoller = prod === ROLLER_PRODUCT;
+                    const isRoller = prod.name === ROLLER_PRODUCT;
                     return (
-                      <li key={prod} className="flex items-center justify-between gap-4 py-4 border-b border-hair">
-                        <span className={`text-base sm:text-lg font-bold ${isRoller ? "text-brand-ink" : "text-ink"}`}>{prod}</span>
+                      <li key={prod.name} className="flex items-center justify-between gap-4 py-4 border-b border-hair">
+                        <span className="min-w-0">
+                          <span className={`block text-base sm:text-lg font-bold ${isRoller ? "text-brand-ink" : "text-ink"}`}>{prod.name}</span>
+                          <span className="mt-0.5 block text-sm text-ink-2 leading-relaxed">{prod.use}</span>
+                        </span>
                         {isRoller && <span className="label !text-[0.6rem] text-brand-ink bg-brand-soft border border-brand/30 rounded-md px-2 py-1 shrink-0">Roller care</span>}
                       </li>
                     );
@@ -84,7 +88,7 @@ export default function MrMckenicPage() {
         </div>
       </section>
 
-      <FinalCta index="02" />
+      <FinalCta index="02" heading="Ask us which product suits the job." sub="Tell us the machine and the maintenance task, and we'll recommend the right Mr McKenic product, with current stock and pricing." />
     </>
   );
 }

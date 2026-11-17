@@ -26,8 +26,19 @@ function ClosingDatum() {
  * to the two-column Get-in-touch layout with contact details and a responsive,
  * lazy-loaded Google Map (used on the homepage / contact).
  */
-export function FinalCta({ index = "07", showMap = false }: { index?: string; showMap?: boolean }) {
-  const c = home.finalCta;
+export function FinalCta({
+  index = "07",
+  showMap = false,
+  heading,
+  sub,
+}: {
+  index?: string;
+  showMap?: boolean;
+  /** Page-specific closing heading/sub (avoids identical boilerplate on every page). */
+  heading?: string;
+  sub?: string;
+}) {
+  const c = { ...home.finalCta, ...(heading ? { heading } : {}), ...(sub ? { sub } : {}) };
 
   if (showMap) {
     return (

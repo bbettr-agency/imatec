@@ -9,7 +9,7 @@
 
 export type Relationship =
   | "Specialist service"
-  | "IMATEC product"
+  | "Service equipment"
   | "Trade supply"
   | "Supplied brand";
 
@@ -66,9 +66,9 @@ export const services: ServiceWorld[] = [
     slug: "vacu-tec",
     nav: "Vacu-Tec",
     name: "Vacu-Tec Service Vacuums",
-    relationship: "IMATEC product",
+    relationship: "Service equipment",
     summary:
-      "Our Vacu-Tec service vacuum cleaners, designed specifically for copier and printer technicians.",
+      "Vacu-Tec service vacuum cleaners, designed specifically for copier and printer technicians and supplied by IMATEC.",
     ctaLabel: "Enquire About Vacu-Tec",
     waMessage: "Hi IMATEC, I'd like to enquire about a Vacu-Tec service vacuum.",
     image: "/images/vacu-tec.jpg",

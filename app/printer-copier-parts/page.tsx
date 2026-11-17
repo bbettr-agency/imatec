@@ -1,5 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
-import { serviceJsonLd } from "@/lib/jsonld";
+import { offerCatalogJsonLd, webPageJsonLd, JsonLd } from "@/lib/jsonld";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { BrandRailBand } from "@/components/sections/brand-rail";
@@ -15,6 +15,7 @@ export const metadata = buildMetadata({
   title: p.seo.title,
   description: p.seo.description,
   path: "/printer-copier-parts",
+  ogImage: { src: "/images/printer-parts.jpg", width: 1536, height: 1024, alt: "Printer and copier parts (rollers, drums, fuser units and gears) supplied by IMATEC" },
 });
 
 // Honest, derived from the approach copy (not invented).
@@ -23,7 +24,7 @@ const supplyPoints = ["Sourced from trusted manufacturers", "Checked in our own 
 export default function PartsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd("printer-copier-parts")) }} />
+      <JsonLd data={[offerCatalogJsonLd(), webPageJsonLd({ path: "/printer-copier-parts", name: `${p.seo.title} · IMATEC`, description: p.seo.description })]} />
 
       <PageHero
         eyebrow={p.hero.eyebrow}
@@ -89,7 +90,7 @@ export default function PartsPage() {
         </div>
       </section>
 
-      <FinalCta index="03" />
+      <FinalCta index="03" heading="Tell us the machine. We'll find the part." sub="Send the brand, model and part you need on WhatsApp, and we'll confirm availability and pricing." />
     </>
   );
 }

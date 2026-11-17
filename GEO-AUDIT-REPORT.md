@@ -401,3 +401,48 @@ All pages returned 200 in under 0.6s and are server-rendered. Every page has a s
 **Not found or failed:** `/llms.txt` (404), `/sitemap_index.xml` (404, not needed), `/indexnow.txt` (404).
 
 **Not verified (network limits during the audit):** Facebook and Instagram activity, Wikipedia and Wikidata absence, Google Business Profile existence. These are based on search results only.
+
+---
+
+## Remediation Log: 17 November 2026
+
+### Fixed in code (deployed)
+
+| # | Issue | Fix |
+|---|---|---|
+| 3 | No privacy policy | `/privacy` (POPIA notice) and `/terms` added, linked from the footer and the enquiry-form consent checkbox |
+| 10 | Schema address missing Hennopspark | `lib/jsonld.tsx` now includes the suburb; `hasMap`, `contactPoint` (sales + WhatsApp), `slogan` and `alternateName` added |
+| 11 | Missing security headers | `next.config.js` adds `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and `Permissions-Policy`, plus a CSP in report-only mode |
+| 12 | No Bing signals | IndexNow key file in `public/` and `scripts/indexnow.mjs`; Google and Bing verification meta tags render from the `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_BING_SITE_VERIFICATION` env vars |
+| 13 | Weak entity graph | Connected `@id` graph: LocalBusiness ↔ WebSite ↔ per-page WebPage / AboutPage / ContactPage (with `dateModified` and `speakable`); Vacu-Tec Brand; OfferCatalog for parts, Vacu-Tec and Mr McKenic; enriched recoating Service; raster PNG logo as ImageObject; `config/site.ts → profiles` ready for new `sameAs` URLs |
+| 5 (part) | FAQ answers defer | FAQs rewritten answer-first; 3 new recoating FAQs (what recoating is, roller vs pressure roller vs film, signs of wear); home FAQ made distinct from the recoating FAQ |
+| 15 (part) | Thin Mr McKenic page | Each product now has a one-line use description (general product-type uses; no sizes or prices) |
+| 16 | No llms.txt | `/llms.txt` generated from config, including disambiguation from the other Imatec companies |
+| 17 | Build-time lastmod | `app/sitemap.ts` reads real per-page dates from `config/site.ts → pageUpdated` |
+| 18 | CSS hero image | Homepage hero now an art-directed `<picture>` through the Next image optimiser (AVIF/WebP, responsive, high priority) |
+| 19 | Short or unbranded titles | Home, About, Contact and Recoating titles lengthened and branded; Vacu-Tec, Mr McKenic and About descriptions now 148–160 characters |
+| 20 (part) | Contradictory claims | Vacu-Tec consistently described as a range IMATEC *supplies*; "Africa's" changed to "South Africa's" in descriptive copy (the client tagline is kept); logo alt text changed to "{Brand} logo", with a trademark / no-endorsement note in the footer and terms |
+| 21 | Repeated CTA copy | Closing CTA heading and sub now unique on each inner page |
+| 25 | Non-standard robots `Host:` | Removed; explicit Allow group for named AI crawlers; `/api/` disallowed |
+| 26 | Conflicting 404 robots tags | Root `robots` metadata removed; 404 now sends only `noindex` |
+| 27 | Generic OG images | Page-specific OG images with correct dimensions and alt text; doubled "IMATEC: IMATEC" alt removed |
+| 29 | Small tap targets | Footer and breadcrumb links padded to at least 24px |
+| 30 | Low-priority schema | PNG logo ImageObject, AboutPage/ContactPage types, `speakable` added |
+| 31 | Cards instead of a table | Real `<table>` for recoat vs replace on `/fuser-roller-recoating` |
+
+### Still open: needs client facts (truth gate: nothing invented)
+
+- Founding year, legal name, final phone and email, unit/extension, opening hours, GPS coordinates. When confirmed, set them in `config/site.ts` and they flow to the schema, footer and llms.txt.
+- Turnaround range, price range or % saving, coating material, recoat limits, warranty, and courier logistics for the recoating FAQs and table.
+- Named owner and technicians (for Person schema), case examples with before/after photos, and a workshop video.
+- Vacu-Tec model specifications; Mr McKenic can sizes; written proof of Mr McKenic agency.
+- Information Officer name for the privacy policy, and client review of `/privacy` and `/terms`.
+- Parts compatibility table by brand and series.
+
+### Still open: off-site actions (owner accounts required)
+
+- Claim the Google Business Profile, create a LinkedIn company page (`imatec-south-africa`), and start a YouTube channel. Add each URL to `config/site.ts → profiles`.
+- Verify in Google Search Console and Bing Webmaster Tools. Set the two verification env vars in Vercel, redeploy, then run `node scripts/indexnow.mjs`.
+- Collect Google reviews from trade customers. Make NAP identical across Brabys, Snupit, SAYellow, Yellosa, ThinkLocal and AfricanAdvice.
+- Pitch trade press (Engineering News, ITWeb); answer recoating threads on copytechnet.com.
+- After two weeks of observation, switch the CSP from report-only to enforced. Consider HSTS `includeSubDomains` once every subdomain is confirmed to serve HTTPS.

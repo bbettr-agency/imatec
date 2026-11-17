@@ -13,7 +13,7 @@ function BrandLogo({ b, dup = false }: { b: (typeof brandLogos)[number]; dup?: b
         src={`/images/brands/${b.slug}.png`}
         width={b.w}
         height={b.h}
-        alt={dup ? "" : `${b.name} printer & copier parts supported by IMATEC`}
+        alt={dup ? "" : `${b.name} logo`}
         loading="lazy"
         decoding="async"
       />

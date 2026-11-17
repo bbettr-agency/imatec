@@ -14,9 +14,9 @@ export const RECOATING_WA =
 export const pages = {
   recoating: {
     seo: {
-      title: "Fuser / Hot Roller Coating",
+      title: "Fuser & Hot Roller Recoating in South Africa",
       description:
-        "Specialist fuser / hot roller coating: recoat a worn roller instead of replacing it. IMATEC, Centurion; nationwide for the SA office-automation trade.",
+        "Specialist fuser / hot roller recoating: renew a worn roller's surface instead of replacing it. IMATEC, Centurion, Gauteng; serving the trade nationwide.",
     },
     hero: {
       eyebrow: "Specialist service · office automation",
@@ -60,6 +60,18 @@ export const pages = {
           "Keep your existing OEM metal core",
           "A cost-effective alternative to a new part",
           "Handled by a specialist workshop",
+        ],
+      },
+      // Same facts as the two columns above, as a real <table> (extractable by AI answer engines).
+      table: {
+        caption: "Recoating vs replacing a worn fuser roller, at a glance",
+        rows: [
+          { factor: "What you pay for", replace: "A whole new fuser or hot roller", recoat: "Renewing the worn surface of your existing roller" },
+          { factor: "The metal core", replace: "Scrapped", recoat: "Kept: your existing OEM core goes back into service" },
+          { factor: "Sourcing", replace: "Frequently imported", recoat: "Recoated locally in IMATEC's Centurion workshop" },
+          { factor: "Waiting time", replace: "Import lead time before the machine runs again", recoat: "Turnaround estimate given with your quote" },
+          { factor: "Typical cost", replace: "Usually the more expensive route", recoat: "A cost-effective alternative; quoted per roller" },
+          { factor: "Best when", replace: "The roller is damaged beyond the surface, or the machine uses a fuser film/sleeve", recoat: "The wear is on the roller surface: worn, glazed or damaged coating" },
         ],
       },
       note: "Whether recoating is the right call depends on the roller. We'll assess yours and quote honestly. Exact cost and turnaround are confirmed on enquiry.",
@@ -134,10 +146,13 @@ export const pages = {
     faq: {
       label: "Common questions",
       heading: "Recoating, answered plainly",
+      // Answer-first: each answer opens with the direct fact, then the nuance.
       items: [
-        { q: "What is fuser / hot roller recoating?", a: "It's re-surfacing a worn fuser or hot roller, renewing the worn surface so the roller can keep running instead of buying a whole new part." },
-        { q: "Is recoating cheaper than replacing the roller?", a: "Recoating is a cost-effective alternative to a new part, and you keep your existing core. Exact cost depends on the roller, and we'll quote yours on enquiry." },
-        { q: "How long does recoating take?", a: "Turnaround depends on the roller and current workload, and we'll give you an estimate with your quote." },
+        { q: "What is fuser / hot roller recoating?", a: "Fuser roller recoating renews the worn outer surface of a printer or copier fuser (hot) roller, so the original metal core goes back into service instead of being scrapped and replaced with a new, often imported, part. IMATEC recoats fuser, hot and pressure rollers in its own workshop in Centurion, Gauteng." },
+        { q: "What is the difference between a fuser roller, a pressure roller and a fuser film?", a: "The fuser roller (also called the hot or heat roller) is the heated roller that melts toner onto the paper. The pressure roller is the mating roller that presses the paper against it. A fuser film or sleeve is a thin heated belt that some, usually smaller, machines use instead of a hard heat roller. Fuser and pressure rollers can be candidates for recoating; films and sleeves are normally replaced." },
+        { q: "How do I know if my fuser roller is worn?", a: "The usual signs are marks or streaks down the page, poor or patchy fusing where toner smudges or rubs off, and a roller surface that looks worn, damaged or glazed. If print-quality faults trace back to the fuser, send IMATEC the brand, model and a photo of the roller and we'll tell you whether it can be recoated." },
+        { q: "Is recoating cheaper than replacing the roller?", a: "Recoating is a cost-effective alternative to a new part: you pay to renew the surface of the roller you already have and keep its existing OEM core, rather than buying and often importing a whole new component. The exact price depends on the roller, and IMATEC quotes each one before any work starts." },
+        { q: "How long does recoating take?", a: "IMATEC gives you a turnaround estimate with your quote, before you send the roller. It depends on the roller and the current workshop queue, and recoating locally avoids waiting on an imported replacement part." },
         { q: "Which brands and models can you recoat?", a: `We work across the major brands: ${site.brands.slice(0, 6).join(", ")} and more. Whether a specific roller can be recoated depends on the roller, so send us the model and we'll advise.` },
         { q: "How do I get my roller to you?", a: "Send us the details first; once we've confirmed it's a candidate and quoted, we'll arrange the best way to get it to our Centurion workshop." },
         { q: "Do you also supply new parts?", a: "Yes. If replacing is the better option, we supply workshop-tested printer and copier parts, toner and consumables." },
@@ -158,7 +173,7 @@ export const pages = {
     seo: {
       title: "Printer Parts, Toner & Consumables",
       description:
-        "Workshop-tested printer & copier parts, toner and consumables for Ricoh, Canon, Kyocera, Xerox, HP and more, supplied to the South African trade.",
+        "Workshop-tested printer & copier parts, toner and consumables for Ricoh, Canon, Kyocera, Xerox, HP and more, supplied to the South African trade by IMATEC.",
     },
     hero: {
       eyebrow: "Trade supply",
@@ -188,7 +203,7 @@ export const pages = {
     seo: {
       title: "Vacu-Tec Service Vacuums",
       description:
-        "Vacu-Tec service vacuum cleaners for copier & printer technicians, designed for professional servicing and maintenance.",
+        "Vacu-Tec service vacuum cleaners for copier and printer technicians, supplied by IMATEC in Centurion for professional servicing across South Africa.",
     },
     hero: {
       eyebrow: "Service equipment",
@@ -197,8 +212,8 @@ export const pages = {
     },
     story: {
       eyebrow: "The Vacu-Tec range",
-      heading: "A service vacuum made by people who service the machines",
-      body: "Vacu-Tec comes from three decades on the bench. These vacuums are designed for the real conditions technicians work in: professional servicing and maintenance across the office-automation industry. It's the same principle as our recoating: we understand this equipment from the inside.",
+      heading: "A service vacuum for people who service the machines",
+      body: "Vacu-Tec service vacuums are designed for the real conditions technicians work in: professional servicing and maintenance across the office-automation industry. IMATEC supplies the range with three decades on the bench behind it, so we can advise which unit suits the way you service. It's the same principle as our recoating: we understand this equipment from the inside.",
     },
     // Specs PENDING client confirmation.
     forWho: {
@@ -212,7 +227,7 @@ export const pages = {
     seo: {
       title: "Mr McKenic Professional Products",
       description:
-        "Genuine Mr McKenic professional cleaning & maintenance products, supplied by IMATEC for the office-automation trade.",
+        "Genuine Mr McKenic contact cleaner, silicone spray, lithium grease, fuser roller cleaner and more, supplied by IMATEC to South Africa's office-automation trade.",
     },
     hero: {
       eyebrow: "Supplied brand",
@@ -224,24 +239,26 @@ export const pages = {
     range: {
       eyebrow: "The range",
       heading: "Maintenance products for technical work",
+      // Product-type uses only (general category descriptions) — no can sizes,
+      // formulations or prices until confirmed.
       products: [
-        "Contact Cleaner",
-        "Contact Cleaner & Lubricant",
-        "Silicone Spray",
-        "9-in-1 Technology Oil",
-        "Lithium Grease",
-        "5-in-1 Surface Cleaner",
-        "Fuser Roller Cleaner",
+        { name: "Contact Cleaner", use: "For cleaning electrical contacts, connectors and circuit boards." },
+        { name: "Contact Cleaner & Lubricant", use: "Cleans contacts and leaves a protective, lubricating film." },
+        { name: "Silicone Spray", use: "A silicone lubricant for plastic and rubber parts, slides and guides." },
+        { name: "9-in-1 Technology Oil", use: "A multi-purpose oil for lubricating and protecting small mechanisms." },
+        { name: "Lithium Grease", use: "A grease for gears, bushings and other moving metal parts." },
+        { name: "5-in-1 Surface Cleaner", use: "A multi-surface cleaner for machine covers, panels and work surfaces." },
+        { name: "Fuser Roller Cleaner", use: "For cleaning toner and paper residue from fuser and pressure rollers." },
       ],
-      note: "Ask us which products suit your application, and about current stock and pricing.",
+      note: "Ask us which products suit your application, and about current stock and pricing. Always follow the product label for exact use and safety guidance.",
     },
   },
 
   about: {
     seo: {
-      title: "About",
+      title: "About IMATEC | Fuser Roller Recoating Specialists, Centurion",
       description:
-        "IMATEC, 30+ years in office automation: fuser / hot roller coating, workshop-tested parts and service equipment. Centurion, SA.",
+        "About IMATEC (Imaging Technology), Centurion: 30+ years in office automation, recoating fuser and hot rollers and supplying workshop-tested printer parts.",
     },
     hero: {
       eyebrow: "About IMATEC",
@@ -271,7 +288,7 @@ export const pages = {
 
   contact: {
     seo: {
-      title: "Contact",
+      title: "Contact IMATEC | Recoating & Printer Parts, Centurion",
       description:
         "Contact IMATEC in Centurion, Gauteng: WhatsApp, call or email for fuser roller recoating, printer & copier parts, Vacu-Tec and Mr McKenic.",
     },

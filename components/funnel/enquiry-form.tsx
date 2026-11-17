@@ -178,7 +178,10 @@ export function EnquiryForm({ variant = "general" }: { variant?: Variant }) {
 
       <label className="flex items-start gap-2.5 text-sm text-ink-2">
         <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[color:theme(colors.brand.DEFAULT)]" />
-        <span>I agree that IMATEC may contact me about this enquiry. (POPIA)</span>
+        <span>
+          I agree that IMATEC may use these details to respond to this enquiry, as set out in the{" "}
+          <a href="/privacy" target="_blank" rel="noopener" className="font-semibold text-brand-ink underline underline-offset-2">privacy policy</a> (POPIA).
+        </span>
       </label>
 
       <button

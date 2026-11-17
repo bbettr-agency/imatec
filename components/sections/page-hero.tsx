@@ -38,7 +38,7 @@ export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: Pa
               <li key={c.path} className="flex items-center gap-1.5">
                 {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-hair-strong" aria-hidden="true" />}
                 {i < breadcrumb.length - 1 ? (
-                  <Link href={c.path} className="hover:text-brand-ink transition-colors">{c.name}</Link>
+                  <Link href={c.path} className="inline-block py-1 hover:text-brand-ink transition-colors">{c.name}</Link>
                 ) : (
                   <span className="text-ink-2 font-semibold" aria-current="page">{c.name}</span>
                 )}
@@ -57,7 +57,7 @@ export function PageHero({ eyebrow, title, sub, breadcrumb, actions, image }: Pa
           </h1>
           {sub && (
             <Reveal {...hero.step(0)}>
-              <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{sub}</p>
+              <p data-speakable className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{sub}</p>
             </Reveal>
           )}
           {actions && (

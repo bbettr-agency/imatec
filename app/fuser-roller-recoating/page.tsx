@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, Minus, ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
-import { serviceJsonLd } from "@/lib/jsonld";
+import { serviceJsonLd, webPageJsonLd, JsonLd } from "@/lib/jsonld";
 import { Reveal } from "@/engine/motion";
 import { SectionMark } from "@/components/ui/section-mark";
 import { RecoatingHero } from "@/components/sections/recoating-hero";
@@ -18,7 +18,7 @@ export const metadata = buildMetadata({
   title: p.seo.title,
   description: p.seo.description,
   path: "/fuser-roller-recoating",
-  ogImage: "/images/recoated-roller-bench.jpg",
+  ogImage: { src: "/images/recoated-roller-bench.jpg", width: 1448, height: 1086, alt: "A recoated fuser roller mounted in a lathe on the IMATEC workshop bench" },
 });
 
 /** A recoat-quote pre-fill that names the roller context. */
@@ -27,7 +27,7 @@ const wa = (extra?: string) => (extra ? `${RECOATING_WA}\n${extra}` : RECOATING_
 export default function RecoatingPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd("fuser-roller-recoating")) }} />
+      <JsonLd data={[serviceJsonLd("fuser-roller-recoating"), webPageJsonLd({ path: "/fuser-roller-recoating", name: `${p.seo.title} · IMATEC`, description: p.seo.description })].filter(Boolean) as object[]} />
 
       <RecoatingHero />
 
@@ -173,6 +173,29 @@ export default function RecoatingPage() {
                 </ul>
                 <div className="mt-7"><WhatsAppCta label="Ask About Your Fuser Roller" message={wa()} size="lg" dataCta="wedge-recoating" /></div>
               </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="mt-10 overflow-x-auto rounded-panel border border-hair">
+              <table className="w-full min-w-[36rem] text-left text-sm">
+                <caption className="px-5 pt-5 pb-3 text-left label text-ink-muted">{p.wedge.table.caption}</caption>
+                <thead>
+                  <tr className="border-y border-hair-strong bg-ground">
+                    <th scope="col" className="px-5 py-3 font-bold text-ink w-[22%]">&nbsp;</th>
+                    <th scope="col" className="px-5 py-3 font-bold text-ink-2">{p.wedge.replace.title}</th>
+                    <th scope="col" className="px-5 py-3 font-bold text-brand-ink">{p.wedge.recoat.title}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {p.wedge.table.rows.map((r) => (
+                    <tr key={r.factor} className="border-b border-hair last:border-b-0 align-top">
+                      <th scope="row" className="px-5 py-3.5 font-semibold text-ink">{r.factor}</th>
+                      <td className="px-5 py-3.5 text-ink-2">{r.replace}</td>
+                      <td className="px-5 py-3.5 text-ink">{r.recoat}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </Reveal>
           <Reveal>

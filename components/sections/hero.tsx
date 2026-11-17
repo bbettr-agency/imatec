@@ -1,3 +1,4 @@
+import { getImageProps } from "next/image";
 import { Reveal, heroStack } from "@/engine/motion";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,17 @@ import { home } from "@/config/home";
  * sits on the clean side, and the moving brand rail runs full-width beneath it.
  * REUSE · RECOAT · RECYCLE carries the brand message. LCP = H1 (never animated).
  */
+/* Art-directed hero artwork via <picture>: each breakpoint downloads only its own
+   asset, but (unlike the old CSS background) through the Next image optimiser —
+   AVIF/WebP, responsive widths, high fetch priority. Decorative (alt=""). */
+const heroArt = { alt: "", sizes: "100vw", quality: 80, priority: true } as const;
+const {
+  props: { srcSet: desktopSrcSet },
+} = getImageProps({ ...heroArt, src: "/images/hero-bg-desktop.jpg", width: 1717, height: 916 });
+const {
+  props: { srcSet: _mobileSrcSet, ...mobileImg },
+} = getImageProps({ ...heroArt, src: "/images/hero-bg-mobile.jpg", width: 853, height: 1844 });
+
 export function Hero() {
   const hero = heroStack({ character: "precise" });
   const h = home.hero;
@@ -18,11 +30,14 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-paper">
       {/* Background artwork — mobile (roller/blue bottom) and desktop (roller/blue right).
-          CSS backgrounds so only the matching asset loads at each breakpoint. */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-bottom bg-[url('/images/hero-bg-mobile.jpg')] sm:bg-right sm:bg-[url('/images/hero-bg-desktop.jpg')]"
-        aria-hidden="true"
-      >
+          A <picture> so only the matching asset loads at each breakpoint. */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <picture>
+          <source media="(min-width: 640px)" srcSet={desktopSrcSet} sizes="100vw" />
+          <source srcSet={_mobileSrcSet} sizes="100vw" />
+          {/* eslint-disable-next-line jsx-a11y/alt-text -- alt="" comes from getImageProps (decorative) */}
+          <img {...mobileImg} className="absolute inset-0 h-full w-full object-cover object-bottom sm:object-right" />
+        </picture>
         {/* Readability lift on the copy side — white on the left (desktop) / top (mobile) */}
         <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-paper from-25% via-paper/80 via-55% to-transparent to-75%" aria-hidden="true" />
         <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-paper from-30% via-paper/85 via-60% to-transparent to-88%" aria-hidden="true" />
@@ -41,7 +56,7 @@ export function Hero() {
           </h1>
 
           <Reveal {...hero.step(0)}>
-            <p className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{h.sub}</p>
+            <p data-speakable className="mt-5 text-ink-2 text-base md:text-lg leading-relaxed measure">{h.sub}</p>
           </Reveal>
 
           {/* REUSE · RECOAT · RECYCLE — brand statement, not cards */}

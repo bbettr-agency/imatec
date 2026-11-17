@@ -14,7 +14,8 @@ const year = 2026; // build-year constant (no runtime Date needed)
  */
 export function Footer() {
   const a = site.address;
-  const link = "text-white/70 hover:text-white transition-colors";
+  // inline-block + vertical padding keeps every footer link a ≥24px tap target (WCAG 2.2).
+  const link = "inline-block py-1 text-white/70 hover:text-white transition-colors";
   return (
     <footer className="bg-[#1b2128] text-white/70">
       <div className="container py-14">
@@ -33,7 +34,7 @@ export function Footer() {
           {/* Services */}
           <nav aria-label="Services">
             <p className="label text-white/50">What we do</p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-1.5">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/${s.slug}`} className={`text-sm ${link}`}>{s.nav}</Link>
@@ -45,7 +46,7 @@ export function Footer() {
           {/* Company */}
           <nav aria-label="Company">
             <p className="label text-white/50">Company</p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-1.5">
               <li><Link href="/" className={`text-sm ${link}`}>Home</Link></li>
               <li><Link href="/about" className={`text-sm ${link}`}>About</Link></li>
               <li><Link href="/contact" className={`text-sm ${link}`}>Contact</Link></li>
@@ -85,10 +86,20 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-white/45">
-          <p>© {year} {site.legalName}. All rights reserved.</p>
+          <div className="space-y-1.5">
+            <p>© {year} {site.legalName}. All rights reserved.</p>
+            <p className="max-w-[60ch]">
+              Printer and copier brand names and logos are trademarks of their respective owners and are shown only to indicate the equipment IMATEC supplies parts for and works on. No partnership or endorsement is implied.
+            </p>
+            <p>
+              <Link href="/privacy" className="inline-block py-1 text-white/60 hover:text-white transition-colors">Privacy policy (POPIA)</Link>
+              <span aria-hidden="true"> · </span>
+              <Link href="/terms" className="inline-block py-1 text-white/60 hover:text-white transition-colors">Terms of use</Link>
+            </p>
+          </div>
           <p>
             Website designed &amp; developed by{" "}
-            <a href="https://www.bbettragency.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+            <a href="https://www.bbettragency.com" target="_blank" rel="noopener noreferrer" className="inline-block py-1 text-white/60 hover:text-white transition-colors">
               Bbettr Agency
             </a>
           </p>

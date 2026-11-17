@@ -7,18 +7,22 @@ import { Reveal } from "@/engine/motion";
 import { WhatsAppCta } from "@/components/funnel/channel-ctas";
 import { pages } from "@/config/pages";
 import { home } from "@/config/home";
+import { JsonLd, webPageJsonLd } from "@/lib/jsonld";
 
 const p = pages.about;
 
 export const metadata = buildMetadata({
   title: p.seo.title,
+  absolute: true,
   description: p.seo.description,
   path: "/about",
+  ogImage: { src: "/images/about-machines.jpg", width: 1535, height: 749, alt: "Office printers and copiers from the major brands IMATEC works with" },
 });
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={webPageJsonLd({ path: "/about", name: p.seo.title, description: p.seo.description, type: "AboutPage" })} />
       <PageHero
         eyebrow={p.hero.eyebrow}
         title={p.hero.title}
@@ -85,7 +89,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <FinalCta index="03" />
+      <FinalCta index="03" heading="Talk to the people who know this equipment." sub="A roller to recoat, a part to source or a product to order: tell us what you're working on and we'll help." />
     </>
   );
 }

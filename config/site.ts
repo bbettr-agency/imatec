@@ -26,7 +26,7 @@ export const site = {
   /** Client's own tagline (company profile). */
   tagline: "Engineering better print solutions for Africa",
   descriptionShort:
-    "Specialist fuser / hot roller coating for Africa's office-automation industry, plus workshop-tested printer & copier parts, consumables and service equipment.",
+    "Specialist fuser / hot roller recoating for South Africa's office-automation trade, plus workshop-tested printer & copier parts, consumables and service equipment. Centurion, Gauteng.",
 
   url: SITE_URL,
 
@@ -78,11 +78,41 @@ export const site = {
     instagram: "https://www.instagram.com/imatec.co.za",
   },
 
+  /**
+   * Further official profiles for schema `sameAs` (entity disambiguation from the
+   * other "Imatec" companies abroad). Add each URL ONLY once the profile is live
+   * and owned by IMATEC (e.g. Google Business Profile, LinkedIn company page,
+   * YouTube channel, Wikidata item). Empty strings are ignored.
+   */
+  profiles: {
+    googleBusiness: "",
+    linkedin: "",
+    youtube: "",
+    wikidata: "",
+  },
+
   /** PENDING: office hours not confirmed — omit from schema until known. */
   hours: null as null | { days: string; open: string; close: string }[],
 } as const;
 
 export type Site = typeof site;
+
+/**
+ * Real "content last changed" dates per route (ISO yyyy-mm-dd). Drives sitemap
+ * <lastmod>, WebPage `dateModified` and llms.txt. Update a route's date whenever
+ * its copy materially changes — never set these to the build time.
+ */
+export const pageUpdated: Record<string, string> = {
+  "/": "2026-11-17",
+  "/fuser-roller-recoating": "2026-11-17",
+  "/printer-copier-parts": "2026-11-17",
+  "/vacu-tec": "2026-11-17",
+  "/mr-mckenic": "2026-11-17",
+  "/about": "2026-11-17",
+  "/contact": "2026-11-17",
+  "/privacy": "2026-11-17",
+  "/terms": "2026-11-17",
+};
 
 /**
  * Brand logos for the coverage rail (compatibility / product-support context only —

@@ -1,5 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
-import { serviceJsonLd } from "@/lib/jsonld";
+import { vacuTecBrandJsonLd, offerCatalogJsonLd, webPageJsonLd, JsonLd } from "@/lib/jsonld";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { BrandRailBand } from "@/components/sections/brand-rail";
@@ -15,11 +15,12 @@ export const metadata = buildMetadata({
   title: p.seo.title,
   description: p.seo.description,
   path: "/vacu-tec",
+  ogImage: { src: "/images/vacu-tec.jpg", width: 1448, height: 1086, alt: "The Vacu-Tec service vacuum cleaner supplied by IMATEC" },
 });
 
 // Honest, copy-derived (not invented) — paraphrases of the story/forWho blocks.
 const principles = [
-  "Part of the IMATEC service range",
+  "Supplied by IMATEC, a specialist office-automation workshop",
   "Designed for the conditions technicians actually work in",
   "The same principle as our recoating: we know this equipment from the inside",
 ];
@@ -28,14 +29,14 @@ const forWho = ["Copier & printer technicians", "Dealers", "Service providers"];
 export default function VacuTecPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd("vacu-tec")) }} />
+      <JsonLd data={[vacuTecBrandJsonLd(), offerCatalogJsonLd(), webPageJsonLd({ path: "/vacu-tec", name: `${p.seo.title} · IMATEC`, description: p.seo.description })]} />
 
       <PageHero
         eyebrow={p.hero.eyebrow}
         title={p.hero.title}
         sub={p.hero.sub}
         breadcrumb={[{ name: "Home", path: "/" }, { name: "Vacu-Tec", path: "/vacu-tec" }]}
-        image={{ src: "/images/vacu-tec.jpg", alt: "The IMATEC Vacu-Tec service vacuum cleaner with hose and collection tray", label: "IMATEC Vacu-Tec" }}
+        image={{ src: "/images/vacu-tec.jpg", alt: "The Vacu-Tec service vacuum cleaner with hose and collection tray, supplied by IMATEC", label: "Vacu-Tec · supplied by IMATEC" }}
         actions={<WhatsAppCta label="Enquire About Vacu-Tec" message="Hi IMATEC, I'd like to enquire about a Vacu-Tec service vacuum." size="lg" dataCta="vacutec-hero" />}
       />
 
@@ -98,7 +99,7 @@ export default function VacuTecPage() {
         </div>
       </section>
 
-      <FinalCta index="03" />
+      <FinalCta index="03" heading="Ask us which Vacu-Tec unit suits your work." sub="Tell us how and what you service, and we'll point you to the right unit with specifications and pricing." />
     </>
   );
 }
